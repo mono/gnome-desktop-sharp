@@ -181,7 +181,6 @@ AC_SUBST(CFLAGS)
 AC_OUTPUT([
 AssemblyInfo.cs
 Makefile
-policy.config
 sources/Makefile
 gnomedesktop/Makefile
 gnomedesktop/gnomedesktop-sharp.dll.config
