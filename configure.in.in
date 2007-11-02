@@ -1,4 +1,3 @@
-
 AC_INIT(README)
 AC_CANONICAL_SYSTEM
 AM_CONFIG_HEADER(config.h)
@@ -12,6 +11,8 @@ AC_SUBST(POLICY_VERSIONS)
 
 PACKAGE_VERSION=gtk-sharp-2.0
 AC_SUBST(PACKAGE_VERSION)
+
+GTKHTML_REQUIRED_VERSION=3.14.0
 
 case "$host" in
 	*-*-mingw*|*-*-cygwin*)
@@ -178,13 +179,23 @@ AC_SUBST(GNOME_LIBS)
 AM_CONDITIONAL(ENABLE_GNOME, test "x$enable_gnome" = "xyes")
 AC_SUBST(CFLAGS)
 
+PKG_CHECK_MODULES(GTKHTML, libgtkhtml-3.14 >= $GTKHTML_REQUIRED_VERSION, enable_gtkhtml=yes, enable_gtkhtml=no)
+AC_SUBST(GTKHTML_CFLAGS)
+AC_SUBST(GTKHTML_LIBS)
+
+AM_CONDITIONAL(ENABLE_GTKHTML, test "x$enable_gtkhtml" = "xyes")
+AC_SUBST(CFLAGS)
+
 AC_OUTPUT([
 AssemblyInfo.cs
 Makefile
 sources/Makefile
 gnomedesktop/Makefile
 gnomedesktop/gnomedesktop-sharp.dll.config
-gnomedesktop/gnomedesktop-sharp-2.0.pc
+gnomedesktop/gnomedesktop-sharp-2.20.pc
+gtkhtml/Makefile
+gtkhtml/gtkhtml-sharp.dll.config
+gtkhtml/gtkhtml-sharp-3.14.pc
 ])
 
 #gnomedesktop/glue/Makefile
@@ -198,7 +209,7 @@ echo "   * $CS compiler: $CSC $CSFLAGS"
 echo ""
 echo "   Optional assemblies included in the build:"
 echo ""
-echo "      * gnome-sharp.dll: $enable_gnome"
+echo "      * gtkhtml-sharp.dll: $enable_gtkhtml"
 echo ""
 echo "      NOTE: if any of the above say 'no' you may install the"
 echo "            corresponding development packages for them, rerun"

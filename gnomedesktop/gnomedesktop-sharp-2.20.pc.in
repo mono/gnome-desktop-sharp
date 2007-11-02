@@ -1,0 +1,14 @@
+prefix=${pcfiledir}/../..
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+gapidir=${prefix}/share/gnomedesktop-sharp/2.20
+assemblies_dir=${prefix}/lib/gnomedesktop-sharp/2.20
+Libraries=${assemblies_dir}/gnomedesktop-sharp.dll
+
+
+Name: GnomeDesktop#
+Description: GnomeDesktop# - GNOMEDesktop .NET Binding
+Version: @VERSION@
+Requires: gnome-sharp-2.0
+Cflags: -I:${gapidir}/gnomedesktop-api.xml
+Libs: -r:${assemblies_dir}/gnomedesktop-sharp.dll
