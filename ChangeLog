@@ -1,0 +1,22 @@
+2007-11-08  Mike Kestner  <mkestner@novell.com>
+
+	* gnomedesktop/gnome-desktop-sharp-2.20.pc.in: add .config to Libraries.
+	* gtkhtml/gtkhtml-sharp-3.14.pc.in: add .config to Libraries.
+
+2007-11-01  Mike Kestner  <mkestner@novell.com>
+
+	* configure.in.in: add gtkhtml fu.
+	* Makefile.include: remove GAC and policy stuff and install gapi and
+	* Makefile.am: add gtkhtml to build.
+	assemblies to versioned directories.
+	* gtkhtml: add 3.14 bindings with pkgconfig setup as described
+	on the deploying applications page.  These are a parallel-installable
+	non-gac'd replacement for the stable bindings located in gnome-sharp
+	which will probably be forever frozen at API version 3.12 due to API
+	incompatible changes made in 3.14.
+	* gnomedesktop/Makefile.am: update to 2.20 pc files.
+	* gnomedesktop/gnomedesktop-sharp-2.20.pc.in: renamed and moved to 
+	non-GAC'd as above.
+	* sources/Makefile.am: add gtkhtml parse
+	* sources/sources-2.20.xml: add gtkhtml parse
+

@@ -3,7 +3,7 @@ exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 gapidir=${prefix}/share/gtkhtml-sharp/3.14
 assemblies_dir=${prefix}/lib/gtkhtml-sharp/3.14
-Libraries=${assemblies_dir}/gtkhtml-sharp.dll
+Libraries=${assemblies_dir}/gtkhtml-sharp.dll ${assemblies_dir}/gtkhtml-sharp.dll.config
 
 Name: Gtkhtml#
 Description: Gtkhtml# - Gtkhtml .NET Binding
