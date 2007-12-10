@@ -1,3 +1,10 @@
+2007-12-09  Mike Kestner  <mkestner@novell.com>
+
+	* sources/Makefile.am: add gtkhtml-search.* to parse.
+	* gtkhtml/gtkhtml-api.raw: rerun of parser.
+	* gtkhtml/metadata: renaming of new search api members.
+	Derived from a patch submitted by Alvaro Ramirez.
+
 2007-11-08  Mike Kestner  <mkestner@novell.com>
 
 	* gnomedesktop/gnome-desktop-sharp-2.20.pc.in: add .config to Libraries.

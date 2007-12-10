@@ -6,6 +6,11 @@
   <attr path="/api/namespace/object[@cname='GtkHTML']/signal[@name='Command']" name="name">OnCommand</attr>
   <attr path="/api/namespace/object[@cname='GtkHTML']/method[@name='BeginContent']" name="name">Begin</attr>
   <attr path="/api/namespace/object[@cname='GtkHTML']/method[@name='BeginFull']" name="name">Begin</attr>
+  <attr path="/api/namespace/object[@cname='GtkHTML']/method[@name='EngineSearch']" name="name">Search</attr>
+  <attr path="/api/namespace/object[@cname='GtkHTML']/method[@name='EngineSearchIncremental']" name="name">SearchIncremental</attr>
+  <attr path="/api/namespace/object[@cname='GtkHTML']/method[@name='EngineSearchNext']" name="name">SearchNext</attr>
+  <attr path="/api/namespace/object[@cname='GtkHTML']/method[@name='EngineSearchSetForward']" name="name">SearchSetForward</attr>
+  <attr path="/api/namespace/object[@cname='GtkHTML']/method[@name='Isearch']" name="name">ISearch</attr>
   <attr path="/api/namespace/struct[@cname='GtkHTMLStream']/field" name="access">private</attr>
   <attr path="/api/namespace/struct[@cname='GtkHTMLStream']/method[@name='Destroy']" name="hidden">1</attr>
   <attr path="/api/namespace/struct[@cname='GtkHTMLStream']/method[@name='Write']/*/*[@name='buffer']" name="type">const-guchar*</attr>

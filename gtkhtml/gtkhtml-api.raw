@@ -558,6 +558,31 @@
           <parameter type="GtkHTMLStreamStatus" name="status" />
         </parameters>
       </method>
+      <method name="EngineSearch" cname="gtk_html_engine_search">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-gchar*" name="text" />
+          <parameter type="gboolean" name="case_sensitive" />
+          <parameter type="gboolean" name="forward" />
+          <parameter type="gboolean" name="regular" />
+        </parameters>
+      </method>
+      <method name="EngineSearchIncremental" cname="gtk_html_engine_search_incremental">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-gchar*" name="text" />
+          <parameter type="gboolean" name="forward" />
+        </parameters>
+      </method>
+      <method name="EngineSearchNext" cname="gtk_html_engine_search_next">
+        <return-type type="gboolean" />
+      </method>
+      <method name="EngineSearchSetForward" cname="gtk_html_engine_search_set_forward">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="forward" />
+        </parameters>
+      </method>
       <method name="Export" cname="gtk_html_export">
         <return-type type="gboolean" />
         <parameters>
@@ -699,6 +724,12 @@
         <return-type type="void" />
         <parameters>
           <parameter type="const-gchar*" name="html_src" />
+        </parameters>
+      </method>
+      <method name="Isearch" cname="gtk_html_isearch">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="forward" />
         </parameters>
       </method>
       <method name="JumpToAnchor" cname="gtk_html_jump_to_anchor">

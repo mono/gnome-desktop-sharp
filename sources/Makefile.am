@@ -27,6 +27,8 @@ GTKHTML_SOURCEFILES = \
         gtkhtml-3.16.0/src/gtkhtml-enums.h \
         gtkhtml-3.16.0/src/gtkhtml-embedded.c \
         gtkhtml-3.16.0/src/gtkhtml-embedded.h \
+        gtkhtml-3.16.0/src/gtkhtml-search.c \
+        gtkhtml-3.16.0/src/gtkhtml-search.h \
         gtkhtml-3.16.0/src/gtkhtml-stream.c \
         gtkhtml-3.16.0/src/gtkhtml-stream.h
 
