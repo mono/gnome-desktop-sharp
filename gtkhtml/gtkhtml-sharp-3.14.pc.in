@@ -2,12 +2,11 @@ prefix=${pcfiledir}/../..
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 gapidir=${prefix}/share/gtkhtml-sharp/3.14
-assemblies_dir=${prefix}/lib/gtkhtml-sharp/3.14
-Libraries=${assemblies_dir}/gtkhtml-sharp.dll ${assemblies_dir}/gtkhtml-sharp.dll.config
+assemblies_dir=${libdir}/mono/gtkhtml-sharp-3.14
 
 Name: Gtkhtml#
 Description: Gtkhtml# - Gtkhtml .NET Binding
 Version: @VERSION@
-Requires: gnome-sharp-2.0
+Requires: gtk-sharp-2.0
 Cflags: -I:${gapidir}/gtkhtml-api.xml
 Libs: -r:${assemblies_dir}/gtkhtml-sharp.dll

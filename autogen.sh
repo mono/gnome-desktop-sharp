@@ -1,32 +1,7 @@
 #!/bin/sh
-# Run this to set configure.in up for an API version.
-
-if [ x"$GNOME_SHARP_VERSION" = x ] ; then
-    echo "error: this script should not be run directly; use bootstrap instead" 1>&2
-    exit 1
-fi
 
 srcdir=`dirname $0`
 test -z "$srcdir" && srcdir=.
-
-cat >bootstrap.status <<EOF
-#!/bin/sh
-set -e
-set -x
-
-sed -e "s/@GNOME_SHARP_VERSION@/$GNOME_SHARP_VERSION/" \
-    -e "s/@GTK_REQUIRED_VERSION@/$GTK_REQUIRED_VERSION/" \
-    -e "s/@GNOME_REQUIRED_VERSION@/$GNOME_REQUIRED_VERSION/" \
-    -e "s/@VERSIONCSDEFINES@/$VERSIONCSDEFINES/" \
-    -e "s/@VERSIONCFLAGS@/$VERSIONCFLAGS/" \
-    -e "s/@POLICY_VERSIONS@/$POLICY_VERSIONS/" \
-    -e "s/@ASSEMBLY_VERSION@/$ASSEMBLY_VERSION/" $srcdir/configure.in.in > $srcdir/configure.in
-
-ln -f $srcdir/gnomedesktop/gnomedesktop-api-$GNOME_API_TAG.raw $srcdir/gnomedesktop/gnomedesktop-api.raw
-EOF
-
-chmod +x bootstrap.status
-./bootstrap.status
 
 DIE=0
 

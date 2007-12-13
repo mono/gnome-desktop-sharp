@@ -7,9 +7,9 @@ else
 pkg = 
 endif
 
+API_VERSION=3.16.0.0
 INCLUDE_API =
 METADATA = metadata
-SYMBOLS =
 references =
 
 sources =
@@ -18,7 +18,7 @@ customs =			\
 	HTML.custom		\
 	HTMLStream.custom	
 
-add_dist = gtkhtml-sharp-3.14.pc.in
+add_dist = gtkhtml-sharp-3.14.pc.in gtkhtml-sharp.dll.config.in
 
 include ../Makefile.include
 

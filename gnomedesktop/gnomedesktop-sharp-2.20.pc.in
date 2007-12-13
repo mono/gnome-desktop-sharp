@@ -2,9 +2,7 @@ prefix=${pcfiledir}/../..
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 gapidir=${prefix}/share/gnomedesktop-sharp/2.20
-assemblies_dir=${prefix}/lib/gnomedesktop-sharp/2.20
-Libraries=${assemblies_dir}/gnomedesktop-sharp.dll ${assemblies_dir}/gnomedesktop-sharp.dll.config
-
+assemblies_dir=${libdir}/mono/gnomedesktop-sharp-2.20
 
 Name: GnomeDesktop#
 Description: GnomeDesktop# - GNOMEDesktop .NET Binding

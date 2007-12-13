@@ -1,3 +1,17 @@
+2007-12-12  Mike Kestner  <mkestner@novell.com>
+
+	* Makefile.am: remove boostrap-fu.
+	* Makefile.include: add policy and GAC-fu.
+	* autogen.sh: moved from bootstrap-generic.
+	* bootstrap*: switching to autogen.sh setup.
+	* configure.in: rename from in.in and remove substs.
+	* gapi-cdecl-insert: copied from gnome-sharp.
+	* policy.config.in: ditto.
+	* gnomedesktop/*: switching to gac install.
+	* gtkhtml/*: switching to gac install.
+	* sources/Makefile.am: add librsvg
+	* sources/sources-2.20.xml: add rsvg. not checking in parse yet.
+
 2007-12-09  Mike Kestner  <mkestner@novell.com>
 
 	* sources/Makefile.am: add gtkhtml-search.* to parse.

@@ -1,9 +1,16 @@
 <gapi-parser-input>
-  <api filename="../gnomedesktop/gnomedesktop-api-2.20.raw">
+  <api filename="../gnomedesktop/gnomedesktop-api.raw">
     <library name="gnome-desktop-2">
       <namespace name="Gnome">
         <directory path="gnome-desktop-2.20.0/libgnome-desktop" />
         <directory path="gnome-desktop-2.20.0/libgnome-desktop/libgnome" />
+      </namespace>
+    </library>
+  </api>
+  <api filename="../rsvg/rsvg-api.raw">
+    <library name="rsvg-2">
+      <namespace name="Rsvg">
+        <dir>librsvg-2.18.2</dir>
       </namespace>
     </library>
   </api>

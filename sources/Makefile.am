@@ -5,7 +5,7 @@ EXTRA_DIST =				\
 
 GNOME_2_20_DOWNLOADS = \
 	http://ftp.gnome.org/pub/GNOME/desktop/2.20/2.20.0/sources/gnome-desktop-2.20.0.tar.bz2 \
-	http://ftp.gnome.org/pub/GNOME/desktop/2.20/2.20.0/sources/libgtop-2.20.0.tar.bz2	\
+	http://ftp.gnome.org/pub/GNOME/desktop/2.20/2.20.0/sources/librsvg-2.18.2.tar.bz2	\
 	http://ftp.gnome.org/pub/GNOME/desktop/2.20/2.20.0/sources/nautilus-cd-burner-2.20.0.tar.bz2
 
 api: api-2.20
