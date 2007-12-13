@@ -1,25 +1,26 @@
 if ENABLE_RSVG
-pkg = rsvg
+pkg = rsvg2
+pkgversion = 2.0
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = rsvg-sharp-2.0.pc
+pkgconfig_DATA = rsvg2-sharp-2.0.pc
 else
 pkg = 
+pkgversion = 
 endif
 
-INCLUDE_API = ../art/art-api.xml
+API_VERSION = 2.18.0.0
+INCLUDE_API =
 METADATA = Rsvg.metadata
-SYMBOLS =
-references = ../art/art-sharp.dll
+references =
 
 sources =			\
 	Tool.cs
 
 customs = 			\
 	Handle.custom		\
-	Pixbuf.custom		\
-	State.custom
+	Pixbuf.custom
 
-add_dist = rsvg-sharp-2.0.pc.in
+add_dist = rsvg2-sharp-2.0.pc.in rsvg2-sharp.dll.config.in
 
 include ../Makefile.include
 

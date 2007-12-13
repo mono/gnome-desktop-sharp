@@ -1,5 +1,17 @@
 2007-12-12  Mike Kestner  <mkestner@novell.com>
 
+	* Makefile.am: add rsvg.
+	* Makefile.include: add mono-cairo references.
+	* configure.in: checks for rsvg.
+	* sources/sources-2.20.xml: exclude all the private hdrs, cuts
+	the API down to almost nothing.
+	* rsvg/*: update to ship rsvg2-sharp.dll and associated config/pc
+	files.  Breaking compat here and parallel installing from where
+	we were in gnome-sharp.  The gnome-sharp API version exposes a ton 
+	of junk that isn't public in the C API.
+	
+2007-12-12  Mike Kestner  <mkestner@novell.com>
+
 	* Makefile.am: remove boostrap-fu.
 	* Makefile.include: add policy and GAC-fu.
 	* autogen.sh: moved from bootstrap-generic.

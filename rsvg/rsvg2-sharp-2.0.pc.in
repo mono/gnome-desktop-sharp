@@ -1,11 +1,11 @@
 prefix=${pcfiledir}/../..
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
-gapidir=${prefix}/share/gapi-2.0
+gapidir=${prefix}/share/rsvg2-sharp/2.0
 
 
 Name: Rsvg#
 Description: Rsvg# - librsvg .NET Binding
 Version: @VERSION@
-Cflags: -I:${gapidir}/rsvg-api.xml
-Libs: -r:${libdir}/mono/@PACKAGE_VERSION@/rsvg-sharp.dll
+Cflags: -I:${gapidir}/rsvg2-api.xml
+Libs: -r:${libdir}/mono/rsvg2-sharp-2.0/rsvg2-sharp.dll

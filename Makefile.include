@@ -41,7 +41,7 @@ AssemblyInfo.cs: $(top_srcdir)/AssemblyInfo.cs.in
 	sed -e "s/@API_VERSION@/$(API_VERSION)/" $(top_srcdir)/AssemblyInfo.cs.in > AssemblyInfo.cs
 
 build_sources = $(addprefix $(srcdir)/, $(sources)) AssemblyInfo.cs
-build_references = $(GTKSHARP_LIBS) $(addprefix /r:, $(references))
+build_references = $(MONO_CAIRO_LIBS) $(GTKSHARP_LIBS) $(addprefix /r:, $(references))
 
 if PLATFORM_WIN32
 GAPI_CDECL_INSERT=$(top_srcdir)/gapi-cdecl-insert --keyfile=$(SNK) $(ASSEMBLY)

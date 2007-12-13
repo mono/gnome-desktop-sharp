@@ -1,10 +1,12 @@
 <?xml version="1.0"?>
 <metadata>
-  <attr path="/api/namespace/class[@cname='RsvgCss_']/method[@name='ParseList']" name="hidden">1</attr>
-  <attr path="/api/namespace/struct[@cname='RsvgBpathDef']" name="opaque">false</attr>
-  <attr path="/api/namespace/struct[@cname='RsvgDefs']/method[@name='Free']" name="deprecated">1</attr>
-  <attr path="/api/namespace/struct[@cname='RsvgHandle']/method[@name='Free']" name="deprecated">1</attr>
-  <attr path="/api/namespace/struct[@cname='RsvgHandle']/method[@name='Write']/*/*[@name='buf']" name="array">1</attr>
-  <attr path="/api/namespace/struct[@cname='RsvgPaintServer']/method[@name='Ref']" name="deprecated">1</attr>
-  <attr path="/api/namespace/struct[@cname='RsvgPaintServer']/method[@name='Unref']" name="deprecated">1</attr>
+  <attr path="/api/namespace/class[@cname='RsvgGlobal']/method[@name='ErrorQuark']" name="name">GetErrorQuark</attr>
+  <attr path="/api/namespace/enum[@cname='RsvgError']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='RsvgHandle']" name="disable_gtype_ctor">true</attr>
+  <attr path="/api/namespace/object[@cname='RsvgHandle']/constructor[@cname='rsvg_handle_new_from_data']/*/*[@name='data']" name="array">1</attr>
+  <attr path="/api/namespace/object[@cname='RsvgHandle']/constructor[@cname='rsvg_handle_new_from_data']/*/*[@name='data_len']" name="name">n_data</attr>
+  <attr path="/api/namespace/object[@cname='RsvgHandle']/method[@name='Free']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='RsvgHandle']/method[@name='Write']/*/parameter[@name='buf']" name="array">1</attr>
+  <attr path="/api/namespace/object[@cname='RsvgHandle']/method[@name='Write']/*/parameter[@name='count']" name="name">n_buf</attr>
+  <attr path="/api/namespace/object[@cname='RsvgHandle']/method[@name='GetDimensions']/*/parameter" name="pass_as">out</attr>
 </metadata>

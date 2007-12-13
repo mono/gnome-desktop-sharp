@@ -165,6 +165,12 @@ AC_SUBST(GNOMESHARP_LIBS)
 AM_CONDITIONAL(ENABLE_GNOME, test "x$enable_gnome" = "xyes")
 AC_SUBST(CFLAGS)
 
+RSVG_REQUIRED_VERSION=2.18.2
+
+PKG_CHECK_MODULES(RSVG, librsvg-2.0 >= $RSVG_REQUIRED_VERSION, enable_rsvg=yes, enable_rsvg=no)
+AC_SUBST(RSVG_CFLAGS)
+AC_SUBST(RSVG_LIBS)
+
 GTKHTML_REQUIRED_VERSION=3.16.0
 
 PKG_CHECK_MODULES(GTKHTML, libgtkhtml-3.14 >= $GTKHTML_REQUIRED_VERSION, enable_gtkhtml=yes, enable_gtkhtml=no)
@@ -172,6 +178,7 @@ AC_SUBST(GTKHTML_CFLAGS)
 AC_SUBST(GTKHTML_LIBS)
 
 AM_CONDITIONAL(ENABLE_GTKHTML, test "x$enable_gtkhtml" = "xyes")
+AM_CONDITIONAL(ENABLE_RSVG, test "x$enable_rsvg" = "xyes")
 AC_SUBST(CFLAGS)
 
 AC_OUTPUT([
@@ -180,6 +187,9 @@ sources/Makefile
 gnomedesktop/Makefile
 gnomedesktop/gnomedesktop-sharp.dll.config
 gnomedesktop/gnomedesktop-sharp-2.20.pc
+rsvg/Makefile
+rsvg/rsvg2-sharp.dll.config
+rsvg/rsvg2-sharp-2.0.pc
 gtkhtml/Makefile
 gtkhtml/gtkhtml-sharp.dll.config
 gtkhtml/gtkhtml-sharp-3.14.pc
@@ -196,6 +206,7 @@ echo "   * $CS compiler: $CSC $CSFLAGS"
 echo ""
 echo "   Optional assemblies included in the build:"
 echo ""
+echo "      * rsvg-sharp.dll: $enable_rsvg"
 echo "      * gtkhtml-sharp.dll: $enable_gtkhtml"
 echo ""
 echo "      NOTE: if any of the above say 'no' you may install the"

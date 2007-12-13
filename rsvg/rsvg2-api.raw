@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<api>
+  <!--
+
+        This file was automatically generated.
+        Please DO NOT MODIFY THIS FILE, modify .metadata files instead.
+
+-->
+  <namespace name="Rsvg" library="rsvg-2">
+    <enum name="Error" cname="RsvgError" gtype="rsvg_error_get_type" type="enum">
+      <member cname="RSVG_ERROR_FAILED" name="Failed" />
+    </enum>
+    <callback name="SizeFunc" cname="RsvgSizeFunc">
+      <return-type type="void" />
+      <parameters>
+        <parameter type="gint*" name="width" />
+        <parameter type="gint*" name="height" />
+        <parameter type="gpointer" name="user_data" />
+      </parameters>
+    </callback>
+    <object name="Handle" cname="RsvgHandle" parent="GObject">
+      <field name="Priv" cname="priv" type="RsvgHandlePrivate*" />
+      <field name="AbiPadding" cname="_abi_padding" array_len="15" type="gpointer" />
+      <method name="Close" cname="rsvg_handle_close">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="GError**" name="error" />
+        </parameters>
+      </method>
+      <method name="Free" cname="rsvg_handle_free" deprecated="1">
+        <return-type type="void" />
+      </method>
+      <method name="GetBaseUri" cname="rsvg_handle_get_base_uri">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetDesc" cname="rsvg_handle_get_desc">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetDimensions" cname="rsvg_handle_get_dimensions">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="RsvgDimensionData*" name="dimension_data" />
+        </parameters>
+      </method>
+      <method name="GetMetadata" cname="rsvg_handle_get_metadata">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetPixbuf" cname="rsvg_handle_get_pixbuf">
+        <return-type type="GdkPixbuf*" />
+      </method>
+      <method name="GetPixbufSub" cname="rsvg_handle_get_pixbuf_sub">
+        <return-type type="GdkPixbuf*" />
+        <parameters>
+          <parameter type="const-char*" name="id" />
+        </parameters>
+      </method>
+      <method name="GetTitle" cname="rsvg_handle_get_title">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetType" cname="rsvg_handle_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="rsvg_handle_new" />
+      <constructor cname="rsvg_handle_new_from_data">
+        <parameters>
+          <parameter type="const-guint8*" name="data" />
+          <parameter type="gsize" name="data_len" />
+          <parameter type="GError**" name="error" />
+        </parameters>
+      </constructor>
+      <constructor cname="rsvg_handle_new_from_file">
+        <parameters>
+          <parameter type="const-gchar*" name="file_name" />
+          <parameter type="GError**" name="error" />
+        </parameters>
+      </constructor>
+      <method name="RenderCairo" cname="rsvg_handle_render_cairo">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="cairo_t*" name="cr" />
+        </parameters>
+      </method>
+      <method name="RenderCairoSub" cname="rsvg_handle_render_cairo_sub">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="cairo_t*" name="cr" />
+          <parameter type="const-char*" name="id" />
+        </parameters>
+      </method>
+      <method name="SetBaseUri" cname="rsvg_handle_set_base_uri">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-char*" name="base_uri" />
+        </parameters>
+      </method>
+      <method name="SetDpi" cname="rsvg_handle_set_dpi">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="double" name="dpi" />
+        </parameters>
+      </method>
+      <method name="SetDpiXY" cname="rsvg_handle_set_dpi_x_y">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="double" name="dpi_x" />
+          <parameter type="double" name="dpi_y" />
+        </parameters>
+      </method>
+      <method name="SetSizeCallback" cname="rsvg_handle_set_size_callback" deprecated="1">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="RsvgSizeFunc" name="size_func" />
+          <parameter type="gpointer" name="user_data" />
+          <parameter type="GDestroyNotify" name="user_data_destroy" />
+        </parameters>
+      </method>
+      <method name="Write" cname="rsvg_handle_write">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-guchar*" name="buf" />
+          <parameter type="gsize" name="count" />
+          <parameter type="GError**" name="error" />
+        </parameters>
+      </method>
+    </object>
+    <struct name="DimensionData" cname="RsvgDimensionData">
+      <field name="Width" cname="width" type="int" />
+      <field name="Height" cname="height" type="int" />
+      <field name="Em" cname="em" type="gdouble" />
+      <field name="Ex" cname="ex" type="gdouble" />
+    </struct>
+    <class name="Global" cname="RsvgGlobal">
+      <method name="ErrorQuark" cname="rsvg_error_quark" shared="true">
+        <return-type type="GQuark" />
+      </method>
+      <method name="SetDefaultDpi" cname="rsvg_set_default_dpi" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="double" name="dpi" />
+        </parameters>
+      </method>
+      <method name="SetDefaultDpiXY" cname="rsvg_set_default_dpi_x_y" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="double" name="dpi_x" />
+          <parameter type="double" name="dpi_y" />
+        </parameters>
+      </method>
+    </class>
+    <class name="Pixbuf" cname="RsvgPixbuf_">
+      <method name="FromFile" cname="rsvg_pixbuf_from_file" deprecated="1" shared="true">
+        <return-type type="GdkPixbuf*" />
+        <parameters>
+          <parameter type="const-gchar*" name="file_name" />
+          <parameter type="GError**" name="error" />
+        </parameters>
+      </method>
+      <method name="FromFileAtMaxSize" cname="rsvg_pixbuf_from_file_at_max_size" deprecated="1" shared="true">
+        <return-type type="GdkPixbuf*" />
+        <parameters>
+          <parameter type="const-gchar*" name="file_name" />
+          <parameter type="gint" name="max_width" />
+          <parameter type="gint" name="max_height" />
+          <parameter type="GError**" name="error" />
+        </parameters>
+      </method>
+      <method name="FromFileAtSize" cname="rsvg_pixbuf_from_file_at_size" deprecated="1" shared="true">
+        <return-type type="GdkPixbuf*" />
+        <parameters>
+          <parameter type="const-gchar*" name="file_name" />
+          <parameter type="gint" name="width" />
+          <parameter type="gint" name="height" />
+          <parameter type="GError**" name="error" />
+        </parameters>
+      </method>
+      <method name="FromFileAtZoom" cname="rsvg_pixbuf_from_file_at_zoom" deprecated="1" shared="true">
+        <return-type type="GdkPixbuf*" />
+        <parameters>
+          <parameter type="const-gchar*" name="file_name" />
+          <parameter type="double" name="x_zoom" />
+          <parameter type="double" name="y_zoom" />
+          <parameter type="GError**" name="error" />
+        </parameters>
+      </method>
+      <method name="FromFileAtZoomWithMax" cname="rsvg_pixbuf_from_file_at_zoom_with_max" deprecated="1" shared="true">
+        <return-type type="GdkPixbuf*" />
+        <parameters>
+          <parameter type="const-gchar*" name="file_name" />
+          <parameter type="double" name="x_zoom" />
+          <parameter type="double" name="y_zoom" />
+          <parameter type="gint" name="max_width" />
+          <parameter type="gint" name="max_height" />
+          <parameter type="GError**" name="error" />
+        </parameters>
+      </method>
+    </class>
+  </namespace>
+</api>

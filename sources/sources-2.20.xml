@@ -7,10 +7,28 @@
       </namespace>
     </library>
   </api>
-  <api filename="../rsvg/rsvg-api.raw">
+  <api filename="../rsvg/rsvg2-api.raw">
     <library name="rsvg-2">
       <namespace name="Rsvg">
-        <dir>librsvg-2.18.2</dir>
+        <directory path="librsvg-2.18.2">
+	  <exclude>rsvg-bpath-util.h</exclude>
+	  <exclude>rsvg-cairo-clip.h</exclude>
+	  <exclude>rsvg-cairo-draw.h</exclude>
+	  <exclude>rsvg-cairo-render.h</exclude>
+	  <exclude>rsvg-css.h</exclude>
+	  <exclude>rsvg-defs.h</exclude>
+	  <exclude>rsvg-filter.h</exclude>
+	  <exclude>rsvg-image.h</exclude>
+	  <exclude>rsvg-marker.h</exclude>
+	  <exclude>rsvg-mask.h</exclude>
+	  <exclude>rsvg-paint-server.h</exclude>
+	  <exclude>rsvg-path.h</exclude>
+	  <exclude>rsvg-private.h</exclude>
+	  <exclude>rsvg-shapes.h</exclude>
+	  <exclude>rsvg-structure.h</exclude>
+	  <exclude>rsvg-styles.h</exclude>
+	  <exclude>rsvg-text.h</exclude>
+        </directory>
       </namespace>
     </library>
   </api>

@@ -1,6 +1,6 @@
 // Rsvg.Handle.custom - Rsvg Handle class customizations
 //
-// Copyright (C) 2005 Novell, Inc.
+// Copyright (C) 2007 Novell, Inc.
 //
 // This code is inserted after the automatically generated code.
 //
@@ -18,8 +18,11 @@
 // Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 // Boston, MA 02111-1307, USA.
 
-[Obsolete ("Replaced by SizeCallback property")]
-public void SetSizeCallback (Rsvg.SizeFunc size_func, IntPtr user_data, IntPtr user_data_destroy)
-{
-	SizeCallback = size_func;
-}
+		public unsafe bool Write (byte[] buf, ulong count)
+		{
+			IntPtr error;
+			bool result = rsvg_handle_write (Handle, buf, new UIntPtr (count), out error);
+			if (error != IntPtr.Zero) throw new GLib.GException (error);
+			return result;
+		}
+
