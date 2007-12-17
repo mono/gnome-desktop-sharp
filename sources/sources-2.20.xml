@@ -32,6 +32,45 @@
       </namespace>
     </library>
   </api>
+  <api filename="../vte/vte-api.raw">
+    <library name="vte">
+      <namespace name="Vte">
+        <directory path="vte-0.16.9/src">
+	  <exclude>buffer.h</exclude>
+	  <exclude>caps.h</exclude>
+	  <exclude>debug.h</exclude>
+	  <exclude>iso2022.h</exclude>
+	  <exclude>keymap.h</exclude>
+	  <exclude>marshal.h</exclude>
+	  <exclude>matcher.h</exclude>
+	  <exclude>ring.h</exclude>
+	  <exclude>table.h</exclude>
+	  <exclude>trie.h</exclude>
+	  <exclude>vtebg.h</exclude>
+	  <exclude>vteconv.h</exclude>
+	  <exclude>vtedraw.h</exclude>
+	  <exclude>vtefc.h</exclude>
+	  <exclude>vteft2.h</exclude>
+	  <exclude>vtegl.h</exclude>
+	  <exclude>vteglyph.h</exclude>
+	  <exclude>vteint.h</exclude>
+	  <exclude>vtepango.h</exclude>
+	  <exclude>vtepangox.h</exclude>
+	  <exclude>vte-private.h</exclude>
+	  <exclude>vterdb.h</exclude>
+	  <exclude>vteregex.h</exclude>
+	  <exclude>vtergb.h</exclude>
+	  <exclude>vteseq.h</exclude>
+	  <exclude>vteseq-list.h</exclude>
+	  <exclude>vteseq-table.h</exclude>
+	  <exclude>vteskel.h</exclude>
+	  <exclude>vtetc.h</exclude>
+	  <exclude>vtetree.h</exclude>
+	  <exclude>vtexft.h</exclude>
+        </directory>
+      </namespace>
+    </library>
+  </api>
   <api filename="../gtkhtml/gtkhtml-api.raw">
     <library name="gtkhtml-3.0">
       <namespace name="Gtk">

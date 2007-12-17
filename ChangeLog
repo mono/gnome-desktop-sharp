@@ -1,3 +1,10 @@
+2007-12-17  Mike Kestner  <mkestner@novell.com>
+
+	* Makefile.am: add vte.
+	* configure.in: vte configuration.
+	* sources/sources-2.20.xml: parse vte with only installed headers.
+	* vte/*: install as 0.16.
+
 2007-12-12  Mike Kestner  <mkestner@novell.com>
 
 	* Makefile.am: add rsvg.

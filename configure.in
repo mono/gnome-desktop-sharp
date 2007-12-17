@@ -177,8 +177,15 @@ PKG_CHECK_MODULES(GTKHTML, libgtkhtml-3.14 >= $GTKHTML_REQUIRED_VERSION, enable_
 AC_SUBST(GTKHTML_CFLAGS)
 AC_SUBST(GTKHTML_LIBS)
 
+VTE_REQUIRED_VERSION=0.16.9
+
+PKG_CHECK_MODULES(VTE, vte >= $VTE_REQUIRED_VERSION, enable_vte=yes, enable_vte=no)
+AC_SUBST(VTE_CFLAGS)
+AC_SUBST(VTE_LIBS)
+
 AM_CONDITIONAL(ENABLE_GTKHTML, test "x$enable_gtkhtml" = "xyes")
 AM_CONDITIONAL(ENABLE_RSVG, test "x$enable_rsvg" = "xyes")
+AM_CONDITIONAL(ENABLE_VTE, test "x$enable_vte" = "xyes")
 AC_SUBST(CFLAGS)
 
 AC_OUTPUT([
@@ -193,6 +200,10 @@ rsvg/rsvg2-sharp-2.0.pc
 gtkhtml/Makefile
 gtkhtml/gtkhtml-sharp.dll.config
 gtkhtml/gtkhtml-sharp-3.14.pc
+vte/glue/Makefile
+vte/Makefile
+vte/vte-sharp.dll.config
+vte/vte-sharp-0.16.pc
 ])
 
 #gnomedesktop/glue/Makefile
@@ -206,8 +217,9 @@ echo "   * $CS compiler: $CSC $CSFLAGS"
 echo ""
 echo "   Optional assemblies included in the build:"
 echo ""
-echo "      * rsvg-sharp.dll: $enable_rsvg"
 echo "      * gtkhtml-sharp.dll: $enable_gtkhtml"
+echo "      * rsvg-sharp.dll: $enable_rsvg"
+echo "      * vte-sharp.dll: $enable_vte"
 echo ""
 echo "      NOTE: if any of the above say 'no' you may install the"
 echo "            corresponding development packages for them, rerun"

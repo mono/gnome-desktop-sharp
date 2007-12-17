@@ -7,28 +7,6 @@
 
 -->
   <namespace name="Vte" library="vte">
-    <enum name="BgSourceType" cname="VteBgSourceType" type="enum">
-      <member cname="VTE_BG_SOURCE_NONE" name="None" />
-      <member cname="VTE_BG_SOURCE_ROOT" name="Root" />
-      <member cname="VTE_BG_SOURCE_PIXBUF" name="Pixbuf" />
-      <member cname="VTE_BG_SOURCE_FILE" name="File" />
-    </enum>
-    <enum name="DebugFlags" cname="VteDebugFlags" type="flags">
-      <member cname="VTE_DEBUG_MISC" name="Misc" value="1 &lt;&lt; 0" />
-      <member cname="VTE_DEBUG_PARSE" name="Parse" value="1 &lt;&lt; 1" />
-      <member cname="VTE_DEBUG_IO" name="Io" value="1 &lt;&lt; 2" />
-      <member cname="VTE_DEBUG_UPDATES" name="Updates" value="1 &lt;&lt; 3" />
-      <member cname="VTE_DEBUG_EVENTS" name="Events" value="1 &lt;&lt; 4" />
-      <member cname="VTE_DEBUG_SIGNALS" name="Signals" value="1 &lt;&lt; 5" />
-      <member cname="VTE_DEBUG_SELECTION" name="Selection" value="1 &lt;&lt; 6" />
-      <member cname="VTE_DEBUG_SUBSTITUTION" name="Substitution" value="1 &lt;&lt; 7" />
-      <member cname="VTE_DEBUG_RING" name="Ring" value="1 &lt;&lt; 8" />
-      <member cname="VTE_DEBUG_PTY" name="Pty" value="1 &lt;&lt; 9" />
-      <member cname="VTE_DEBUG_CURSOR" name="Cursor" value="1 &lt;&lt; 10" />
-      <member cname="VTE_DEBUG_KEYBOARD" name="Keyboard" value="1 &lt;&lt; 11" />
-      <member cname="VTE_DEBUG_LIFECYCLE" name="Lifecycle" value="1 &lt;&lt; 12" />
-      <member cname="VTE_DEBUG_TRIE" name="Trie" value="1 &lt;&lt; 13" />
-    </enum>
     <enum name="TerminalAntiAlias" cname="VteTerminalAntiAlias" gtype="vte_terminal_anti_alias_get_type" type="enum">
       <member cname="VTE_ANTI_ALIAS_USE_DEFAULT" name="UseDefault" />
       <member cname="VTE_ANTI_ALIAS_FORCE_ENABLE" name="ForceEnable" />
@@ -40,72 +18,6 @@
       <member cname="VTE_ERASE_ASCII_DELETE" name="AsciiDelete" />
       <member cname="VTE_ERASE_DELETE_SEQUENCE" name="DeleteSequence" />
     </enum>
-    <enum name="VteGlyphFlags" cname="vte_glyph_flags" type="flags">
-      <member cname="vte_glyph_bold" name="Bold" value="1 &lt;&lt; 0" />
-      <member cname="vte_glyph_dim" name="Dim" value="1 &lt;&lt; 1" />
-      <member cname="vte_glyph_underline" name="Underline" value="1 &lt;&lt; 2" />
-      <member cname="vte_glyph_underline2" name="Underline2" value="1 &lt;&lt; 3" />
-      <member cname="vte_glyph_strikethrough" name="Strikethrough" value="1 &lt;&lt; 4" />
-      <member cname="vte_glyph_boxed" name="Boxed" value="1 &lt;&lt; 5" />
-    </enum>
-    <callback name="RingFreeFunc" cname="VteRingFreeFunc">
-      <return-type type="void" />
-      <parameters>
-        <parameter type="gpointer" name="freeing" />
-        <parameter type="gpointer" name="data" />
-      </parameters>
-    </callback>
-    <callback name="TerminalSequenceHandler" cname="VteTerminalSequenceHandler">
-      <return-type type="gboolean" />
-      <parameters>
-        <parameter type="VteTerminal*" name="terminal" />
-        <parameter type="const-char*" name="match" />
-        <parameter type="GQuark" name="match_quark" />
-        <parameter type="GValueArray*" name="params" />
-      </parameters>
-    </callback>
-    <object name="Bg" cname="VteBg" parent="GObject">
-      <field name="Screen" cname="screen" type="GdkScreen*" />
-      <field name="RootPixmap" cname="root_pixmap" type="GdkPixmap*" />
-      <field name="Native" cname="native" type="struct-VteBgNative*" />
-      <field name="Pvt" cname="pvt" type="struct-VteBgPrivate*" />
-      <signal name="RootPixmapChanged" cname="root-pixmap-changed" when="LAST">
-        <return-type type="void" />
-        <parameters>
-          <parameter name="inst" type="VteBg*" />
-        </parameters>
-      </signal>
-      <method name="GetForScreen" cname="vte_bg_get_for_screen" shared="true">
-        <return-type type="VteBg*" />
-        <parameters>
-          <parameter type="GdkScreen*" name="screen" />
-        </parameters>
-      </method>
-      <method name="GetPixbuf" cname="vte_bg_get_pixbuf">
-        <return-type type="GdkPixbuf*" />
-        <parameters>
-          <parameter type="enum" name="VteBgSourceType" />
-          <parameter type="GdkPixbuf*" name="source_pixbuf" />
-          <parameter type="const-char*" name="source_file" />
-          <parameter type="const-GdkColor*" name="tint" />
-          <parameter type="double" name="saturation" />
-        </parameters>
-      </method>
-      <method name="GetPixmap" cname="vte_bg_get_pixmap">
-        <return-type type="GdkPixmap*" />
-        <parameters>
-          <parameter type="enum" name="VteBgSourceType" />
-          <parameter type="GdkPixbuf*" name="source_pixbuf" />
-          <parameter type="const-char*" name="source_file" />
-          <parameter type="const-GdkColor*" name="tint" />
-          <parameter type="double" name="saturation" />
-          <parameter type="GdkColormap*" name="colormap" />
-        </parameters>
-      </method>
-      <method name="GetType" cname="vte_bg_get_type" shared="true">
-        <return-type type="GType" />
-      </method>
-    </object>
     <object name="Reaper" cname="VteReaper" parent="GObject">
       <field name="Channel" cname="channel" type="GIOChannel*" />
       <field name="Iopipe" cname="iopipe" array_len="2" type="int" />
@@ -310,6 +222,18 @@
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
           <parameter type="gint" name="delta" />
+        </parameters>
+      </signal>
+      <signal name="CopyClipboard" cname="copy-clipboard" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="VteTerminal*" name="terminal" />
+        </parameters>
+      </signal>
+      <signal name="PasteClipboard" cname="paste-clipboard" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="VteTerminal*" name="terminal" />
         </parameters>
       </signal>
       <method name="CopyClipboard" cname="vte_terminal_copy_clipboard">
@@ -529,6 +453,12 @@
           <parameter type="gboolean" name="clear_history" />
         </parameters>
       </method>
+      <method name="SelectAll" cname="vte_terminal_select_all">
+        <return-type type="void" />
+      </method>
+      <method name="SelectNone" cname="vte_terminal_select_none">
+        <return-type type="void" />
+      </method>
       <method name="SetAllowBold" cname="vte_terminal_set_allow_bold">
         <return-type type="void" />
         <parameters>
@@ -741,6 +671,7 @@
       <implements>
         <interface cname="AtkText" />
         <interface cname="AtkComponent" />
+        <interface cname="AtkAction" />
       </implements>
       <method name="GetType" cname="vte_terminal_accessible_get_type" shared="true">
         <return-type type="GtkType" />
@@ -762,21 +693,8 @@
       <field name="Column" cname="column" type="long" />
       <field name="Fore" cname="fore" type="GdkColor" />
       <field name="Back" cname="back" type="GdkColor" />
-      <field name="Underline" cname="underline" bits="1" type="gboolean" />
-      <field name="Strikethrough" cname="strikethrough" bits="1" type="gboolean" />
+      <field name="Underline" cname="underline" bits="1" type="guint" />
+      <field name="Strikethrough" cname="strikethrough" bits="1" type="guint" />
     </struct>
-    <struct name="Ring" cname="VteRing">
-      <field name="Free" cname="free" type="VteRingFreeFunc" />
-      <field name="UserData" cname="user_data" type="gpointer" />
-      <field name="Array" cname="array" type="gpointer*" />
-      <field name="Delta" cname="delta" type="glong" />
-      <field name="Length" cname="length" type="glong" />
-      <field name="Max" cname="max" type="glong" />
-    </struct>
-    <struct name="Tree" cname="VteTree">
-      <field name="Tree" cname="tree" type="GTree*" />
-      <field name="Array" cname="array" array_len="VTE_TREE_ARRAY_SIZE" type="gpointer" />
-    </struct>
-    <struct name="Conv" cname="VteConv" opaque="true" />
   </namespace>
 </api>
