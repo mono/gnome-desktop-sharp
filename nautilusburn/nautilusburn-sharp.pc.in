@@ -1,0 +1,11 @@
+prefix=${pcfiledir}/../..
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+gapidir=${prefix}/share/nautilusburn-sharp/2.20
+
+
+Name: NautilusBurn#
+Description: NautilusBurn# - libnautilus-burn .NET Binding
+Version: @VERSION@
+Cflags: -I:${gapidir}/nautilusburn-api.xml
+Libs: -r:${libdir}/mono/nautilusburn-sharp-2.20/nautilusburn-sharp.dll

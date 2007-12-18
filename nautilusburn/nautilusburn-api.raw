@@ -1,0 +1,363 @@
+<?xml version="1.0"?>
+<api>
+  <!--
+
+        This file was automatically generated.
+        Please DO NOT MODIFY THIS FILE, modify .metadata files instead.
+
+-->
+  <namespace name="NautilusBurn" library="nautilus-burn">
+    <enum name="DriveType" cname="NautilusBurnDriveType" type="flags">
+      <member cname="NAUTILUS_BURN_DRIVE_TYPE_FILE" name="File" value="1 &lt;&lt; 0" />
+      <member cname="NAUTILUS_BURN_DRIVE_TYPE_CD_RECORDER" name="CdRecorder" value="1 &lt;&lt; 1" />
+      <member cname="NAUTILUS_BURN_DRIVE_TYPE_CDRW_RECORDER" name="CdrwRecorder" value="1 &lt;&lt; 2" />
+      <member cname="NAUTILUS_BURN_DRIVE_TYPE_DVD_RAM_RECORDER" name="DvdRamRecorder" value="1 &lt;&lt; 3" />
+      <member cname="NAUTILUS_BURN_DRIVE_TYPE_DVD_RW_RECORDER" name="DvdRwRecorder" value="1 &lt;&lt; 4" />
+      <member cname="NAUTILUS_BURN_DRIVE_TYPE_DVD_PLUS_R_RECORDER" name="DvdPlusRRecorder" value="1 &lt;&lt; 5" />
+      <member cname="NAUTILUS_BURN_DRIVE_TYPE_DVD_PLUS_RW_RECORDER" name="DvdPlusRwRecorder" value="1 &lt;&lt; 6" />
+      <member cname="NAUTILUS_BURN_DRIVE_TYPE_CD_DRIVE" name="CdDrive" value="1 &lt;&lt; 7" />
+      <member cname="NAUTILUS_BURN_DRIVE_TYPE_DVD_DRIVE" name="DvdDrive" value="1 &lt;&lt; 8" />
+      <member cname="NAUTILUS_BURN_DRIVE_TYPE_DVD_PLUS_R_DL_RECORDER" name="DvdPlusRDlRecorder" value="1 &lt;&lt; 9" />
+    </enum>
+    <enum name="MediaType" cname="NautilusBurnMediaType" type="enum">
+      <member cname="NAUTILUS_BURN_MEDIA_TYPE_BUSY" name="Busy" />
+      <member cname="NAUTILUS_BURN_MEDIA_TYPE_ERROR" name="Error" />
+      <member cname="NAUTILUS_BURN_MEDIA_TYPE_UNKNOWN" name="Unknown" />
+      <member cname="NAUTILUS_BURN_MEDIA_TYPE_CD" name="Cd" />
+      <member cname="NAUTILUS_BURN_MEDIA_TYPE_CDR" name="Cdr" />
+      <member cname="NAUTILUS_BURN_MEDIA_TYPE_CDRW" name="Cdrw" />
+      <member cname="NAUTILUS_BURN_MEDIA_TYPE_DVD" name="Dvd" />
+      <member cname="NAUTILUS_BURN_MEDIA_TYPE_DVDR" name="Dvdr" />
+      <member cname="NAUTILUS_BURN_MEDIA_TYPE_DVDRW" name="Dvdrw" />
+      <member cname="NAUTILUS_BURN_MEDIA_TYPE_DVD_RAM" name="DvdRam" />
+      <member cname="NAUTILUS_BURN_MEDIA_TYPE_DVD_PLUS_R" name="DvdPlusR" />
+      <member cname="NAUTILUS_BURN_MEDIA_TYPE_DVD_PLUS_RW" name="DvdPlusRw" />
+      <member cname="NAUTILUS_BURN_MEDIA_TYPE_DVD_PLUS_R_DL" name="DvdPlusRDl" />
+    </enum>
+    <enum name="RecorderActions" cname="NautilusBurnRecorderActions" type="enum">
+      <member cname="NAUTILUS_BURN_RECORDER_ACTION_PREPARING_WRITE" name="PreparingWrite" />
+      <member cname="NAUTILUS_BURN_RECORDER_ACTION_WRITING" name="Writing" />
+      <member cname="NAUTILUS_BURN_RECORDER_ACTION_FIXATING" name="Fixating" />
+      <member cname="NAUTILUS_BURN_RECORDER_ACTION_BLANKING" name="Blanking" />
+    </enum>
+    <enum name="RecorderBlankFlags" cname="NautilusBurnRecorderBlankFlags" type="flags">
+      <member cname="NAUTILUS_BURN_RECORDER_BLANK_NONE" name="None" />
+      <member cname="NAUTILUS_BURN_RECORDER_BLANK_DUMMY_WRITE" name="DummyWrite" value="1 &lt;&lt; 1" />
+      <member cname="NAUTILUS_BURN_RECORDER_BLANK_DEBUG" name="Debug" value="1 &lt;&lt; 2" />
+    </enum>
+    <enum name="RecorderBlankType" cname="NautilusBurnRecorderBlankType" type="enum">
+      <member cname="NAUTILUS_BURN_RECORDER_BLANK_FAST" name="Fast" />
+      <member cname="NAUTILUS_BURN_RECORDER_BLANK_FULL" name="Full" />
+    </enum>
+    <enum name="RecorderError" cname="NautilusBurnRecorderError" type="enum">
+      <member cname="NAUTILUS_BURN_RECORDER_ERROR_INTERNAL" name="Internal" />
+      <member cname="NAUTILUS_BURN_RECORDER_ERROR_GENERAL" name="General" />
+    </enum>
+    <enum name="RecorderMedia" cname="NautilusBurnRecorderMedia" type="enum">
+      <member cname="NAUTILUS_BURN_RECORDER_MEDIA_CD" name="Cd" />
+      <member cname="NAUTILUS_BURN_RECORDER_MEDIA_DVD" name="Dvd" />
+    </enum>
+    <enum name="RecorderResponse" cname="NautilusBurnRecorderResponse" type="enum">
+      <member cname="NAUTILUS_BURN_RECORDER_RESPONSE_NONE" name="None" />
+      <member cname="NAUTILUS_BURN_RECORDER_RESPONSE_CANCEL" name="Cancel" value="-1" />
+      <member cname="NAUTILUS_BURN_RECORDER_RESPONSE_ERASE" name="Erase" value="-2" />
+      <member cname="NAUTILUS_BURN_RECORDER_RESPONSE_RETRY" name="Retry" value="-3" />
+    </enum>
+    <enum name="RecorderResult" cname="NautilusBurnRecorderResult" type="enum">
+      <member cname="NAUTILUS_BURN_RECORDER_RESULT_ERROR" name="Error" value="-1" />
+      <member cname="NAUTILUS_BURN_RECORDER_RESULT_CANCEL" name="Cancel" value="-2" />
+      <member cname="NAUTILUS_BURN_RECORDER_RESULT_FINISHED" name="Finished" value="-3" />
+      <member cname="NAUTILUS_BURN_RECORDER_RESULT_RETRY" name="Retry" value="-4" />
+    </enum>
+    <enum name="RecorderTrackType" cname="NautilusBurnRecorderTrackType" type="enum">
+      <member cname="NAUTILUS_BURN_RECORDER_TRACK_TYPE_UNKNOWN" name="Unknown" />
+      <member cname="NAUTILUS_BURN_RECORDER_TRACK_TYPE_AUDIO" name="Audio" />
+      <member cname="NAUTILUS_BURN_RECORDER_TRACK_TYPE_DATA" name="Data" />
+      <member cname="NAUTILUS_BURN_RECORDER_TRACK_TYPE_CUE" name="Cue" />
+      <member cname="NAUTILUS_BURN_RECORDER_TRACK_TYPE_GRAFT_LIST" name="GraftList" />
+    </enum>
+    <enum name="RecorderWriteFlags" cname="NautilusBurnRecorderWriteFlags" type="flags">
+      <member cname="NAUTILUS_BURN_RECORDER_WRITE_NONE" name="None" />
+      <member cname="NAUTILUS_BURN_RECORDER_WRITE_EJECT" name="Eject" value="1 &lt;&lt; 0" />
+      <member cname="NAUTILUS_BURN_RECORDER_WRITE_BLANK" name="Blank" value="1 &lt;&lt; 1" />
+      <member cname="NAUTILUS_BURN_RECORDER_WRITE_DUMMY_WRITE" name="DummyWrite" value="1 &lt;&lt; 2" />
+      <member cname="NAUTILUS_BURN_RECORDER_WRITE_DISC_AT_ONCE" name="DiscAtOnce" value="1 &lt;&lt; 3" />
+      <member cname="NAUTILUS_BURN_RECORDER_WRITE_DEBUG" name="Debug" value="1 &lt;&lt; 4" />
+      <member cname="NAUTILUS_BURN_RECORDER_WRITE_OVERBURN" name="Overburn" value="1 &lt;&lt; 5" />
+      <member cname="NAUTILUS_BURN_RECORDER_WRITE_BURNPROOF" name="Burnproof" value="1 &lt;&lt; 6" />
+      <member cname="NAUTILUS_BURN_RECORDER_WRITE_JOLIET" name="Joliet" value="1 &lt;&lt; 7" />
+    </enum>
+    <callback name="CancelFunc" cname="CancelFunc">
+      <return-type type="void" />
+      <parameters>
+        <parameter type="gpointer" name="data" />
+      </parameters>
+    </callback>
+    <object name="Drive" cname="NautilusBurnDrive" parent="GObject">
+      <field name="Priv" cname="priv" type="NautilusBurnDrivePrivate*" />
+      <signal name="MediaAdded" cname="media-added" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="NautilusBurnDrive*" name="drive" />
+        </parameters>
+      </signal>
+      <signal name="MediaRemoved" cname="media-removed" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="NautilusBurnDrive*" name="drive" />
+        </parameters>
+      </signal>
+      <signal name="Disconnected" cname="disconnected" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="NautilusBurnDrive*" name="drive" />
+        </parameters>
+      </signal>
+      <property name="EnableMonitor" cname="enable-monitor" type="gboolean" readable="true" writeable="true" />
+      <method name="CanRewrite" cname="nautilus_burn_drive_can_rewrite">
+        <return-type type="gboolean" />
+      </method>
+      <method name="CanWrite" cname="nautilus_burn_drive_can_write">
+        <return-type type="gboolean" />
+      </method>
+      <method name="DoorIsOpen" cname="nautilus_burn_drive_door_is_open">
+        <return-type type="gboolean" />
+      </method>
+      <method name="Eject" cname="nautilus_burn_drive_eject">
+        <return-type type="gboolean" />
+      </method>
+      <method name="Equal" cname="nautilus_burn_drive_equal">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="NautilusBurnDrive*" name="b" />
+        </parameters>
+      </method>
+      <method name="GetDevice" cname="nautilus_burn_drive_get_device">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetDriveType" cname="nautilus_burn_drive_get_drive_type">
+        <return-type type="int" />
+      </method>
+      <method name="GetMaxSpeedRead" cname="nautilus_burn_drive_get_max_speed_read">
+        <return-type type="int" />
+      </method>
+      <method name="GetMaxSpeedWrite" cname="nautilus_burn_drive_get_max_speed_write">
+        <return-type type="int" />
+      </method>
+      <method name="GetMediaCapacity" cname="nautilus_burn_drive_get_media_capacity">
+        <return-type type="gint64" />
+      </method>
+      <method name="GetMediaLabel" cname="nautilus_burn_drive_get_media_label">
+        <return-type type="char*" />
+      </method>
+      <method name="GetMediaSize" cname="nautilus_burn_drive_get_media_size">
+        <return-type type="gint64" />
+      </method>
+      <method name="GetMediaType" cname="nautilus_burn_drive_get_media_type">
+        <return-type type="NautilusBurnMediaType" />
+      </method>
+      <method name="GetMediaTypeFull" cname="nautilus_burn_drive_get_media_type_full">
+        <return-type type="NautilusBurnMediaType" />
+        <parameters>
+          <parameter type="gboolean*" name="is_rewritable" />
+          <parameter type="gboolean*" name="is_blank" />
+          <parameter type="gboolean*" name="has_data" />
+          <parameter type="gboolean*" name="has_audio" />
+        </parameters>
+      </method>
+      <method name="GetNameForDisplay" cname="nautilus_burn_drive_get_name_for_display">
+        <return-type type="char*" />
+      </method>
+      <method name="GetSupportedMediaString" cname="nautilus_burn_drive_get_supported_media_string">
+        <return-type type="char*" />
+        <parameters>
+          <parameter type="gboolean" name="writable_only" />
+        </parameters>
+      </method>
+      <method name="GetSupportedMediaStringForSize" cname="nautilus_burn_drive_get_supported_media_string_for_size">
+        <return-type type="char*" />
+        <parameters>
+          <parameter type="guint64" name="size" />
+        </parameters>
+      </method>
+      <method name="GetType" cname="nautilus_burn_drive_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="GetWriteSpeeds" cname="nautilus_burn_drive_get_write_speeds">
+        <return-type type="const-int*" />
+      </method>
+      <method name="IsMounted" cname="nautilus_burn_drive_is_mounted">
+        <return-type type="gboolean" />
+      </method>
+      <method name="Lock" cname="nautilus_burn_drive_lock">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-char*" name="reason" />
+          <parameter type="char**" name="reason_for_failure" />
+        </parameters>
+      </method>
+      <method name="MediaIsAppendable" cname="nautilus_burn_drive_media_is_appendable">
+        <return-type type="gboolean" />
+      </method>
+      <method name="MediaTypeGetString" cname="nautilus_burn_drive_media_type_get_string" shared="true">
+        <return-type type="const-char*" />
+        <parameters>
+          <parameter type="NautilusBurnMediaType" name="type" />
+        </parameters>
+      </method>
+      <method name="MediaTypeIsWritable" cname="nautilus_burn_drive_media_type_is_writable" shared="true">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="NautilusBurnMediaType" name="type" />
+          <parameter type="gboolean" name="is_blank" />
+        </parameters>
+      </method>
+      <method name="Ref" cname="nautilus_burn_drive_ref">
+        <return-type type="NautilusBurnDrive*" />
+      </method>
+      <method name="Unlock" cname="nautilus_burn_drive_unlock">
+        <return-type type="gboolean" />
+      </method>
+      <method name="Unmount" cname="nautilus_burn_drive_unmount">
+        <return-type type="gboolean" />
+      </method>
+      <method name="Unref" cname="nautilus_burn_drive_unref">
+        <return-type type="void" />
+      </method>
+    </object>
+    <object name="DriveMonitor" cname="NautilusBurnDriveMonitor" parent="GObject">
+      <field name="Priv" cname="priv" type="NautilusBurnDriveMonitorPrivate*" />
+      <signal name="MediaAdded" cname="media-added" when="FIRST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="NautilusBurnDriveMonitor*" name="monitor" />
+          <parameter type="NautilusBurnDrive*" name="drive" />
+        </parameters>
+      </signal>
+      <signal name="MediaRemoved" cname="media-removed" when="FIRST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="NautilusBurnDriveMonitor*" name="monitor" />
+          <parameter type="NautilusBurnDrive*" name="drive" />
+        </parameters>
+      </signal>
+      <signal name="DriveConnected" cname="drive-connected" when="FIRST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="NautilusBurnDriveMonitor*" name="monitor" />
+          <parameter type="NautilusBurnDrive*" name="drive" />
+        </parameters>
+      </signal>
+      <signal name="DriveDisconnected" cname="drive-disconnected" when="FIRST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="NautilusBurnDriveMonitor*" name="monitor" />
+          <parameter type="NautilusBurnDrive*" name="drive" />
+        </parameters>
+      </signal>
+      <method name="GetDriveForDevice" cname="nautilus_burn_drive_monitor_get_drive_for_device">
+        <return-type type="NautilusBurnDrive*" />
+        <parameters>
+          <parameter type="const-char*" name="path" />
+        </parameters>
+      </method>
+      <method name="GetDriveForImage" cname="nautilus_burn_drive_monitor_get_drive_for_image">
+        <return-type type="NautilusBurnDrive*" />
+      </method>
+      <method name="GetDrives" cname="nautilus_burn_drive_monitor_get_drives">
+        <return-type type="GList*" />
+      </method>
+      <method name="GetRecorderDrives" cname="nautilus_burn_drive_monitor_get_recorder_drives">
+        <return-type type="GList*" />
+      </method>
+      <method name="GetType" cname="nautilus_burn_drive_monitor_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+    </object>
+    <object name="Recorder" cname="NautilusBurnRecorder" parent="GObject">
+      <field name="Priv" cname="priv" type="NautilusBurnRecorderPrivate*" />
+      <signal name="ProgressChanged" cname="progress-changed" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="NautilusBurnRecorder*" name="recorder" />
+          <parameter type="gdouble" name="fraction" />
+          <parameter type="long" name="seconds" />
+        </parameters>
+      </signal>
+      <signal name="ActionChanged" cname="action-changed" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="NautilusBurnRecorder*" name="recorder" />
+          <parameter type="NautilusBurnRecorderActions" name="action" />
+          <parameter type="NautilusBurnRecorderMedia" name="media" />
+        </parameters>
+      </signal>
+      <signal name="AnimationChanged" cname="animation-changed" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="NautilusBurnRecorder*" name="recorder" />
+          <parameter type="gboolean" name="spinning" />
+        </parameters>
+      </signal>
+      <signal name="InsertMediaRequest" cname="insert-media-request" when="LAST">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="NautilusBurnRecorder*" name="recorder" />
+          <parameter type="gboolean" name="is_reload" />
+          <parameter type="gboolean" name="can_rewrite" />
+          <parameter type="gboolean" name="busy" />
+        </parameters>
+      </signal>
+      <signal name="WarnDataLoss" cname="warn-data-loss" when="LAST">
+        <return-type type="int" />
+        <parameters>
+          <parameter type="NautilusBurnRecorder*" name="recorder" />
+        </parameters>
+      </signal>
+      <method name="BlankDisc" cname="nautilus_burn_recorder_blank_disc">
+        <return-type type="int" />
+        <parameters>
+          <parameter type="NautilusBurnDrive*" name="drive" />
+          <parameter type="NautilusBurnRecorderBlankType" name="type" />
+          <parameter type="NautilusBurnRecorderBlankFlags" name="flags" />
+          <parameter type="GError**" name="error" />
+        </parameters>
+      </method>
+      <method name="Cancel" cname="nautilus_burn_recorder_cancel">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="gboolean" name="skip_if_dangerous" />
+        </parameters>
+      </method>
+      <method name="ErrorQuark" cname="nautilus_burn_recorder_error_quark" shared="true">
+        <return-type type="GQuark" />
+      </method>
+      <method name="GetType" cname="nautilus_burn_recorder_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="nautilus_burn_recorder_new" />
+      <method name="WriteTracks" cname="nautilus_burn_recorder_write_tracks">
+        <return-type type="int" />
+        <parameters>
+          <parameter type="NautilusBurnDrive*" name="drive" />
+          <parameter type="GList*" name="tracks" />
+          <parameter type="int" name="speed" />
+          <parameter type="NautilusBurnRecorderWriteFlags" name="flags" />
+          <parameter type="GError**" name="error" />
+        </parameters>
+      </method>
+    </object>
+    <struct name="RecorderTrack" cname="NautilusBurnRecorderTrack">
+      <field name="Type" cname="type" type="NautilusBurnRecorderTrackType" />
+      <field name="Filename" cname="filename" type="char*" />
+      <method name="Free" cname="nautilus_burn_recorder_track_free">
+        <return-type type="void" />
+      </method>
+    </struct>
+    <class name="Global" cname="NautilusBurnGlobal">
+      <method name="GetDriveMonitor" cname="nautilus_burn_get_drive_monitor" shared="true">
+        <return-type type="NautilusBurnDriveMonitor*" />
+      </method>
+    </class>
+  </namespace>
+</api>

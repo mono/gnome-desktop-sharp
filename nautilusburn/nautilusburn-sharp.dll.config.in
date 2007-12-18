@@ -1,0 +1,3 @@
+<configuration>
+  <dllmap dll="nautilus-burn" target="libnautilus-burn@LIB_PREFIX@.4@LIB_SUFFIX@"/>
+</configuration>

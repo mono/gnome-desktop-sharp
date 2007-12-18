@@ -156,7 +156,7 @@ AC_PATH_PROG(GAPI_FIXUP, gapi2-fixup, no)
 AC_SUBST(GAPI_FIXUP)
 
 ## Versions of dependencies
-GNOME_REQUIRED_VERSION=2.19.0
+GNOME_REQUIRED_VERSION=2.20.0
 
 PKG_CHECK_MODULES(GNOMESHARP, gnome-sharp-2.0 >= $GNOME_REQUIRED_VERSION, enable_gnome=yes, enable_gnome=no)
 AC_SUBST(GNOMESHARP_CFLAGS)
@@ -164,6 +164,10 @@ AC_SUBST(GNOMESHARP_LIBS)
 
 AM_CONDITIONAL(ENABLE_GNOME, test "x$enable_gnome" = "xyes")
 AC_SUBST(CFLAGS)
+
+PKG_CHECK_MODULES(NAUTILUSBURN, libnautilus-burn >= $GNOME_REQUIRED_VERSION, enable_nautilusburn=yes, enable_nautilusburn=no)
+AC_SUBST(NAUTILUSBURN_CFLAGS)
+AC_SUBST(NAUTILUSBURN_LIBS)
 
 RSVG_REQUIRED_VERSION=2.18.2
 
@@ -184,8 +188,10 @@ AC_SUBST(VTE_CFLAGS)
 AC_SUBST(VTE_LIBS)
 
 AM_CONDITIONAL(ENABLE_GTKHTML, test "x$enable_gtkhtml" = "xyes")
+AM_CONDITIONAL(ENABLE_NAUTILUSBURN, test "x$enable_nautilusburn" = "xyes")
 AM_CONDITIONAL(ENABLE_RSVG, test "x$enable_rsvg" = "xyes")
 AM_CONDITIONAL(ENABLE_VTE, test "x$enable_vte" = "xyes")
+
 AC_SUBST(CFLAGS)
 
 AC_OUTPUT([
@@ -194,16 +200,19 @@ sources/Makefile
 gnomedesktop/Makefile
 gnomedesktop/gnomedesktop-sharp.dll.config
 gnomedesktop/gnomedesktop-sharp-2.20.pc
+nautilusburn/Makefile
+nautilusburn/nautilusburn-sharp.dll.config
+nautilusburn/nautilusburn-sharp.pc
 rsvg/Makefile
 rsvg/rsvg2-sharp.dll.config
 rsvg/rsvg2-sharp-2.0.pc
 gtkhtml/Makefile
 gtkhtml/gtkhtml-sharp.dll.config
 gtkhtml/gtkhtml-sharp-3.14.pc
-vte/glue/Makefile
 vte/Makefile
 vte/vte-sharp.dll.config
 vte/vte-sharp-0.16.pc
+vte/glue/Makefile
 ])
 
 #gnomedesktop/glue/Makefile
@@ -218,6 +227,7 @@ echo ""
 echo "   Optional assemblies included in the build:"
 echo ""
 echo "      * gtkhtml-sharp.dll: $enable_gtkhtml"
+echo "      * nautilusburn-sharp.dll: $enable_nautilusburn"
 echo "      * rsvg-sharp.dll: $enable_rsvg"
 echo "      * vte-sharp.dll: $enable_vte"
 echo ""

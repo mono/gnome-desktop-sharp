@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<metadata>
+  <attr path="/api/namespace/object[@cname='NautilusBurnDrive']" name="disable_gtype_ctor">true</attr>
+  <attr path="/api/namespace/object[@cname='NautilusBurnDrive']/method[@name='MediaIsAppendable']" name="name">GetMediaIsAppendable</attr>
+  <attr path="/api/namespace/object[@cname='NautilusBurnDrive']/method[@name='CanRewrite']" name="name">GetCanRewrite</attr>
+  <attr path="/api/namespace/object[@cname='NautilusBurnDrive']/method[@name='CanWrite']" name="name">GetCanWrite</attr>
+  <attr path="/api/namespace/object[@cname='NautilusBurnDrive']/method[@name='DoorIsOpen']" name="name">GetDoorIsOpen</attr>
+  <attr path="/api/namespace/object[@cname='NautilusBurnDrive']/method[@name='Ref']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='NautilusBurnDrive']/method[@name='Unref']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='NautilusBurnDriveMonitor']" name="disable_gtype_ctor">true</attr>
+  <attr path="/api/namespace/object[@cname='NautilusBurnDriveMonitor']/method[@name='GetDrives']/return-type" name="element-type">NautilusBurnDrive*</attr>
+  <attr path="/api/namespace/object[@cname='NautilusBurnDriveMonitor']/method[@name='GetDrives']/return-type" name="owned">1</attr>
+  <attr path="/api/namespace/object[@cname='NautilusBurnDriveMonitor']/method[@name='GetDrives']/return-type" name="elements_owned">1</attr>
+  <attr path="/api/namespace/object[@cname='NautilusBurnDriveMonitor']/method[@name='GetRecorderDrives']/return-type" name="element-type">NautilusBurnDrive*</attr>
+  <attr path="/api/namespace/object[@cname='NautilusBurnDriveMonitor']/method[@name='GetRecorderDrives']/return-type" name="owned">1</attr>
+  <attr path="/api/namespace/object[@cname='NautilusBurnDriveMonitor']/method[@name='GetRecorderDrives']/return-type" name="elements_owned">1</attr>
+  <attr path="/api/namespace/object[@cname='NautilusBurnRecorder']" name="disable_gtype_ctor">true</attr>
+  <attr path="/api/namespace/object[@cname='NautilusBurnRecorder']/method[@name='WriteTracks']/*/*[@name='tracks']" name="element_type">NautilusBurnRecorderTrack*</attr>
+  <attr path="/api/namespace/struct[@cname='NautilusBurnRecorderTrack']/method[@name='Free']" name="hidden">1</attr>
+</metadata>
