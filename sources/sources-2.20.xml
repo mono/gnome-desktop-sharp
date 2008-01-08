@@ -7,6 +7,22 @@
       </namespace>
     </library>
   </api>
+  <api filename="../wnck/wnck-api.raw">
+    <library name="wnck-1">
+      <namespace name="Wnck">
+        <directory path="libwnck-2.20.0/libwnck">
+          <exclude>inlinepixbufs.h</exclude>
+          <exclude>pager-accessible-factory.h</exclude>
+          <exclude>pager-accessible.h</exclude>
+          <exclude>private.h</exclude>
+          <exclude>wnck-marshal.h</exclude>
+          <exclude>workspace-accessible-factory.h</exclude>
+          <exclude>workspace-accessible.h</exclude>
+          <exclude>xutils.h</exclude>
+	</directory>
+      </namespace>
+    </library>
+  </api>
   <api filename="../nautilusburn/nautilusburn-api.raw">
     <library name="nautilus-burn">
       <namespace name="NautilusBurn">

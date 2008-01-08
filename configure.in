@@ -187,10 +187,15 @@ PKG_CHECK_MODULES(VTE, vte >= $VTE_REQUIRED_VERSION, enable_vte=yes, enable_vte=
 AC_SUBST(VTE_CFLAGS)
 AC_SUBST(VTE_LIBS)
 
+PKG_CHECK_MODULES(WNCK, libwnck-1.0 >= $GNOME_REQUIRED_VERSION, enable_wnck=yes, enable_wnck=no)
+AC_SUBST(WNCK_CFLAGS)
+AC_SUBST(WNCK_LIBS)
+
 AM_CONDITIONAL(ENABLE_GTKHTML, test "x$enable_gtkhtml" = "xyes")
 AM_CONDITIONAL(ENABLE_NAUTILUSBURN, test "x$enable_nautilusburn" = "xyes")
 AM_CONDITIONAL(ENABLE_RSVG, test "x$enable_rsvg" = "xyes")
 AM_CONDITIONAL(ENABLE_VTE, test "x$enable_vte" = "xyes")
+AM_CONDITIONAL(ENABLE_WNCK, test "x$enable_wnck" = "xyes")
 
 AC_SUBST(CFLAGS)
 
@@ -213,6 +218,9 @@ vte/Makefile
 vte/vte-sharp.dll.config
 vte/vte-sharp-0.16.pc
 vte/glue/Makefile
+wnck/Makefile
+wnck/wnck-sharp.dll.config
+wnck/wnck-sharp-1.0.pc
 ])
 
 #gnomedesktop/glue/Makefile
@@ -230,6 +238,7 @@ echo "      * gtkhtml-sharp.dll: $enable_gtkhtml"
 echo "      * nautilusburn-sharp.dll: $enable_nautilusburn"
 echo "      * rsvg-sharp.dll: $enable_rsvg"
 echo "      * vte-sharp.dll: $enable_vte"
+echo "      * wnck-sharp.dll: $enable_wnck"
 echo ""
 echo "      NOTE: if any of the above say 'no' you may install the"
 echo "            corresponding development packages for them, rerun"

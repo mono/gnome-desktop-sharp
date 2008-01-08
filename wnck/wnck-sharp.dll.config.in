@@ -1,0 +1,4 @@
+<configuration>
+  <dllmap dll="libgobject-2.0-0.dll" target="libgobject-2.0@LIB_PREFIX@.0@LIB_SUFFIX@"/>
+  <dllmap dll="wnck-1" target="libwnck-1@LIB_PREFIX@.22@LIB_SUFFIX@"/>
+</configuration>

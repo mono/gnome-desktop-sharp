@@ -1,3 +1,10 @@
+2008-01-08  Mike Kestner  <mkestner@novell.com>
+
+	* Makefile.am: add wnck.
+	* configure.in: wnck configuration.
+	* sources/sources-2.20.xml: parse wnck.
+	* nautilusburn/*: initial pass at wnck bindings.
+
 2007-12-17  Mike Kestner  <mkestner@novell.com>
 
 	* Makefile.am: add nautilusburn.

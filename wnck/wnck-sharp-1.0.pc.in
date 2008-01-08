@@ -1,0 +1,13 @@
+prefix=${pcfiledir}/../..
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+gapidir=${prefix}/share/wnck-sharp/2.20
+assemblies_dir=${libdir}/mono/wnck-sharp-2.20
+
+
+Name: Wnck#
+Description: Wnck# - libwnck .NET Binding
+Version: @VERSION@
+Requires: gtk-sharp-2.0
+Cflags: -I:${gapidir}/wnck-api.xml
+Libs: -r:${assemblies_dir}/wnck-sharp.dll
