@@ -1,6 +1,6 @@
 pkg = gnomedesktop
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = gnomedesktop-sharp-2.20.pc
+pkgconfig_DATA = gnome-desktop-sharp-2.0.pc
 pkgversion = 2.20
 
 API_VERSION = 2.20.0.0
@@ -12,7 +12,7 @@ sources =
 
 customs =
 
-add_dist = gnomedesktop-sharp-2.20.pc.in gnomedesktop-sharp.dll.config.in
+add_dist = gnome-desktop-sharp-2.0.pc.in gnomedesktop-sharp.dll.config.in
 
 include ../Makefile.include
 

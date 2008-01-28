@@ -157,8 +157,9 @@ AC_SUBST(GAPI_FIXUP)
 
 ## Versions of dependencies
 GNOME_REQUIRED_VERSION=2.20.0
+GNOME_SHARP_REQUIRED_VERSION=2.19.0
 
-PKG_CHECK_MODULES(GNOMESHARP, gnome-sharp-2.0 >= $GNOME_REQUIRED_VERSION, enable_gnome=yes, enable_gnome=no)
+PKG_CHECK_MODULES(GNOMESHARP, gnome-sharp-2.0 >= $GNOME_SHARP_REQUIRED_VERSION, enable_gnome=yes, enable_gnome=no)
 AC_SUBST(GNOMESHARP_CFLAGS)
 AC_SUBST(GNOMESHARP_LIBS)
 
@@ -204,7 +205,7 @@ Makefile
 sources/Makefile
 gnomedesktop/Makefile
 gnomedesktop/gnomedesktop-sharp.dll.config
-gnomedesktop/gnomedesktop-sharp-2.20.pc
+gnomedesktop/gnome-desktop-sharp-2.0.pc
 nautilusburn/Makefile
 nautilusburn/nautilusburn-sharp.dll.config
 nautilusburn/nautilusburn-sharp.pc
