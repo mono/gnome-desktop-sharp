@@ -1,5 +1,9 @@
 2008-01-28  Mike Kestner  <mkestner@novell.com>
 
+	* configure.in: bump svn version.
+
+2008-01-28  Mike Kestner  <mkestner@novell.com>
+
 	* configure.in: correct gnome-sharp check
 	Patch from Götz Waschk.  [Fixes #356646]
 
