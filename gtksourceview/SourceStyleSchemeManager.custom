@@ -1,0 +1,20 @@
+		
+		[DllImport("gtksourceview-2.0")]
+		static extern IntPtr gtk_source_style_scheme_manager_get_search_path(IntPtr raw);
+
+		[DllImport("gtksourceview-2.0")]
+		static extern void gtk_source_style_scheme_manager_set_search_path(IntPtr raw, IntPtr[] dirs);
+
+		[GLib.Property ("search-path")]
+		public string[] SearchPath {
+			get  {
+				IntPtr raw_ret = gtk_source_style_scheme_manager_get_search_path(Handle);
+				return SourceLanguageManager.PointerToStringArray (raw_ret);
+			}
+			set  {
+				IntPtr[] ptrs = SourceLanguageManager.StringArrayToNullTermPointer (value);
+				gtk_source_style_scheme_manager_set_search_path(Handle, ptrs);
+				foreach (IntPtr ptr in ptrs)
+					GLib.Marshaller.Free (ptr);
+			}
+		}

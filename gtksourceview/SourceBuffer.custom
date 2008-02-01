@@ -1,0 +1,64 @@
+//
+// Gtk.SourceView.custom - Gtk SourceView class customizations
+//
+// Author: Aleksey Sanin (aleksey@aleksey.com)
+//
+// Copyright (C) 2003 Aleksey Sanin
+//
+// This code is inserted after the automatically generated code.
+//
+
+
+[DllImport("gtksourceview-2.0")]
+static extern bool gtk_source_iter_forward_search(ref Gtk.TextIter _iter, 
+						 string _str,
+						 int _flags,
+						 out Gtk.TextIter _match_start,
+						 out Gtk.TextIter _match_end,
+						 ref Gtk.TextIter _limit);
+public bool ForwardSearch (Gtk.TextIter iter, string str, GtkSourceView.SourceSearchFlags flags, 
+			   out Gtk.TextIter match_start, out Gtk.TextIter match_end, Gtk.TextIter limit) {
+	bool raw_ret = gtk_source_iter_forward_search(ref iter, str, (int) flags, out match_start, out match_end, ref limit);
+	bool ret = raw_ret;
+	return ret;
+}
+
+
+
+[DllImport("gtksourceview-2.0")]
+static extern bool gtk_source_iter_backward_search(ref Gtk.TextIter _iter, 
+						 string _str,
+						 int _flags,
+						 out Gtk.TextIter _match_start,
+						 out Gtk.TextIter _match_end,
+						 ref Gtk.TextIter _limit);
+public bool BackwardSearch (Gtk.TextIter iter, string str, GtkSourceView.SourceSearchFlags flags, 
+			   out Gtk.TextIter match_start, out Gtk.TextIter match_end, Gtk.TextIter limit) {
+	bool raw_ret = gtk_source_iter_backward_search(ref iter, str, (int) flags, out match_start, out match_end, ref limit);
+	bool ret = raw_ret;
+	return ret;
+}
+
+
+[DllImport("gtksourceview-2.0")]
+static extern IntPtr gtk_source_buffer_new_with_language(IntPtr language);
+
+//need to check whether the language is null, or we get a bad SourceBuffer object, 
+//and everything goes downhill from there
+public SourceBuffer (GtkSourceView.SourceLanguage language) : base (IntPtr.Zero)
+{
+	if (language == null)
+		throw new ArgumentNullException("language");
+	
+	if (GetType () != typeof (SourceBuffer)) {
+		ArrayList vals = new ArrayList();
+		ArrayList names = new ArrayList();
+		if (language != null) {
+			names.Add ("language");
+			vals.Add (new GLib.Value (language));
+		}
+		CreateNativeObject ((string[])names.ToArray (typeof (string)), (GLib.Value[])vals.ToArray (typeof (GLib.Value)));
+		return;
+	}
+	Raw = gtk_source_buffer_new_with_language(language == null ? IntPtr.Zero : language.Handle);
+}
