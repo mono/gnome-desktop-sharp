@@ -1,0 +1,574 @@
+<Type Name="SourceBuffer" FullName="GtkSourceView.SourceBuffer">
+  <TypeSignature Language="C#" Value="public class SourceBuffer : Gtk.TextBuffer, IWrapper, IDisposable" Maintainer="auto" />
+  <AssemblyInfo>
+    <AssemblyName>gtksourceview-sharp</AssemblyName>
+    <AssemblyPublicKey>
+    </AssemblyPublicKey>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <AssemblyCulture>neutral</AssemblyCulture>
+    <Attributes />
+  </AssemblyInfo>
+  <ThreadSafetyStatement>Gtk# is thread aware, but not thread safe; See the <link location="node:gtk-sharp/programming/threads">Gtk# Thread Programming</link> for details.</ThreadSafetyStatement>
+  <Docs>
+    <summary>Text buffer for <see cref="T:GtkSourceView.SourceView" />.</summary>
+    <remarks>The SourceBuffer class is the model for <see cref="T:GtkSourceView.SourceView" /> widgets. It extends the <see cref="T:Gtk.TextBuffer" /> class by adding features necessary to display and edit source code: syntax highlighting, bracket matching and markers. It also implements support for undo/redo operations.
+
+By default highlighting is enabled, but you can disable it with <see cref="P:GtkSourceView.SourceBuffer.Highlight" />. This can be useful if you're not using <see cref="T:GtkSourceView.SourceLanguage" /> classes to set the highlighting patterns, and instead you're manually adding <see cref="T:GtkSourceView.SourceTag" /> classes  to the buffer's tag table. </remarks>
+  </Docs>
+  <Base>
+    <BaseTypeName>Gtk.TextBuffer</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>GLib.IWrapper</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.IDisposable</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes />
+  <Members>
+    <Member MemberName="Finalize">
+      <MemberSignature Language="C#" Value="protected override void Finalize ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCanUndoFired">
+      <MemberSignature Language="C#" Value="protected virtual void OnCanUndoFired (bool can_undo);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="can_undo" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="can_undo">a <see cref="T:System.Boolean" /></param>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnHighlightUpdated">
+      <MemberSignature Language="C#" Value="protected virtual void OnHighlightUpdated (Gtk.TextIter start, Gtk.TextIter end);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="start" Type="Gtk.TextIter" />
+        <Parameter Name="end" Type="Gtk.TextIter" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="start">a <see cref="T:Gtk.TextIter" /></param>
+        <param name="end">a <see cref="T:Gtk.TextIter" /></param>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnCanRedoFired">
+      <MemberSignature Language="C#" Value="protected virtual void OnCanRedoFired (bool can_redo);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="can_redo" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="can_redo">a <see cref="T:System.Boolean" /></param>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnMarkerUpdated">
+      <MemberSignature Language="C#" Value="protected virtual void OnMarkerUpdated (Gtk.TextIter where);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="where" Type="Gtk.TextIter" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="where">a <see cref="T:Gtk.TextIter" /></param>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CanRedo">
+      <MemberSignature Language="C#" Value="public bool CanRedo ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <returns>a <see cref="T:System.Boolean" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EndNotUndoableAction">
+      <MemberSignature Language="C#" Value="public void EndNotUndoableAction ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BeginNotUndoableAction">
+      <MemberSignature Language="C#" Value="public void BeginNotUndoableAction ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MoveMarker">
+      <MemberSignature Language="C#" Value="public void MoveMarker (GtkSourceView.SourceMarker marker, Gtk.TextIter where);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="marker" Type="GtkSourceView.SourceMarker" />
+        <Parameter Name="where" Type="Gtk.TextIter" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="marker">a <see cref="T:GtkSourceView.SourceMarker" /></param>
+        <param name="where">a <see cref="T:Gtk.TextIter" /></param>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetIterAtMarker">
+      <MemberSignature Language="C#" Value="public void GetIterAtMarker (Gtk.TextIter iter, GtkSourceView.SourceMarker marker);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="iter" Type="Gtk.TextIter" />
+        <Parameter Name="marker" Type="GtkSourceView.SourceMarker" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="iter">a <see cref="T:Gtk.TextIter" /></param>
+        <param name="marker">a <see cref="T:GtkSourceView.SourceMarker" /></param>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetNextMarker">
+      <MemberSignature Language="C#" Value="public GtkSourceView.SourceMarker GetNextMarker (Gtk.TextIter iter);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>GtkSourceView.SourceMarker</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="iter" Type="Gtk.TextIter" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="iter">a <see cref="T:Gtk.TextIter" /></param>
+        <returns>a <see cref="T:GtkSourceView.SourceMarker" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CanUndo">
+      <MemberSignature Language="C#" Value="public bool CanUndo ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <returns>a <see cref="T:System.Boolean" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetPrevMarker">
+      <MemberSignature Language="C#" Value="public GtkSourceView.SourceMarker GetPrevMarker (Gtk.TextIter iter);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>GtkSourceView.SourceMarker</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="iter" Type="Gtk.TextIter" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="iter">a <see cref="T:Gtk.TextIter" /></param>
+        <returns>a <see cref="T:GtkSourceView.SourceMarker" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Redo">
+      <MemberSignature Language="C#" Value="public void Redo ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Undo">
+      <MemberSignature Language="C#" Value="public void Undo ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DeleteMarker">
+      <MemberSignature Language="C#" Value="public void DeleteMarker (GtkSourceView.SourceMarker marker);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="marker" Type="GtkSourceView.SourceMarker" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="marker">a <see cref="T:GtkSourceView.SourceMarker" /></param>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetMarker">
+      <MemberSignature Language="C#" Value="public GtkSourceView.SourceMarker GetMarker (string name);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>GtkSourceView.SourceMarker</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="name">a <see cref="T:System.String" /></param>
+        <returns>a <see cref="T:GtkSourceView.SourceMarker" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CreateMarker">
+      <MemberSignature Language="C#" Value="public GtkSourceView.SourceMarker CreateMarker (string name, string type, Gtk.TextIter where);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>GtkSourceView.SourceMarker</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="type" Type="System.String" />
+        <Parameter Name="where" Type="Gtk.TextIter" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="name">a <see cref="T:System.String" /></param>
+        <param name="type">a <see cref="T:System.String" /></param>
+        <param name="where">a <see cref="T:Gtk.TextIter" /></param>
+        <returns>a <see cref="T:GtkSourceView.SourceMarker" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ForwardSearch">
+      <MemberSignature Language="C#" Value="public bool ForwardSearch (Gtk.TextIter iter, string str, GtkSourceView.SourceSearchFlags flags, out Gtk.TextIter match_start, out Gtk.TextIter match_end, Gtk.TextIter limit);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="iter" Type="Gtk.TextIter" />
+        <Parameter Name="str" Type="System.String" />
+        <Parameter Name="flags" Type="GtkSourceView.SourceSearchFlags" />
+        <Parameter Name="match_start" Type="Gtk.TextIter&amp;" RefType="out" />
+        <Parameter Name="match_end" Type="Gtk.TextIter&amp;" RefType="out" />
+        <Parameter Name="limit" Type="Gtk.TextIter" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="iter">a <see cref="T:Gtk.TextIter" /></param>
+        <param name="str">a <see cref="T:System.String" /></param>
+        <param name="flags">a <see cref="T:System.Int32" /></param>
+        <param name="match_start">a <see cref="T:Gtk.TextIter" /></param>
+        <param name="match_end">a <see cref="T:Gtk.TextIter" /></param>
+        <param name="limit">a <see cref="T:Gtk.TextIter" /></param>
+        <returns>a <see cref="T:System.Boolean" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BackwardSearch">
+      <MemberSignature Language="C#" Value="public bool BackwardSearch (Gtk.TextIter iter, string str, GtkSourceView.SourceSearchFlags flags, out Gtk.TextIter match_start, out Gtk.TextIter match_end, Gtk.TextIter limit);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="iter" Type="Gtk.TextIter" />
+        <Parameter Name="str" Type="System.String" />
+        <Parameter Name="flags" Type="GtkSourceView.SourceSearchFlags" />
+        <Parameter Name="match_start" Type="Gtk.TextIter&amp;" RefType="out" />
+        <Parameter Name="match_end" Type="Gtk.TextIter&amp;" RefType="out" />
+        <Parameter Name="limit" Type="Gtk.TextIter" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="iter">a <see cref="T:Gtk.TextIter" /></param>
+        <param name="str">a <see cref="T:System.String" /></param>
+        <param name="flags">a <see cref="T:System.Int32" /></param>
+        <param name="match_start">a <see cref="T:Gtk.TextIter" /></param>
+        <param name="match_end">a <see cref="T:Gtk.TextIter" /></param>
+        <param name="limit">a <see cref="T:Gtk.TextIter" /></param>
+        <returns>a <see cref="T:System.Boolean" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected SourceBuffer (GLib.GType gtype);" />
+      <MemberType>Constructor</MemberType>
+      <ReturnValue />
+      <Parameters>
+        <Parameter Name="gtype" Type="GLib.GType" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="gtype">a <see cref="T:GLib.GType" /></param>
+        <returns>a <see cref="T:GtkSourceView.SourceBuffer" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public SourceBuffer (IntPtr raw);" />
+      <MemberType>Constructor</MemberType>
+      <ReturnValue />
+      <Parameters>
+        <Parameter Name="raw" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="raw">a <see cref="T:System.IntPtr" /></param>
+        <returns>a <see cref="T:GtkSourceView.SourceBuffer" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public SourceBuffer (GtkSourceView.SourceTagTable table);" />
+      <MemberType>Constructor</MemberType>
+      <ReturnValue />
+      <Parameters>
+        <Parameter Name="table" Type="GtkSourceView.SourceTagTable" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="table">a <see cref="T:GtkSourceView.SourceTagTable" /></param>
+        <returns>a <see cref="T:GtkSourceView.SourceBuffer" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public SourceBuffer (GtkSourceView.SourceLanguage language);" />
+      <MemberType>Constructor</MemberType>
+      <ReturnValue />
+      <Parameters>
+        <Parameter Name="language" Type="GtkSourceView.SourceLanguage" />
+      </Parameters>
+      <Docs>
+        <summary>Creates a new SourceBuffer with a specified source language.</summary>
+        <param name="language">a <see cref="T:GtkSourceView.SourceLanguage" /></param>
+        <returns>a <see cref="T:GtkSourceView.SourceBuffer" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GType">
+      <MemberSignature Language="C#" Value="public static GLib.GType GType { get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue>
+        <ReturnType>GLib.GType</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <returns>a <see cref="T:GLib.GType" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MaxUndoLevels">
+      <MemberSignature Language="C#" Value="public int MaxUndoLevels { set; get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <returns>a <see cref="T:System.Int32" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CheckBrackets">
+      <MemberSignature Language="C#" Value="public bool CheckBrackets { set; get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Controls the bracket match highlighting function in the buffer.If true, when you position your cursor over a bracket character (a parenthesis, a square bracket, etc.) the matching opening or closing bracket character will be highlighted. You can specify the style with <see cref="P:GtkSourceView.SourceBuffer.BracketMatchStyle" />.</summary>
+        <returns>True if the bracket matching is enabled, false is disabled.</returns>
+        <remarks>None</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Highlight">
+      <MemberSignature Language="C#" Value="public bool Highlight { set; get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Enable and disable highlight of the source language.</summary>
+        <returns>a <see cref="T:System.Boolean" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Language">
+      <MemberSignature Language="C#" Value="public GtkSourceView.SourceLanguage Language { set; get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue>
+        <ReturnType>GtkSourceView.SourceLanguage</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Sets and gets the source language.</summary>
+        <returns>a <see cref="T:GtkSourceView.SourceLanguage" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FirstMarker">
+      <MemberSignature Language="C#" Value="public GtkSourceView.SourceMarker FirstMarker { get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue>
+        <ReturnType>GtkSourceView.SourceMarker</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <returns>a <see cref="T:GtkSourceView.SourceMarker" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BracketMatchStyle">
+      <MemberSignature Language="C#" Value="public GtkSourceView.SourceTagStyle BracketMatchStyle { set; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue>
+        <ReturnType>GtkSourceView.SourceTagStyle</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added</summary>
+        <returns>a <see cref="T:GtkSourceView.SourceTagStyle" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="LastMarker">
+      <MemberSignature Language="C#" Value="public GtkSourceView.SourceMarker LastMarker { get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue>
+        <ReturnType>GtkSourceView.SourceMarker</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <returns>a <see cref="T:GtkSourceView.SourceMarker" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CanUndoFired">
+      <MemberSignature Language="C#" Value="public event GtkSourceView.CanUndoFiredHandler CanUndoFired;" />
+      <MemberType>Event</MemberType>
+      <ReturnValue>
+        <ReturnType>GtkSourceView.CanUndoFiredHandler</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HighlightUpdated">
+      <MemberSignature Language="C#" Value="public event GtkSourceView.HighlightUpdatedHandler HighlightUpdated;" />
+      <MemberType>Event</MemberType>
+      <ReturnValue>
+        <ReturnType>GtkSourceView.HighlightUpdatedHandler</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CanRedoFired">
+      <MemberSignature Language="C#" Value="public event GtkSourceView.CanRedoFiredHandler CanRedoFired;" />
+      <MemberType>Event</MemberType>
+      <ReturnValue>
+        <ReturnType>GtkSourceView.CanRedoFiredHandler</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MarkerUpdated">
+      <MemberSignature Language="C#" Value="public event GtkSourceView.MarkerUpdatedHandler MarkerUpdated;" />
+      <MemberType>Event</MemberType>
+      <ReturnValue>
+        <ReturnType>GtkSourceView.MarkerUpdatedHandler</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetMarkersInRegion">
+      <MemberSignature Language="C#" Value="public GtkSourceView.SourceMarker[] GetMarkersInRegion (Gtk.TextIter begin, Gtk.TextIter end);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>GtkSourceView.SourceMarker[]</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="begin" Type="Gtk.TextIter" />
+        <Parameter Name="end" Type="Gtk.TextIter" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="begin">a <see cref="T:Gtk.TextIter" /></param>
+        <param name="end">a <see cref="T:Gtk.TextIter" /></param>
+        <returns>a <see cref="T:GtkSourceView.SourceMarker[]" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

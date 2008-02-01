@@ -1,0 +1,192 @@
+<Type Name="TextRegion" FullName="GtkSourceView.TextRegion">
+  <TypeSignature Language="C#" Value="public class TextRegion : GLib.Opaque, IWrapper" Maintainer="auto" />
+  <AssemblyInfo>
+    <AssemblyName>gtksourceview-sharp</AssemblyName>
+    <AssemblyPublicKey>
+    </AssemblyPublicKey>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <AssemblyCulture>neutral</AssemblyCulture>
+    <Attributes />
+  </AssemblyInfo>
+  <ThreadSafetyStatement>Gtk# is thread aware, but not thread safe; See the <link location="node:gtk-sharp/programming/threads">Gtk# Thread Programming</link> for details.</ThreadSafetyStatement>
+  <Docs>
+    <summary>To be added</summary>
+    <remarks>To be added</remarks>
+  </Docs>
+  <Base>
+    <BaseTypeName>GLib.Opaque</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>GLib.IWrapper</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes />
+  <Members>
+    <Member MemberName="Substract">
+      <MemberSignature Language="C#" Value="public void Substract (Gtk.TextIter _start, Gtk.TextIter _end);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="_start" Type="Gtk.TextIter" />
+        <Parameter Name="_end" Type="Gtk.TextIter" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="_start">a <see cref="T:Gtk.TextIter" /></param>
+        <param name="_end">a <see cref="T:Gtk.TextIter" /></param>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ClearZeroLengthSubregions">
+      <MemberSignature Language="C#" Value="public void ClearZeroLengthSubregions ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NthSubregion">
+      <MemberSignature Language="C#" Value="public bool NthSubregion (uint subregion, Gtk.TextIter start, Gtk.TextIter end);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="subregion" Type="System.UInt32" />
+        <Parameter Name="start" Type="Gtk.TextIter" />
+        <Parameter Name="end" Type="Gtk.TextIter" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="subregion">a <see cref="T:System.UInt32" /></param>
+        <param name="start">a <see cref="T:Gtk.TextIter" /></param>
+        <param name="end">a <see cref="T:Gtk.TextIter" /></param>
+        <returns>a <see cref="T:System.Boolean" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DebugPrint">
+      <MemberSignature Language="C#" Value="public void DebugPrint ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Intersect">
+      <MemberSignature Language="C#" Value="public GtkSourceView.TextRegion Intersect (Gtk.TextIter _start, Gtk.TextIter _end);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>GtkSourceView.TextRegion</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="_start" Type="Gtk.TextIter" />
+        <Parameter Name="_end" Type="Gtk.TextIter" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="_start">a <see cref="T:Gtk.TextIter" /></param>
+        <param name="_end">a <see cref="T:Gtk.TextIter" /></param>
+        <returns>a <see cref="T:GtkSourceView.TextRegion" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Destroy">
+      <MemberSignature Language="C#" Value="public void Destroy (bool delete_marks);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="delete_marks" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="delete_marks">a <see cref="T:System.Boolean" /></param>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Add">
+      <MemberSignature Language="C#" Value="public void Add (Gtk.TextIter _start, Gtk.TextIter _end);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="_start" Type="Gtk.TextIter" />
+        <Parameter Name="_end" Type="Gtk.TextIter" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="_start">a <see cref="T:Gtk.TextIter" /></param>
+        <param name="_end">a <see cref="T:Gtk.TextIter" /></param>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Subregions">
+      <MemberSignature Language="C#" Value="public int Subregions ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <returns>a <see cref="T:System.Int32" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public TextRegion (IntPtr raw);" />
+      <MemberType>Constructor</MemberType>
+      <ReturnValue />
+      <Parameters>
+        <Parameter Name="raw" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="raw">a <see cref="T:System.IntPtr" /></param>
+        <returns>a <see cref="T:GtkSourceView.TextRegion" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public TextRegion (Gtk.TextBuffer buffer);" />
+      <MemberType>Constructor</MemberType>
+      <ReturnValue />
+      <Parameters>
+        <Parameter Name="buffer" Type="Gtk.TextBuffer" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="buffer">a <see cref="T:Gtk.TextBuffer" /></param>
+        <returns>a <see cref="T:GtkSourceView.TextRegion" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Buffer">
+      <MemberSignature Language="C#" Value="public Gtk.TextBuffer Buffer { get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue>
+        <ReturnType>Gtk.TextBuffer</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <returns>a <see cref="T:Gtk.TextBuffer" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

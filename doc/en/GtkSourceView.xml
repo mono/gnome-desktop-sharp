@@ -1,0 +1,13 @@
+<Namespace Name="GtkSourceView" FullName="GtkSourceView" FullNameSP="GtkSourceView" Maintainer="Mono">
+  <Docs>
+    <summary>GtkSourceView binding for .NET.</summary>
+    <remarks>
+      <para>
+	Gst is a library for syntax highlighted and other extended
+	text editing features.  GtkSourceView is released under the
+	GNU Library General Public License (GNU LGPL), which allows
+	for flexible licensing of client applications.
+      </para>
+    </remarks>
+  </Docs>
+</Namespace>

@@ -1,0 +1,384 @@
+<Type Name="SourceView" FullName="GtkSourceView.SourceView">
+  <TypeSignature Language="C#" Value="public class SourceView : Gtk.TextView, Implementor, IWrapper, IDisposable" Maintainer="auto" />
+  <AssemblyInfo>
+    <AssemblyName>gtksourceview-sharp</AssemblyName>
+    <AssemblyPublicKey>
+    </AssemblyPublicKey>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <AssemblyCulture>neutral</AssemblyCulture>
+    <Attributes />
+  </AssemblyInfo>
+  <ThreadSafetyStatement>Gtk# is thread aware, but not thread safe; See the <link location="node:gtk-sharp/programming/threads">Gtk# Thread Programming</link> for details.</ThreadSafetyStatement>
+  <Docs>
+    <summary>This class extends <see cref="T:Gtk.TextView" />, adding support for syntax highlighting.</summary>
+    <remarks>
+      <para>In order to be useful, the internal <see cref="T:GtkSourceView.SourceBuffer" /> must have a <see cref="T:GtkSourceView.SourceLanguage" /> assigned to it. The default languages are stored in a <see cref="T:GtkSourceView.SourceLanguagesManager" />.</para>
+      <example>
+        <para>The following example creates an editor that highlights C# code.</para>
+        <code lang="C#">using Gtk;
+using GtkSourceView;
+
+public class SourceViewExample
+{
+	public static void Main ()
+	{
+		// Initialize GTK.
+		Application.Init ();
+		
+		// Create a containing window.
+		Window window = new Window ("SourceView Example");
+		window.DeleteEvent += OnDelete;
+		window.SetDefaultSize (400, 300);
+		
+		// Create the language manager.
+		SourceLanguagesManager manager = new SourceLanguagesManager ();
+		
+		// Get the C# source language definition.
+		SourceLanguage language = manager.GetLanguageFromMimeType ("text/x-csharp");
+		
+		// Create a buffer for the language and enable highlighting.
+		SourceBuffer buffer = new SourceBuffer (language);
+		buffer.Highlight = true;
+		
+		// Create a view for the buffer.
+		SourceView view = new SourceView (buffer);
+		
+		// Create a scrolled window and add the view.
+		ScrolledWindow scrolled_window = new ScrolledWindow ();
+		scrolled_window.Add (view);
+		
+		// Add the scrolled window to the window and show it.
+		window.Add (scrolled_window);
+		window.ShowAll ();
+		
+		// Run the application.
+		Application.Run ();
+	}
+	
+	// Quit when the window is closed.
+	static void OnDelete (object o, DeleteEventArgs e)
+	{
+		Application.Quit ();
+	}
+}</code>
+      </example>
+    </remarks>
+  </Docs>
+  <Base>
+    <BaseTypeName>Gtk.TextView</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Atk.Implementor</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>GLib.IWrapper</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.IDisposable</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes />
+  <Members>
+    <Member MemberName="Gettext">
+      <MemberSignature Language="C#" Value="public static string Gettext (string msgid);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="msgid" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="msgid">a <see cref="T:System.String" /></param>
+        <returns>a <see cref="T:System.String" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Finalize">
+      <MemberSignature Language="C#" Value="protected override void Finalize ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnRedo">
+      <MemberSignature Language="C#" Value="protected virtual void OnRedo ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnUndo">
+      <MemberSignature Language="C#" Value="protected virtual void OnUndo ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetMarkerPixbuf">
+      <MemberSignature Language="C#" Value="public Gdk.Pixbuf GetMarkerPixbuf (string marker_type);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>Gdk.Pixbuf</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="marker_type" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="marker_type">a <see cref="T:System.String" /></param>
+        <returns>a <see cref="T:Gdk.Pixbuf" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetMarkerPixbuf">
+      <MemberSignature Language="C#" Value="public void SetMarkerPixbuf (string marker_type, Gdk.Pixbuf pixbuf);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="marker_type" Type="System.String" />
+        <Parameter Name="pixbuf" Type="Gdk.Pixbuf" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="marker_type">a <see cref="T:System.String" /></param>
+        <param name="pixbuf">a <see cref="T:Gdk.Pixbuf" /></param>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected SourceView (GLib.GType gtype);" />
+      <MemberType>Constructor</MemberType>
+      <ReturnValue />
+      <Parameters>
+        <Parameter Name="gtype" Type="GLib.GType" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="gtype">a <see cref="T:GLib.GType" /></param>
+        <returns>a <see cref="T:GtkSourceView.SourceView" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public SourceView (IntPtr raw);" />
+      <MemberType>Constructor</MemberType>
+      <ReturnValue />
+      <Parameters>
+        <Parameter Name="raw" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="raw">a <see cref="T:System.IntPtr" /></param>
+        <returns>a <see cref="T:GtkSourceView.SourceView" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public SourceView ();" />
+      <MemberType>Constructor</MemberType>
+      <ReturnValue />
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <returns>a <see cref="T:GtkSourceView.SourceView" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public SourceView (GtkSourceView.SourceBuffer buffer);" />
+      <MemberType>Constructor</MemberType>
+      <ReturnValue />
+      <Parameters>
+        <Parameter Name="buffer" Type="GtkSourceView.SourceBuffer" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="buffer">a <see cref="T:GtkSourceView.SourceBuffer" /></param>
+        <returns>a <see cref="T:GtkSourceView.SourceView" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GType">
+      <MemberSignature Language="C#" Value="public static GLib.GType GType { get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue>
+        <ReturnType>GLib.GType</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <returns>a <see cref="T:GLib.GType" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AutoIndent">
+      <MemberSignature Language="C#" Value="public bool AutoIndent { set; get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Remembering indentation on a new line.</summary>
+        <returns>a <see cref="T:System.Boolean" /></returns>
+        <remarks>Remembering indentation on a new line.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShowMargin">
+      <MemberSignature Language="C#" Value="public bool ShowMargin { set; get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Show the print margin.</summary>
+        <returns>a <see cref="T:System.Boolean" /></returns>
+        <remarks>Show the print margin, which can be altered by changing the value of <see cref="E:GtkSourceView.SourceView.Margin" />.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="InsertSpacesInsteadOfTabs">
+      <MemberSignature Language="C#" Value="public bool InsertSpacesInsteadOfTabs { set; get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Insert spaces instead of tab characters.</summary>
+        <returns>a <see cref="T:System.Boolean" /></returns>
+        <remarks>
+          <para>
+Insert spaces instead of tab characters.
+</para>
+          <example>
+            <code lang="C#">GtkSourceView.SourceView Source = new GtkSourceView.SourceView();
+Source.ShowLineNumbers = true;
+
+// Tabs become 8 spaces:
+Source.TabsWidth = 8;</code>
+          </example>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Margin">
+      <MemberSignature Language="C#" Value="public uint Margin { set; get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Size of the print margin in characters.</summary>
+        <returns>a <see cref="T:System.UInt32" /></returns>
+        <remarks>Size of the print margin in characters. Must be enabled with <see cref="E:GtkSourceView.SourceView.ShowMargin" />.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TabsWidth">
+      <MemberSignature Language="C#" Value="public uint TabsWidth { set; get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue>
+        <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Width that tab characters are drawn.</summary>
+        <returns>a <see cref="T:System.UInt32" /></returns>
+        <remarks>
+          <para>
+How wide tab characters are drawn, or how many spaces to use when <see cref="E:GtkSourceView.SourceView.InsertSpacesInsteadOfTabs" /> is used.
+</para>
+          <example>
+            <code lang="C#">GtkSourceView.SourceView Source = new GtkSourceView.SourceView();
+
+// Tabs become 8 characters wide:
+Source.TabsWidth = 8;</code>
+          </example>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SmartHomeEnd">
+      <MemberSignature Language="C#" Value="public bool SmartHomeEnd { set; get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Changes the behaviour of the Home  key.</summary>
+        <returns>a <see cref="T:System.Boolean" /></returns>
+        <remarks>The Home key alternates between the start of the line and the start of the text.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShowLineNumbers">
+      <MemberSignature Language="C#" Value="public bool ShowLineNumbers { set; get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Show line numbering.</summary>
+        <returns>a <see cref="T:System.Boolean" /></returns>
+        <remarks>Show line numbering.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShowLineMarkers">
+      <MemberSignature Language="C#" Value="public bool ShowLineMarkers { set; get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <returns>a <see cref="T:System.Boolean" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Redo">
+      <MemberSignature Language="C#" Value="public event EventHandler Redo;" />
+      <MemberType>Event</MemberType>
+      <ReturnValue>
+        <ReturnType>System.EventHandler</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Undo">
+      <MemberSignature Language="C#" Value="public event EventHandler Undo;" />
+      <MemberType>Event</MemberType>
+      <ReturnValue>
+        <ReturnType>System.EventHandler</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

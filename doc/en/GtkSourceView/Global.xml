@@ -1,0 +1,108 @@
+<Type Name="Global" FullName="GtkSourceView.Global">
+  <TypeSignature Language="C#" Value="public class Global" Maintainer="auto" />
+  <AssemblyInfo>
+    <AssemblyName>gtksourceview-sharp</AssemblyName>
+    <AssemblyPublicKey>
+    </AssemblyPublicKey>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <AssemblyCulture>neutral</AssemblyCulture>
+    <Attributes />
+  </AssemblyInfo>
+  <ThreadSafetyStatement>Gtk# is thread aware, but not thread safe; See the <link location="node:gtk-sharp/programming/threads">Gtk# Thread Programming</link> for details.</ThreadSafetyStatement>
+  <Docs>
+    <summary>To be added</summary>
+    <remarks>To be added</remarks>
+  </Docs>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes />
+  <Members>
+    <Member MemberName="LineCommentTagNew">
+      <MemberSignature Language="C#" Value="public static Gtk.TextTag LineCommentTagNew (string id, string name, string pattern_start);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>Gtk.TextTag</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="id" Type="System.String" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="pattern_start" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="id">a <see cref="T:System.String" /></param>
+        <param name="name">a <see cref="T:System.String" /></param>
+        <param name="pattern_start">a <see cref="T:System.String" /></param>
+        <returns>a <see cref="T:Gtk.TextTag" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="StringTagNew">
+      <MemberSignature Language="C#" Value="public static Gtk.TextTag StringTagNew (string id, string name, string pattern_start, string pattern_end, bool end_at_line_end);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>Gtk.TextTag</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="id" Type="System.String" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="pattern_start" Type="System.String" />
+        <Parameter Name="pattern_end" Type="System.String" />
+        <Parameter Name="end_at_line_end" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="id">a <see cref="T:System.String" /></param>
+        <param name="name">a <see cref="T:System.String" /></param>
+        <param name="pattern_start">a <see cref="T:System.String" /></param>
+        <param name="pattern_end">a <see cref="T:System.String" /></param>
+        <param name="end_at_line_end">a <see cref="T:System.Boolean" /></param>
+        <returns>a <see cref="T:Gtk.TextTag" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Global ();" />
+      <MemberType>Constructor</MemberType>
+      <ReturnValue />
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <returns>a <see cref="T:GtkSourceView.Global" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="KeywordListTagNew">
+      <MemberSignature Language="C#" Value="public static Gtk.TextTag KeywordListTagNew (string id, string name, string [] keywords, bool case_sensitive, bool match_empty_string_at_beginning, bool match_empty_string_at_end, string beginning_regex, string end_regex);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>Gtk.TextTag</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="id" Type="System.String" />
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="keywords" Type="System.String[]" />
+        <Parameter Name="case_sensitive" Type="System.Boolean" />
+        <Parameter Name="match_empty_string_at_beginning" Type="System.Boolean" />
+        <Parameter Name="match_empty_string_at_end" Type="System.Boolean" />
+        <Parameter Name="beginning_regex" Type="System.String" />
+        <Parameter Name="end_regex" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="id">a <see cref="T:System.String" /></param>
+        <param name="name">a <see cref="T:System.String" /></param>
+        <param name="keywords">a <see cref="T:System.String" /></param>
+        <param name="case_sensitive">a <see cref="T:System.Boolean" /></param>
+        <param name="match_empty_string_at_beginning">a <see cref="T:System.Boolean" /></param>
+        <param name="match_empty_string_at_end">a <see cref="T:System.Boolean" /></param>
+        <param name="beginning_regex">a <see cref="T:System.String" /></param>
+        <param name="end_regex">a <see cref="T:System.String" /></param>
+        <returns>a <see cref="T:Gtk.TextTag" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

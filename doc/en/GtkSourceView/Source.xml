@@ -1,0 +1,102 @@
+<Type Name="Source" FullName="GtkSourceView.Source">
+  <TypeSignature Language="C#" Value="public class Source" Maintainer="auto" />
+  <AssemblyInfo>
+    <AssemblyName>gtksourceview-sharp</AssemblyName>
+    <AssemblyPublicKey>
+    </AssemblyPublicKey>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <AssemblyCulture>neutral</AssemblyCulture>
+    <Attributes />
+  </AssemblyInfo>
+  <ThreadSafetyStatement>Gtk# is thread aware, but not thread safe; See the <link location="node:gtk-sharp/programming/threads">Gtk# Thread Programming</link> for details.</ThreadSafetyStatement>
+  <Docs>
+    <summary>To be added</summary>
+    <remarks>To be added</remarks>
+  </Docs>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes />
+  <Members>
+    <Member MemberName="IterBackwardSearch">
+      <MemberSignature Language="C#" Value="public static bool IterBackwardSearch (Gtk.TextIter iter, string str, GtkSourceView.SourceSearchFlags flags, Gtk.TextIter match_start, Gtk.TextIter match_end, Gtk.TextIter limit);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="iter" Type="Gtk.TextIter" />
+        <Parameter Name="str" Type="System.String" />
+        <Parameter Name="flags" Type="GtkSourceView.SourceSearchFlags" />
+        <Parameter Name="match_start" Type="Gtk.TextIter" />
+        <Parameter Name="match_end" Type="Gtk.TextIter" />
+        <Parameter Name="limit" Type="Gtk.TextIter" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="iter">a <see cref="T:Gtk.TextIter" /></param>
+        <param name="str">a <see cref="T:System.String" /></param>
+        <param name="flags">a <see cref="T:System.Int32" /></param>
+        <param name="match_start">a <see cref="T:Gtk.TextIter" /></param>
+        <param name="match_end">a <see cref="T:Gtk.TextIter" /></param>
+        <param name="limit">a <see cref="T:Gtk.TextIter" /></param>
+        <returns>a <see cref="T:System.Boolean" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IterForwardSearch">
+      <MemberSignature Language="C#" Value="public static bool IterForwardSearch (Gtk.TextIter iter, string str, GtkSourceView.SourceSearchFlags flags, Gtk.TextIter match_start, Gtk.TextIter match_end, Gtk.TextIter limit);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="iter" Type="Gtk.TextIter" />
+        <Parameter Name="str" Type="System.String" />
+        <Parameter Name="flags" Type="GtkSourceView.SourceSearchFlags" />
+        <Parameter Name="match_start" Type="Gtk.TextIter" />
+        <Parameter Name="match_end" Type="Gtk.TextIter" />
+        <Parameter Name="limit" Type="Gtk.TextIter" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="iter">a <see cref="T:Gtk.TextIter" /></param>
+        <param name="str">a <see cref="T:System.String" /></param>
+        <param name="flags">a <see cref="T:System.Int32" /></param>
+        <param name="match_start">a <see cref="T:Gtk.TextIter" /></param>
+        <param name="match_end">a <see cref="T:Gtk.TextIter" /></param>
+        <param name="limit">a <see cref="T:Gtk.TextIter" /></param>
+        <returns>a <see cref="T:System.Boolean" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IterFindMatchingBracket">
+      <MemberSignature Language="C#" Value="public static bool IterFindMatchingBracket (ref Gtk.TextIter iter);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="iter" Type="Gtk.TextIter&amp;" RefType="ref" />
+      </Parameters>
+      <Docs>
+        <summary>To be added</summary>
+        <param name="iter">a <see cref="T:Gtk.TextIter" /></param>
+        <returns>a <see cref="T:System.Boolean" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Source ();" />
+      <MemberType>Constructor</MemberType>
+      <ReturnValue />
+      <Parameters />
+      <Docs>
+        <summary>To be added</summary>
+        <returns>a <see cref="T:GtkSourceView.Source" /></returns>
+        <remarks>To be added</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
