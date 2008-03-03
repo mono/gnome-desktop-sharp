@@ -1,4 +1,4 @@
-SUBDIRS = sources gnomedesktop nautilusburn rsvg gtkhtml vte wnck #sample 
+SUBDIRS = sources gnomedesktop gtkhtml gtksourceview nautilusburn rsvg vte wnck #sample 
 
 EXTRA_DIST = 			\
 	gtk-sharp.snk		\

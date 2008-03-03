@@ -1,7 +1,7 @@
 AC_INIT(README)
 AC_CANONICAL_SYSTEM
 AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE(gnome-desktop-sharp, 2.19.1)
+AM_INIT_AUTOMAKE(gnome-desktop-sharp, 2.19.2)
 AM_MAINTAINER_MODE
 
 case "$host" in
@@ -182,6 +182,12 @@ PKG_CHECK_MODULES(GTKHTML, libgtkhtml-3.14 >= $GTKHTML_REQUIRED_VERSION, enable_
 AC_SUBST(GTKHTML_CFLAGS)
 AC_SUBST(GTKHTML_LIBS)
 
+GTKSOURCEVIEW_REQUIRED_VERSION=2.0.0
+
+PKG_CHECK_MODULES(GTKSOURCEVIEW, gtksourceview-2.0 >= $GTKSOURCEVIEW_REQUIRED_VERSION, enable_gtksourceview=yes, enable_gtksourceview=no)
+AC_SUBST(GTKSOURCEVIEW_CFLAGS)
+AC_SUBST(GTKSOURCEVIEW_LIBS)
+
 VTE_REQUIRED_VERSION=0.16.9
 
 PKG_CHECK_MODULES(VTE, vte >= $VTE_REQUIRED_VERSION, enable_vte=yes, enable_vte=no)
@@ -193,6 +199,7 @@ AC_SUBST(WNCK_CFLAGS)
 AC_SUBST(WNCK_LIBS)
 
 AM_CONDITIONAL(ENABLE_GTKHTML, test "x$enable_gtkhtml" = "xyes")
+AM_CONDITIONAL(ENABLE_GTKSOURCEVIEW, test "x$enable_gtksourceview" = "xyes")
 AM_CONDITIONAL(ENABLE_NAUTILUSBURN, test "x$enable_nautilusburn" = "xyes")
 AM_CONDITIONAL(ENABLE_RSVG, test "x$enable_rsvg" = "xyes")
 AM_CONDITIONAL(ENABLE_VTE, test "x$enable_vte" = "xyes")
@@ -215,6 +222,9 @@ rsvg/rsvg2-sharp-2.0.pc
 gtkhtml/Makefile
 gtkhtml/gtkhtml-sharp.dll.config
 gtkhtml/gtkhtml-sharp-3.14.pc
+gtksourceview/Makefile
+gtksourceview/gtksourceview2-sharp.dll.config
+gtksourceview/gtksourceview2-sharp.pc
 vte/Makefile
 vte/vte-sharp.dll.config
 vte/vte-sharp-0.16.pc
@@ -236,6 +246,7 @@ echo ""
 echo "   Optional assemblies included in the build:"
 echo ""
 echo "      * gtkhtml-sharp.dll: $enable_gtkhtml"
+echo "      * gtksourceview2-sharp.dll: $enable_gtksourceview"
 echo "      * nautilusburn-sharp.dll: $enable_nautilusburn"
 echo "      * rsvg-sharp.dll: $enable_rsvg"
 echo "      * vte-sharp.dll: $enable_vte"

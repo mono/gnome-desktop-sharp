@@ -135,4 +135,18 @@
       </namespace>
     </library>
   </api>
+  <api filename="../gtksourceview/gtksourceview2-api.raw">
+    <library name="gtksourceview-2.0">
+      <namespace name="Gtk">
+        <directory path="gtksourceview-2.0.0/gtksourceview">
+	  <exclude>gtksourceundomanager.h</exclude>
+	  <exclude>gtktextregion.h</exclude>
+	  <exclude>gtksourceview-i18n.h</exclude>
+	  <exclude>gtksourceview-utils.h</exclude>
+	  <exclude>gtksourcecontextengine.h</exclude>
+	  <exclude>gtksourceengine.h</exclude>
+        </directory>
+      </namespace>
+    </library>
+  </api>
 </gapi-parser-input>

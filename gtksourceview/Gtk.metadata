@@ -1,21 +1,25 @@
 <?xml version="1.0"?>
 <metadata>
+  <attr path="/api/namespace" name="name">GtkSourceView</attr>
+  <attr path="/api/namespace/object" name="disable_gtype_ctor">1</attr>
   <attr path="/api/namespace/object[@cname='GtkSourceBuffer']/constructor[@cname='gtk_source_buffer_new']/*/*[@name='table']" name="property_name">tag-table</attr>
   <attr path="/api/namespace/object[@cname='GtkSourceBuffer']/constructor[@cname='gtk_source_buffer_new_with_language']" name="hidden">1</attr>
-  <attr path="/api/namespace/object[@cname='GtkSourceBuffer']/method[@name='CanRedo']" name="hidden">1</attr>
-  <attr path="/api/namespace/object[@cname='GtkSourceBuffer']/method[@name='CanUndo']" name="hidden">1</attr>
-  <attr path="/api/namespace/object[@cname='GtkSourceUndoManager']/signal[@name='CanRedo']" name="name">CanRedoFired</attr>
-  <attr path="/api/namespace/object[@cname='GtkSourceUndoManager']/signal[@name='CanUndo']" name="name">CanUndoFired</attr>
-  <attr path="//namespace" name="name">GtkSourceView</attr>
-  <attr path="/api/namespace/object[@cname='GtkSourceLanguage']/method[@name='GetMimeTypes']" name="hidden">1</attr>
-  <attr path="/api/namespace/object[@cname='GtkSourceLanguage']/method[@name='GetGlobs']" name="hidden">1</attr>
-  <attr path="/api/namespace/object[@cname='GtkSourceLanguage']/method[@name='GetStyleIds']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='GtkSourceBuffer']/method[@name='CanRedo']" name="name">GetCanRedo</attr>
+  <attr path="/api/namespace/object[@cname='GtkSourceBuffer']/method[@name='CanUndo']" name="name">GetCanUndo</attr>
+  <attr path="/api/namespace/object[@cname='GtkSourceBuffer']/signal[@name='HighlightUpdated']/*/*[@name='p0']" name="type">GtkTextIter*</attr>
+  <attr path="/api/namespace/object[@cname='GtkSourceBuffer']/signal[@name='HighlightUpdated']/*/*[@name='p0']" name="name">start</attr>
+  <attr path="/api/namespace/object[@cname='GtkSourceBuffer']/signal[@name='HighlightUpdated']/*/*[@name='p1']" name="type">GtkTextIter*</attr>
+  <attr path="/api/namespace/object[@cname='GtkSourceBuffer']/signal[@name='HighlightUpdated']/*/*[@name='p1']" name="name">end</attr>
+  <attr path="/api/namespace/object[@cname='GtkSourceLanguage']/method[@name='GetMimeTypes']/return-type" name="null_term_array">1</attr>
+  <attr path="/api/namespace/object[@cname='GtkSourceLanguage']/method[@name='GetMimeTypes']/return-type" name="owned">true</attr>
+  <attr path="/api/namespace/object[@cname='GtkSourceLanguage']/method[@name='GetGlobs']/return-type" name="null_term_array">1</attr>
+  <attr path="/api/namespace/object[@cname='GtkSourceLanguage']/method[@name='GetGlobs']/return-type" name="owned">true</attr>
+  <attr path="/api/namespace/object[@cname='GtkSourceLanguage']/method[@name='GetStyleIds']/return-type" name="null_term_array">1</attr>
+  <attr path="/api/namespace/object[@cname='GtkSourceLanguage']/method[@name='GetStyleIds']/return-type" name="owned">true</attr>
   <attr path="/api/namespace/object[@cname='GtkSourceLanguageManager']/method[@name='GetLanguageIds']" name="hidden">1</attr>
-  <attr path="/api/namespace/object[@cname='GtkSourceLanguageManager']/method[@cname='gtk_source_language_manager_get_search_path']" name="hidden">1</attr>
-  <attr path="/api/namespace/object[@cname='GtkSourceLanguageManager']/method[@cname='gtk_source_language_manager_set_search_path']" name="hidden">1</attr>
-  <attr path="/api/namespace/object[@cname='GtkSourceLanguageManager']/property[@cname='search-path']" name="hidden">1</attr>
-  <attr path="/api/namespace/object[@cname='GtkSourceStyleSchemeManager']/method[@cname='gtk_source_style_scheme_manager_get_search_path']" name="hidden">1</attr>
-  <attr path="/api/namespace/object[@cname='GtkSourceStyleSchemeManager']/method[@cname='gtk_source_style_scheme_manager_set_search_path']" name="hidden">1</attr>
-  <attr path="/api/namespace/object[@cname='GtkSourceStyleSchemeManager']/property[@cname='search-path']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='GtkSourceLanguageManager']/method[@cname='gtk_source_language_manager_get_search_path']/return-type" name="null_term_array">1</attr>
+  <attr path="/api/namespace/object[@cname='GtkSourceLanguageManager']/method[@cname='gtk_source_language_manager_set_search_path']/*/*[@type='gchar**']" name="null_term_array">1</attr>
+  <attr path="/api/namespace/object[@cname='GtkSourceStyleSchemeManager']/method[@cname='gtk_source_style_scheme_manager_get_search_path']/return-type" name="null_term_array">1</attr>
+  <attr path="/api/namespace/object[@cname='GtkSourceStyleSchemeManager']/method[@cname='gtk_source_style_scheme_manager_set_search_path']/*/*[@type='gchar**']" name="null_term_array">1</attr>
   <attr path="/api/namespace/object[@cname='GtkSourceStyleSchemeManager']/method[@name='GetSchemeIds']" name="hidden">1</attr>
 </metadata>

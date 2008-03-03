@@ -7,19 +7,6 @@
 
 -->
   <namespace name="Gtk" library="gtksourceview-2.0">
-    <enum name="SourceContextFlags" cname="GtkSourceContextFlags" type="flags">
-      <member cname="GTK_SOURCE_CONTEXT_EXTEND_PARENT" name="ExtendParent" value="1 &lt;&lt; 0" />
-      <member cname="GTK_SOURCE_CONTEXT_END_PARENT" name="EndParent" value="1 &lt;&lt; 1" />
-      <member cname="GTK_SOURCE_CONTEXT_END_AT_LINE_END" name="EndAtLineEnd" value="1 &lt;&lt; 2" />
-      <member cname="GTK_SOURCE_CONTEXT_FIRST_LINE_ONLY" name="FirstLineOnly" value="1 &lt;&lt; 3" />
-      <member cname="GTK_SOURCE_CONTEXT_ONCE_ONLY" name="OnceOnly" value="1 &lt;&lt; 4" />
-      <member cname="GTK_SOURCE_CONTEXT_STYLE_INSIDE" name="StyleInside" value="1 &lt;&lt; 5" />
-    </enum>
-    <enum name="SourceContextRefOptions" cname="GtkSourceContextRefOptions" type="flags">
-      <member cname="GTK_SOURCE_CONTEXT_IGNORE_STYLE" name="IgnoreStyle" value="1 &lt;&lt; 0" />
-      <member cname="GTK_SOURCE_CONTEXT_OVERRIDE_STYLE" name="OverrideStyle" value="1 &lt;&lt; 1" />
-      <member cname="GTK_SOURCE_CONTEXT_REF_ORIGINAL" name="RefOriginal" value="1 &lt;&lt; 2" />
-    </enum>
     <enum name="SourceSearchFlags" cname="GtkSourceSearchFlags" type="flags">
       <member cname="GTK_SOURCE_SEARCH_VISIBLE_ONLY" name="VisibleOnly" value="1 &lt;&lt; 0" />
       <member cname="GTK_SOURCE_SEARCH_TEXT_ONLY" name="TextOnly" value="1 &lt;&lt; 1" />
@@ -131,50 +118,6 @@
       <method name="Undo" cname="gtk_source_buffer_undo">
         <return-type type="void" />
       </method>
-    </object>
-    <object name="SourceContextEngine" cname="GtkSourceContextEngine" parent="GtkSourceEngine">
-      <field name="Priv" cname="priv" type="GtkSourceContextEnginePrivate*" />
-    </object>
-    <object name="SourceEngine" cname="GtkSourceEngine" parent="GObject">
-      <virtual_method name="AttachBuffer" cname="attach_buffer">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="GtkSourceEngine*" name="engine" />
-          <parameter type="GtkTextBuffer*" name="buffer" />
-        </parameters>
-      </virtual_method>
-      <virtual_method name="TextInserted" cname="text_inserted">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="GtkSourceEngine*" name="engine" />
-          <parameter type="gint" name="start_offset" />
-          <parameter type="gint" name="end_offset" />
-        </parameters>
-      </virtual_method>
-      <virtual_method name="TextDeleted" cname="text_deleted">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="GtkSourceEngine*" name="engine" />
-          <parameter type="gint" name="offset" />
-          <parameter type="gint" name="length" />
-        </parameters>
-      </virtual_method>
-      <virtual_method name="UpdateHighlight" cname="update_highlight">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="GtkSourceEngine*" name="engine" />
-          <parameter type="const-GtkTextIter*" name="start" />
-          <parameter type="const-GtkTextIter*" name="end" />
-          <parameter type="gboolean" name="synchronous" />
-        </parameters>
-      </virtual_method>
-      <virtual_method name="SetStyleScheme" cname="set_style_scheme">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="GtkSourceEngine*" name="engine" />
-          <parameter type="GtkSourceStyleScheme*" name="scheme" />
-        </parameters>
-      </virtual_method>
     </object>
     <object name="SourceLanguage" cname="GtkSourceLanguage" parent="GObject">
       <field name="Priv" cname="priv" type="GtkSourceLanguagePrivate*" />
@@ -347,58 +290,6 @@
         </parameters>
       </method>
     </object>
-    <object name="SourceUndoManager" cname="GtkSourceUndoManager" parent="GObject">
-      <field name="Priv" cname="priv" type="GtkSourceUndoManagerPrivate*" />
-      <signal name="CanUndo" cname="can_undo" when="LAST">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="GtkSourceUndoManager*" name="um" />
-          <parameter type="gboolean" name="can_undo" />
-        </parameters>
-      </signal>
-      <signal name="CanRedo" cname="can_redo" when="LAST">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="GtkSourceUndoManager*" name="um" />
-          <parameter type="gboolean" name="can_redo" />
-        </parameters>
-      </signal>
-      <method name="BeginNotUndoableAction" cname="gtk_source_undo_manager_begin_not_undoable_action">
-        <return-type type="void" />
-      </method>
-      <method name="CanRedo" cname="gtk_source_undo_manager_can_redo">
-        <return-type type="gboolean" />
-      </method>
-      <method name="CanUndo" cname="gtk_source_undo_manager_can_undo">
-        <return-type type="gboolean" />
-      </method>
-      <method name="EndNotUndoableAction" cname="gtk_source_undo_manager_end_not_undoable_action">
-        <return-type type="void" />
-      </method>
-      <method name="GetMaxUndoLevels" cname="gtk_source_undo_manager_get_max_undo_levels">
-        <return-type type="gint" />
-      </method>
-      <method name="GetType" cname="gtk_source_undo_manager_get_type" shared="true">
-        <return-type type="GType" />
-      </method>
-      <constructor cname="gtk_source_undo_manager_new">
-        <parameters>
-          <parameter type="GtkTextBuffer*" name="buffer" />
-        </parameters>
-      </constructor>
-      <method name="Redo" cname="gtk_source_undo_manager_redo">
-        <return-type type="void" />
-      </method>
-      <method name="SetMaxUndoLevels" cname="gtk_source_undo_manager_set_max_undo_levels">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="gint" name="undo_levels" />
-        </parameters>
-      </method>
-      <method name="Undo" cname="gtk_source_undo_manager_undo">
-        <return-type type="void" />
-      </method>
-    </object>
     <object name="SourceView" cname="GtkSourceView" parent="GtkTextView">
       <field name="Priv" cname="priv" type="GtkSourceViewPrivate*" />
       <property name="ShowLineNumbers" cname="show_line_numbers" type="gboolean" readable="true" writeable="true" />
@@ -523,84 +414,6 @@
         </parameters>
       </method>
     </object>
-    <struct name="SourceContextData" cname="GtkSourceContextData" opaque="true" />
-    <struct name="SourceContextReplace" cname="GtkSourceContextReplace" opaque="true" />
-    <struct name="TextRegion" cname="GtkTextRegion" opaque="true">
-      <method name="Add" cname="gtk_text_region_add">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="const-GtkTextIter*" name="_start" />
-          <parameter type="const-GtkTextIter*" name="_end" />
-        </parameters>
-      </method>
-      <method name="DebugPrint" cname="gtk_text_region_debug_print">
-        <return-type type="void" />
-      </method>
-      <method name="Destroy" cname="gtk_text_region_destroy">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="gboolean" name="delete_marks" />
-        </parameters>
-      </method>
-      <method name="GetBuffer" cname="gtk_text_region_get_buffer">
-        <return-type type="GtkTextBuffer*" />
-      </method>
-      <method name="GetIterator" cname="gtk_text_region_get_iterator">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="GtkTextRegionIterator*" name="iter" />
-          <parameter type="guint" name="start" />
-        </parameters>
-      </method>
-      <method name="Intersect" cname="gtk_text_region_intersect">
-        <return-type type="GtkTextRegion*" />
-        <parameters>
-          <parameter type="const-GtkTextIter*" name="_start" />
-          <parameter type="const-GtkTextIter*" name="_end" />
-        </parameters>
-      </method>
-      <constructor cname="gtk_text_region_new">
-        <parameters>
-          <parameter type="GtkTextBuffer*" name="buffer" />
-        </parameters>
-      </constructor>
-      <method name="NthSubregion" cname="gtk_text_region_nth_subregion">
-        <return-type type="gboolean" />
-        <parameters>
-          <parameter type="guint" name="subregion" />
-          <parameter type="GtkTextIter*" name="start" />
-          <parameter type="GtkTextIter*" name="end" />
-        </parameters>
-      </method>
-      <method name="Subregions" cname="gtk_text_region_subregions">
-        <return-type type="gint" />
-      </method>
-      <method name="Subtract" cname="gtk_text_region_subtract">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="const-GtkTextIter*" name="_start" />
-          <parameter type="const-GtkTextIter*" name="_end" />
-        </parameters>
-      </method>
-    </struct>
-    <struct name="TextRegionIterator" cname="GtkTextRegionIterator">
-      <field name="Dummy1" cname="dummy1" type="gpointer" access="private" />
-      <field name="Dummy2" cname="dummy2" type="guint32" access="private" />
-      <field name="Dummy3" cname="dummy3" type="gpointer" access="private" />
-      <method name="GetSubregion" cname="gtk_text_region_iterator_get_subregion">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="GtkTextIter*" name="start" />
-          <parameter type="GtkTextIter*" name="end" />
-        </parameters>
-      </method>
-      <method name="IsEnd" cname="gtk_text_region_iterator_is_end">
-        <return-type type="gboolean" />
-      </method>
-      <method name="Next" cname="gtk_text_region_iterator_next">
-        <return-type type="gboolean" />
-      </method>
-    </struct>
     <class name="Source" cname="GtkSource_">
       <method name="IterBackwardSearch" cname="gtk_source_iter_backward_search" shared="true">
         <return-type type="gboolean" />
