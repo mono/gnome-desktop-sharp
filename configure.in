@@ -1,7 +1,7 @@
 AC_INIT(README)
 AC_CANONICAL_SYSTEM
 AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE(gnome-desktop-sharp, 2.19.2)
+AM_INIT_AUTOMAKE(gnome-desktop-sharp, 2.20.0)
 AM_MAINTAINER_MODE
 
 case "$host" in
@@ -141,7 +141,7 @@ if test "x$has_mono_cairo" = "xfalse" -a "x$API_VERSION" = "x2.8.0.0"; then
 	AC_MSG_ERROR([You need to install Mono.Cairo.dll and its pkgconfig file or set PKG_CONFIG_PATH to find it.])
 fi
 
-GTK_REQUIRED_VERSION=2.11.0
+GTK_REQUIRED_VERSION=2.12.0
 
 PKG_CHECK_MODULES(GTKSHARP, gtk-sharp-2.0 >= $GTK_REQUIRED_VERSION)
 AC_SUBST(GTKSHARP_CFLAGS)
@@ -157,7 +157,7 @@ AC_SUBST(GAPI_FIXUP)
 
 ## Versions of dependencies
 GNOME_REQUIRED_VERSION=2.20.0
-GNOME_SHARP_REQUIRED_VERSION=2.19.0
+GNOME_SHARP_REQUIRED_VERSION=2.20.0
 
 PKG_CHECK_MODULES(GNOMESHARP, gnome-sharp-2.0 >= $GNOME_SHARP_REQUIRED_VERSION, enable_gnome=yes, enable_gnome=no)
 AC_SUBST(GNOMESHARP_CFLAGS)
