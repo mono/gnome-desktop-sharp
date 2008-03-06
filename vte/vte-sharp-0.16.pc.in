@@ -1,7 +1,7 @@
 prefix=${pcfiledir}/../..
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
-gapidir=${prefix}/share/gapi-2.0
+gapidir=${prefix}/share/vte-sharp/0.16
 
 
 Name: Vte#
@@ -9,4 +9,4 @@ Description: Vte# - libvte .NET Binding
 Version: @VERSION@
 Requires: gtk-sharp-2.0
 Cflags: -I:${gapidir}/vte-api.xml
-Libs: -r:${libdir}/mono/@PACKAGE_VERSION@/vte-sharp.dll
+Libs: -r:${libdir}/mono/vte-sharp-0.16/vte-sharp.dll
