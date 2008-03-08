@@ -1,3 +1,7 @@
+2008-03-06  Nishio Futoshi <fut_nis@d3.dion.ne.jp>
+
+	* gtksourceview/gtksourceview2-sharp.pc.in: fix Libs path.
+
 2008-03-06  Mike Kestner  <mkestner@novell.com>
 
 	* vte/vte-sharp-0.16.pc.in: fix installation paths.
