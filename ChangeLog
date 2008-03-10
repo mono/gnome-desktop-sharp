@@ -1,3 +1,7 @@
+2008-03-10  Mike Kestner  <mkestner@novell.com>
+
+	* configure.in: bump version and tag 2.20.1.
+
 2008-03-06  Nishio Futoshi <fut_nis@d3.dion.ne.jp>
 
 	* gtksourceview/gtksourceview2-sharp.pc.in: fix Libs path.

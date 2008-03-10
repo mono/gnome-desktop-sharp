@@ -1,7 +1,7 @@
 AC_INIT(README)
 AC_CANONICAL_SYSTEM
 AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE(gnome-desktop-sharp, 2.20.0)
+AM_INIT_AUTOMAKE(gnome-desktop-sharp, 2.20.1)
 AM_MAINTAINER_MODE
 
 case "$host" in
