@@ -1,0 +1,5 @@
+<configuration>
+  <dllmap dll="libgobject-2.0-0.dll" target="libgobject-2.0@LIB_PREFIX@.0@LIB_SUFFIX@"/>
+  <dllmap dll="gnomeprint-2-2" target="libgnomeprint-2-2@LIB_PREFIX@.0@LIB_SUFFIX@"/>
+  <dllmap dll="gnomeprintui-2-2" target="libgnomeprintui-2-2@LIB_PREFIX@.0@LIB_SUFFIX@"/>
+</configuration>

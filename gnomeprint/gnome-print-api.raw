@@ -1,0 +1,2230 @@
+<?xml version="1.0"?>
+<api>
+  <!--
+
+        This file was automatically generated.
+        Please DO NOT MODIFY THIS FILE, modify .metadata files instead.
+
+-->
+  <namespace name="Gnome" library="gnomeprint-2-2">
+    <enum name="FontWeight" cname="GnomeFontWeight" type="enum">
+      <member cname="GNOME_FONT_LIGHTEST" name="Lightest" value="100" />
+      <member cname="GNOME_FONT_EXTRA_LIGHT" name="ExtraLight" value="100" />
+      <member cname="GNOME_FONT_THIN" name="Thin" value="200" />
+      <member cname="GNOME_FONT_LIGHT" name="Light" value="300" />
+      <member cname="GNOME_FONT_BOOK" name="Book" value="400" />
+      <member cname="GNOME_FONT_REGULAR" name="Regular" value="400" />
+      <member cname="GNOME_FONT_MEDIUM" name="Medium" value="500" />
+      <member cname="GNOME_FONT_SEMI" name="Semi" value="600" />
+      <member cname="GNOME_FONT_DEMI" name="Demi" value="600" />
+      <member cname="GNOME_FONT_BOLD" name="Bold" value="700" />
+      <member cname="GNOME_FONT_HEAVY" name="Heavy" value="900" />
+      <member cname="GNOME_FONT_EXTRABOLD" name="Extrabold" value="900" />
+      <member cname="GNOME_FONT_BLACK" name="Black" value="1000" />
+      <member cname="GNOME_FONT_EXTRABLACK" name="Extrablack" value="1100" />
+      <member cname="GNOME_FONT_HEAVIEST" name="Heaviest" value="1100" />
+    </enum>
+    <enum name="PrintFilterError" cname="GnomePrintFilterError" type="enum">
+      <member cname="GNOME_PRINT_FILTER_ERROR_SYNTAX" name="Syntax" />
+    </enum>
+    <enum name="PrintReturnCode" cname="GnomePrintReturnCode" type="enum">
+      <member cname="GNOME_PRINT_OK" name="Ok" />
+      <member cname="GNOME_PRINT_ERROR_UNKNOWN" name="ErrorUnknown" value="-1" />
+      <member cname="GNOME_PRINT_ERROR_BADVALUE" name="ErrorBadvalue" value="-2" />
+      <member cname="GNOME_PRINT_ERROR_NOCURRENTPOINT" name="ErrorNocurrentpoint" value="-3" />
+      <member cname="GNOME_PRINT_ERROR_NOCURRENTPATH" name="ErrorNocurrentpath" value="-4" />
+      <member cname="GNOME_PRINT_ERROR_TEXTCORRUPT" name="ErrorTextcorrupt" value="-5" />
+      <member cname="GNOME_PRINT_ERROR_BADCONTEXT" name="ErrorBadcontext" value="-6" />
+      <member cname="GNOME_PRINT_ERROR_NOPAGE" name="ErrorNopage" value="-7" />
+      <member cname="GNOME_PRINT_ERROR_NOMATCH" name="ErrorNomatch" value="-8" />
+    </enum>
+    <enum name="PrintUnitBase" cname="GnomePrintUnitBase" type="flags">
+      <member cname="GNOME_PRINT_UNIT_DIMENSIONLESS" name="Dimensionless" value="1 &lt;&lt; 0" />
+      <member cname="GNOME_PRINT_UNIT_ABSOLUTE" name="Absolute" value="1 &lt;&lt; 1" />
+      <member cname="GNOME_PRINT_UNIT_DEVICE" name="Device" value="1 &lt;&lt; 2" />
+      <member cname="GNOME_PRINT_UNIT_USERSPACE" name="Userspace" value="1 &lt;&lt; 3" />
+    </enum>
+    <object name="Font" cname="GnomeFont" parent="GObject">
+      <property name="FontName" cname="FontName" type="gchar*" readable="true" />
+      <property name="FullName" cname="FullName" type="gchar*" readable="true" />
+      <property name="FamilyName" cname="FamilyName" type="gchar*" readable="true" />
+      <property name="Weight" cname="Weight" type="gchar*" readable="true" />
+      <property name="ItalicAngle" cname="ItalicAngle" type="gdouble" readable="true" />
+      <property name="IsFixedPitch" cname="IsFixedPitch" type="gboolean" readable="true" />
+      <property name="FontBBox" cname="FontBBox" type="gpointer" readable="true" />
+      <property name="UnderlinePosition" cname="UnderlinePosition" type="gdouble" readable="true" />
+      <property name="UnderlineThickness" cname="UnderlineThickness" type="gdouble" readable="true" />
+      <property name="Version" cname="Version" type="gchar*" readable="true" />
+      <property name="CapHeight" cname="CapHeight" type="gdouble" readable="true" />
+      <property name="XHeight" cname="XHeight" type="gdouble" readable="true" />
+      <property name="Ascender" cname="Ascender" type="gdouble" readable="true" />
+      <property name="Descender" cname="Descender" type="gdouble" readable="true" />
+      <property name="Size" cname="Size" type="gdouble" readable="true" />
+      <method name="FamilyList" cname="gnome_font_family_list" shared="true">
+        <return-type type="GList*" />
+      </method>
+      <method name="FamilyListFree" cname="gnome_font_family_list_free" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GList*" name="fontlist" />
+        </parameters>
+      </method>
+      <method name="Find" cname="gnome_font_find" shared="true">
+        <return-type type="GnomeFont*" />
+        <parameters>
+          <parameter type="const-guchar*" name="name" />
+          <parameter type="gdouble" name="size" />
+        </parameters>
+      </method>
+      <method name="FindClosest" cname="gnome_font_find_closest" shared="true">
+        <return-type type="GnomeFont*" />
+        <parameters>
+          <parameter type="const-guchar*" name="name" />
+          <parameter type="gdouble" name="size" />
+        </parameters>
+      </method>
+      <method name="FindClosestFromFullName" cname="gnome_font_find_closest_from_full_name" shared="true">
+        <return-type type="GnomeFont*" />
+        <parameters>
+          <parameter type="const-guchar*" name="string" />
+        </parameters>
+      </method>
+      <method name="FindClosestFromWeightSlant" cname="gnome_font_find_closest_from_weight_slant" shared="true">
+        <return-type type="GnomeFont*" />
+        <parameters>
+          <parameter type="const-guchar*" name="family" />
+          <parameter type="GnomeFontWeight" name="weight" />
+          <parameter type="gboolean" name="italic" />
+          <parameter type="gdouble" name="size" />
+        </parameters>
+      </method>
+      <method name="FindFromFilename" cname="gnome_font_find_from_filename" shared="true">
+        <return-type type="GnomeFont*" />
+        <parameters>
+          <parameter type="const-guchar*" name="filename" />
+          <parameter type="gint" name="index_" />
+          <parameter type="gdouble" name="size" />
+        </parameters>
+      </method>
+      <method name="FindFromFullName" cname="gnome_font_find_from_full_name" shared="true">
+        <return-type type="GnomeFont*" />
+        <parameters>
+          <parameter type="const-guchar*" name="string" />
+        </parameters>
+      </method>
+      <method name="GetAscender" cname="gnome_font_get_ascender">
+        <return-type type="gdouble" />
+      </method>
+      <method name="GetClosestPangoFont" cname="gnome_font_get_closest_pango_font">
+        <return-type type="PangoFont*" />
+        <parameters>
+          <parameter type="PangoFontMap*" name="map" />
+          <parameter type="gdouble" name="dpi" />
+        </parameters>
+      </method>
+      <method name="GetDescender" cname="gnome_font_get_descender">
+        <return-type type="gdouble" />
+      </method>
+      <method name="GetFace" cname="gnome_font_get_face">
+        <return-type type="GnomeFontFace*" />
+      </method>
+      <method name="GetFamilyName" cname="gnome_font_get_family_name">
+        <return-type type="const-guchar*" />
+      </method>
+      <method name="GetFullName" cname="gnome_font_get_full_name">
+        <return-type type="guchar*" />
+      </method>
+      <method name="GetGlyphKerning" cname="gnome_font_get_glyph_kerning">
+        <return-type type="gdouble" />
+        <parameters>
+          <parameter type="gint" name="glyph1" />
+          <parameter type="gint" name="glyph2" />
+        </parameters>
+      </method>
+      <method name="GetGlyphStdadvance" cname="gnome_font_get_glyph_stdadvance">
+        <return-type type="ArtPoint*" />
+        <parameters>
+          <parameter type="gint" name="glyph" />
+          <parameter type="ArtPoint*" name="advance" />
+        </parameters>
+      </method>
+      <method name="GetGlyphStdbbox" cname="gnome_font_get_glyph_stdbbox">
+        <return-type type="ArtDRect*" />
+        <parameters>
+          <parameter type="gint" name="glyph" />
+          <parameter type="ArtDRect*" name="bbox" />
+        </parameters>
+      </method>
+      <method name="GetGlyphStdkerning" cname="gnome_font_get_glyph_stdkerning">
+        <return-type type="ArtPoint*" />
+        <parameters>
+          <parameter type="gint" name="glyph0" />
+          <parameter type="gint" name="glyph1" />
+          <parameter type="ArtPoint*" name="kerning" />
+        </parameters>
+      </method>
+      <method name="GetGlyphStdoutline" cname="gnome_font_get_glyph_stdoutline">
+        <return-type type="const-ArtBpath*" />
+        <parameters>
+          <parameter type="gint" name="glyph" />
+        </parameters>
+      </method>
+      <method name="GetGlyphWidth" cname="gnome_font_get_glyph_width">
+        <return-type type="gdouble" />
+        <parameters>
+          <parameter type="gint" name="glyph" />
+        </parameters>
+      </method>
+      <method name="GetName" cname="gnome_font_get_name">
+        <return-type type="const-guchar*" />
+      </method>
+      <method name="GetPangoDescription" cname="gnome_font_get_pango_description">
+        <return-type type="PangoFontDescription*" />
+        <parameters>
+          <parameter type="gdouble" name="dpi" />
+        </parameters>
+      </method>
+      <method name="GetPsName" cname="gnome_font_get_ps_name">
+        <return-type type="const-guchar*" />
+      </method>
+      <method name="GetRfont" cname="gnome_font_get_rfont">
+        <return-type type="GnomeRFont*" />
+        <parameters>
+          <parameter type="const-gdouble*" name="t" />
+        </parameters>
+      </method>
+      <method name="GetSize" cname="gnome_font_get_size">
+        <return-type type="gdouble" />
+      </method>
+      <method name="GetSpeciesName" cname="gnome_font_get_species_name">
+        <return-type type="const-guchar*" />
+      </method>
+      <method name="GetType" cname="gnome_font_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="GetUnderlinePosition" cname="gnome_font_get_underline_position">
+        <return-type type="gdouble" />
+      </method>
+      <method name="GetUnderlineThickness" cname="gnome_font_get_underline_thickness">
+        <return-type type="gdouble" />
+      </method>
+      <method name="GetWidthUtf8" cname="gnome_font_get_width_utf8">
+        <return-type type="double" />
+        <parameters>
+          <parameter type="const-char*" name="s" />
+        </parameters>
+      </method>
+      <method name="GetWidthUtf8Sized" cname="gnome_font_get_width_utf8_sized">
+        <return-type type="double" />
+        <parameters>
+          <parameter type="const-char*" name="s" />
+          <parameter type="int" name="n" />
+        </parameters>
+      </method>
+      <method name="List" cname="gnome_font_list" shared="true">
+        <return-type type="GList*" />
+      </method>
+      <method name="ListFree" cname="gnome_font_list_free" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GList*" name="fontlist" />
+        </parameters>
+      </method>
+      <method name="LookupDefault" cname="gnome_font_lookup_default">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="gint" name="unicode" />
+        </parameters>
+      </method>
+      <method name="StyleList" cname="gnome_font_style_list" shared="true">
+        <return-type type="GList*" />
+        <parameters>
+          <parameter type="const-guchar*" name="family" />
+        </parameters>
+      </method>
+      <method name="StyleListFree" cname="gnome_font_style_list_free" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GList*" name="styles" />
+        </parameters>
+      </method>
+    </object>
+    <object name="FontFace" cname="GnomeFontFace" parent="GObject">
+      <property name="FontName" cname="FontName" type="gchar*" readable="true" />
+      <property name="FullName" cname="FullName" type="gchar*" readable="true" />
+      <property name="FamilyName" cname="FamilyName" type="gchar*" readable="true" />
+      <property name="Weight" cname="Weight" type="gchar*" readable="true" />
+      <property name="ItalicAngle" cname="ItalicAngle" type="gdouble" readable="true" />
+      <property name="IsFixedPitch" cname="IsFixedPitch" type="gboolean" readable="true" />
+      <property name="FontBBox" cname="FontBBox" type="gpointer" readable="true" />
+      <property name="UnderlinePosition" cname="UnderlinePosition" type="gdouble" readable="true" />
+      <property name="UnderlineThickness" cname="UnderlineThickness" type="gdouble" readable="true" />
+      <property name="Version" cname="Version" type="gchar*" readable="true" />
+      <property name="CapHeight" cname="CapHeight" type="gdouble" readable="true" />
+      <property name="XHeight" cname="XHeight" type="gdouble" readable="true" />
+      <property name="Ascender" cname="Ascender" type="gdouble" readable="true" />
+      <property name="Descender" cname="Descender" type="gdouble" readable="true" />
+      <method name="Find" cname="gnome_font_face_find" shared="true">
+        <return-type type="GnomeFontFace*" />
+        <parameters>
+          <parameter type="const-guchar*" name="name" />
+        </parameters>
+      </method>
+      <method name="FindClosest" cname="gnome_font_face_find_closest" shared="true">
+        <return-type type="GnomeFontFace*" />
+        <parameters>
+          <parameter type="const-guchar*" name="name" />
+        </parameters>
+      </method>
+      <method name="FindClosestFromPangoDescription" cname="gnome_font_face_find_closest_from_pango_description" shared="true">
+        <return-type type="GnomeFontFace*" />
+        <parameters>
+          <parameter type="const-PangoFontDescription*" name="desc" />
+        </parameters>
+      </method>
+      <method name="FindClosestFromPangoFont" cname="gnome_font_face_find_closest_from_pango_font" shared="true">
+        <return-type type="GnomeFontFace*" />
+        <parameters>
+          <parameter type="PangoFont*" name="pfont" />
+        </parameters>
+      </method>
+      <method name="FindClosestFromWeightSlant" cname="gnome_font_face_find_closest_from_weight_slant" shared="true">
+        <return-type type="GnomeFontFace*" />
+        <parameters>
+          <parameter type="const-guchar*" name="family" />
+          <parameter type="GnomeFontWeight" name="weight" />
+          <parameter type="gboolean" name="italic" />
+        </parameters>
+      </method>
+      <method name="FindFromFamilyAndStyle" cname="gnome_font_face_find_from_family_and_style" shared="true">
+        <return-type type="GnomeFontFace*" />
+        <parameters>
+          <parameter type="const-guchar*" name="family" />
+          <parameter type="const-guchar*" name="style" />
+        </parameters>
+      </method>
+      <method name="FindFromFilename" cname="gnome_font_face_find_from_filename" shared="true">
+        <return-type type="GnomeFontFace*" />
+        <parameters>
+          <parameter type="const-guchar*" name="filename" />
+          <parameter type="gint" name="index_" />
+        </parameters>
+      </method>
+      <method name="GetAscender" cname="gnome_font_face_get_ascender">
+        <return-type type="gdouble" />
+      </method>
+      <method name="GetDescender" cname="gnome_font_face_get_descender">
+        <return-type type="gdouble" />
+      </method>
+      <method name="GetFamilyName" cname="gnome_font_face_get_family_name">
+        <return-type type="const-guchar*" />
+      </method>
+      <method name="GetFont" cname="gnome_font_face_get_font">
+        <return-type type="GnomeFont*" />
+        <parameters>
+          <parameter type="gdouble" name="size" />
+          <parameter type="gdouble" name="xres" />
+          <parameter type="gdouble" name="yres" />
+        </parameters>
+      </method>
+      <method name="GetFontDefault" cname="gnome_font_face_get_font_default">
+        <return-type type="GnomeFont*" />
+        <parameters>
+          <parameter type="gdouble" name="size" />
+        </parameters>
+      </method>
+      <method name="GetGlyphKerning" cname="gnome_font_face_get_glyph_kerning">
+        <return-type type="gdouble" />
+        <parameters>
+          <parameter type="gint" name="glyph1" />
+          <parameter type="gint" name="glyph2" />
+        </parameters>
+      </method>
+      <method name="GetGlyphPsName" cname="gnome_font_face_get_glyph_ps_name">
+        <return-type type="const-guchar*" />
+        <parameters>
+          <parameter type="gint" name="glyph" />
+        </parameters>
+      </method>
+      <method name="GetGlyphStdadvance" cname="gnome_font_face_get_glyph_stdadvance">
+        <return-type type="ArtPoint*" />
+        <parameters>
+          <parameter type="gint" name="glyph" />
+          <parameter type="ArtPoint*" name="advance" />
+        </parameters>
+      </method>
+      <method name="GetGlyphStdbbox" cname="gnome_font_face_get_glyph_stdbbox">
+        <return-type type="ArtDRect*" />
+        <parameters>
+          <parameter type="gint" name="glyph" />
+          <parameter type="ArtDRect*" name="bbox" />
+        </parameters>
+      </method>
+      <method name="GetGlyphStdkerning" cname="gnome_font_face_get_glyph_stdkerning">
+        <return-type type="ArtPoint*" />
+        <parameters>
+          <parameter type="gint" name="glyph0" />
+          <parameter type="gint" name="glyph1" />
+          <parameter type="ArtPoint*" name="kerning" />
+        </parameters>
+      </method>
+      <method name="GetGlyphStdoutline" cname="gnome_font_face_get_glyph_stdoutline">
+        <return-type type="const-ArtBpath*" />
+        <parameters>
+          <parameter type="gint" name="glyph" />
+        </parameters>
+      </method>
+      <method name="GetGlyphWidth" cname="gnome_font_face_get_glyph_width">
+        <return-type type="gdouble" />
+        <parameters>
+          <parameter type="gint" name="glyph" />
+        </parameters>
+      </method>
+      <method name="GetName" cname="gnome_font_face_get_name">
+        <return-type type="const-guchar*" />
+      </method>
+      <method name="GetNumGlyphs" cname="gnome_font_face_get_num_glyphs">
+        <return-type type="gint" />
+      </method>
+      <method name="GetPsName" cname="gnome_font_face_get_ps_name">
+        <return-type type="const-guchar*" />
+      </method>
+      <method name="GetSample" cname="gnome_font_face_get_sample">
+        <return-type type="const-guchar*" />
+      </method>
+      <method name="GetSpeciesName" cname="gnome_font_face_get_species_name">
+        <return-type type="const-guchar*" />
+      </method>
+      <method name="GetStdbbox" cname="gnome_font_face_get_stdbbox">
+        <return-type type="const-ArtDRect*" />
+      </method>
+      <method name="GetType" cname="gnome_font_face_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="GetUnderlinePosition" cname="gnome_font_face_get_underline_position">
+        <return-type type="gdouble" />
+      </method>
+      <method name="GetUnderlineThickness" cname="gnome_font_face_get_underline_thickness">
+        <return-type type="gdouble" />
+      </method>
+      <method name="GetWeightCode" cname="gnome_font_face_get_weight_code">
+        <return-type type="GnomeFontWeight" />
+      </method>
+      <method name="IsFixedWidth" cname="gnome_font_face_is_fixed_width">
+        <return-type type="gboolean" />
+      </method>
+      <method name="IsItalic" cname="gnome_font_face_is_italic">
+        <return-type type="gboolean" />
+      </method>
+      <method name="LookupDefault" cname="gnome_font_face_lookup_default">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="gint" name="unicode" />
+        </parameters>
+      </method>
+    </object>
+    <object name="PrintConfig" cname="GnomePrintConfig" parent="GObject">
+      <property name="Node" cname="node" type="GpaNode" readable="true" writeable="true" />
+      <method name="Default" cname="gnome_print_config_default" shared="true">
+        <return-type type="GnomePrintConfig*" />
+      </method>
+      <method name="Dump" cname="gnome_print_config_dump">
+        <return-type type="void" />
+      </method>
+      <method name="Dup" cname="gnome_print_config_dup">
+        <return-type type="GnomePrintConfig*" />
+      </method>
+      <method name="FromString" cname="gnome_print_config_from_string" shared="true">
+        <return-type type="GnomePrintConfig*" />
+        <parameters>
+          <parameter type="const-gchar*" name="str" />
+          <parameter type="guint" name="flags" />
+        </parameters>
+      </method>
+      <method name="Get" cname="gnome_print_config_get">
+        <return-type type="guchar*" />
+        <parameters>
+          <parameter type="const-guchar*" name="key" />
+        </parameters>
+      </method>
+      <method name="GetBoolean" cname="gnome_print_config_get_boolean">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-guchar*" name="key" />
+          <parameter type="gboolean*" name="val" />
+        </parameters>
+      </method>
+      <method name="GetDouble" cname="gnome_print_config_get_double">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-guchar*" name="key" />
+          <parameter type="gdouble*" name="val" />
+        </parameters>
+      </method>
+      <method name="GetInt" cname="gnome_print_config_get_int">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-guchar*" name="key" />
+          <parameter type="gint*" name="val" />
+        </parameters>
+      </method>
+      <method name="GetLength" cname="gnome_print_config_get_length">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-guchar*" name="key" />
+          <parameter type="gdouble*" name="val" />
+          <parameter type="const-GnomePrintUnit**" name="unit" />
+        </parameters>
+      </method>
+      <method name="GetOption" cname="gnome_print_config_get_option">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-guchar*" name="key" />
+          <parameter type="GnomePrintConfigOption*" name="options" />
+          <parameter type="gint*" name="arg3" />
+        </parameters>
+      </method>
+      <method name="GetPageSize" cname="gnome_print_config_get_page_size">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="gdouble*" name="width" />
+          <parameter type="gdouble*" name="height" />
+        </parameters>
+      </method>
+      <method name="GetTransform" cname="gnome_print_config_get_transform">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-guchar*" name="key" />
+          <parameter type="gdouble*" name="transform" />
+        </parameters>
+      </method>
+      <method name="GetType" cname="gnome_print_config_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="InsertBoolean" cname="gnome_print_config_insert_boolean">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-guchar*" name="key" />
+          <parameter type="gboolean" name="def" />
+        </parameters>
+      </method>
+      <method name="InsertOptions" cname="gnome_print_config_insert_options">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-guchar*" name="key" />
+          <parameter type="GnomePrintConfigOption*" name="options" />
+          <parameter type="const-gchar*" name="def" />
+        </parameters>
+      </method>
+      <method name="Ref" cname="gnome_print_config_ref">
+        <return-type type="GnomePrintConfig*" />
+      </method>
+      <method name="Set" cname="gnome_print_config_set">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-guchar*" name="key" />
+          <parameter type="const-guchar*" name="value" />
+        </parameters>
+      </method>
+      <method name="SetBoolean" cname="gnome_print_config_set_boolean">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-guchar*" name="key" />
+          <parameter type="gboolean" name="val" />
+        </parameters>
+      </method>
+      <method name="SetDouble" cname="gnome_print_config_set_double">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-guchar*" name="key" />
+          <parameter type="gdouble" name="val" />
+        </parameters>
+      </method>
+      <method name="SetInt" cname="gnome_print_config_set_int">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-guchar*" name="key" />
+          <parameter type="gint" name="val" />
+        </parameters>
+      </method>
+      <method name="SetLength" cname="gnome_print_config_set_length">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-guchar*" name="key" />
+          <parameter type="gdouble" name="val" />
+          <parameter type="const-GnomePrintUnit*" name="unit" />
+        </parameters>
+      </method>
+      <method name="ToString" cname="gnome_print_config_to_string">
+        <return-type type="gchar*" />
+        <parameters>
+          <parameter type="guint" name="flags" />
+        </parameters>
+      </method>
+      <method name="Unref" cname="gnome_print_config_unref">
+        <return-type type="GnomePrintConfig*" />
+      </method>
+    </object>
+    <object name="PrintContext" cname="GnomePrintContext" parent="GObject">
+      <property name="Config" cname="config" type="GnomePrintConfig" readable="true" writeable="true" />
+      <property name="Transport" cname="transport" type="GnomePrintTransport" readable="true" writeable="true" />
+      <property name="Filter" cname="filter" type="GnomePrintFilter" readable="true" writeable="true" />
+      <method name="Close" cname="gnome_print_context_close">
+        <return-type type="gint" />
+      </method>
+      <method name="CreateTransport" cname="gnome_print_context_create_transport">
+        <return-type type="gint" />
+      </method>
+      <method name="GetType" cname="gnome_print_context_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="gnome_print_context_new">
+        <parameters>
+          <parameter type="GnomePrintConfig*" name="config" />
+        </parameters>
+      </constructor>
+    </object>
+    <object name="PrintFilter" cname="GnomePrintFilter" parent="GObject">
+      <field name="Priv" cname="priv" type="GnomePrintFilterPrivate*" />
+      <property name="SuppressEmptyPages" cname="suppress_empty_pages" type="gboolean" readable="true" writeable="true" />
+      <property name="Name" cname="name" type="gchar*" readable="true" />
+      <property name="Description" cname="description" type="gchar*" readable="true" />
+      <property name="Context" cname="context" type="GnomePrintContext" readable="true" writeable="true" />
+      <property name="Filters" cname="filters" type="value_array" readable="true" writeable="true" />
+      <property name="" cname="" type="class" />
+      <signal name="Changed" cname="changed" when="LAST" field_name="changed">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GnomePrintFilter*" name="arg1" />
+        </parameters>
+      </signal>
+      <signal name="PredecessorAdded" cname="predecessor_added" when="LAST" field_name="predecessor_added">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GnomePrintFilter*" name="arg1" />
+          <parameter type="GnomePrintFilter*" name="arg2" />
+        </parameters>
+      </signal>
+      <signal name="PredecessorRemoved" cname="predecessor_removed" when="LAST" field_name="predecessor_removed">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GnomePrintFilter*" name="arg1" />
+          <parameter type="GnomePrintFilter*" name="arg2" />
+        </parameters>
+      </signal>
+      <signal name="SuccessorAdded" cname="successor_added" when="LAST" field_name="successor_added">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GnomePrintFilter*" name="arg1" />
+          <parameter type="GnomePrintFilter*" name="arg2" />
+        </parameters>
+      </signal>
+      <signal name="SuccessorRemoved" cname="successor_removed" when="LAST" field_name="successor_removed">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GnomePrintFilter*" name="arg1" />
+          <parameter type="GnomePrintFilter*" name="arg2" />
+        </parameters>
+      </signal>
+      <virtual_method name="Reset" cname="reset">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GnomePrintFilter*" name="arg1" />
+        </parameters>
+      </virtual_method>
+      <virtual_method name="Flush" cname="flush">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GnomePrintFilter*" name="arg1" />
+        </parameters>
+      </virtual_method>
+      <virtual_method name="Beginpage" cname="beginpage">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintFilter*" name="arg1" />
+          <parameter type="GnomePrintContext*" name="arg2" />
+          <parameter type="const-guchar*" name="arg3" />
+        </parameters>
+      </virtual_method>
+      <virtual_method name="Showpage" cname="showpage">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintFilter*" name="arg1" />
+        </parameters>
+      </virtual_method>
+      <virtual_method name="Gsave" cname="gsave">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintFilter*" name="arg1" />
+        </parameters>
+      </virtual_method>
+      <virtual_method name="Grestore" cname="grestore">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintFilter*" name="arg1" />
+        </parameters>
+      </virtual_method>
+      <virtual_method name="Clip" cname="clip">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintFilter*" name="arg1" />
+          <parameter type="const-ArtBpath*" name="arg2" />
+          <parameter type="ArtWindRule" name="arg3" />
+        </parameters>
+      </virtual_method>
+      <virtual_method name="Fill" cname="fill">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintFilter*" name="arg1" />
+          <parameter type="const-ArtBpath*" name="arg2" />
+          <parameter type="ArtWindRule" name="arg3" />
+        </parameters>
+      </virtual_method>
+      <virtual_method name="Stroke" cname="stroke">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintFilter*" name="arg1" />
+          <parameter type="const-ArtBpath*" name="arg2" />
+        </parameters>
+      </virtual_method>
+      <virtual_method name="Image" cname="image">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintFilter*" name="arg1" />
+          <parameter type="const-gdouble*" name="arg2" />
+          <parameter type="const-guchar*" name="arg3" />
+          <parameter type="gint" name="arg4" />
+          <parameter type="gint" name="arg5" />
+          <parameter type="gint" name="arg6" />
+          <parameter type="gint" name="arg7" />
+        </parameters>
+      </virtual_method>
+      <virtual_method name="Glyphlist" cname="glyphlist">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintFilter*" name="arg1" />
+          <parameter type="const-gdouble*" name="arg2" />
+          <parameter type="GnomeGlyphList*" name="arg3" />
+        </parameters>
+      </virtual_method>
+      <virtual_method name="Setrgbcolor" cname="setrgbcolor">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintFilter*" name="arg1" />
+          <parameter type="gdouble" name="arg2" />
+          <parameter type="gdouble" name="arg3" />
+          <parameter type="gdouble" name="arg4" />
+        </parameters>
+      </virtual_method>
+      <virtual_method name="Setopacity" cname="setopacity">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintFilter*" name="arg1" />
+          <parameter type="gdouble" name="arg2" />
+        </parameters>
+      </virtual_method>
+      <virtual_method name="Setlinewidth" cname="setlinewidth">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintFilter*" name="arg1" />
+          <parameter type="gdouble" name="arg2" />
+        </parameters>
+      </virtual_method>
+      <method name="AddFilter" cname="gnome_print_filter_add_filter">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GnomePrintFilter*" name="arg1" />
+        </parameters>
+      </method>
+      <method name="AppendPredecessor" cname="gnome_print_filter_append_predecessor">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GnomePrintFilter*" name="p" />
+        </parameters>
+      </method>
+      <method name="Beginpage" cname="gnome_print_filter_beginpage">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="arg1" />
+          <parameter type="const-guchar*" name="arg2" />
+        </parameters>
+      </method>
+      <method name="Changed" cname="gnome_print_filter_changed">
+        <return-type type="void" />
+      </method>
+      <method name="Clip" cname="gnome_print_filter_clip">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="const-ArtBpath*" name="arg1" />
+          <parameter type="ArtWindRule" name="arg2" />
+        </parameters>
+      </method>
+      <method name="CountFilters" cname="gnome_print_filter_count_filters">
+        <return-type type="guint" />
+      </method>
+      <method name="CountPredecessors" cname="gnome_print_filter_count_predecessors">
+        <return-type type="guint" />
+      </method>
+      <method name="CountSuccessors" cname="gnome_print_filter_count_successors">
+        <return-type type="guint" />
+      </method>
+      <method name="Description" cname="gnome_print_filter_description">
+        <return-type type="gchar*" />
+      </method>
+      <method name="ErrorQuark" cname="gnome_print_filter_error_quark" shared="true">
+        <return-type type="GQuark" />
+      </method>
+      <method name="Fill" cname="gnome_print_filter_fill">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="const-ArtBpath*" name="arg1" />
+          <parameter type="ArtWindRule" name="arg2" />
+        </parameters>
+      </method>
+      <method name="Flush" cname="gnome_print_filter_flush">
+        <return-type type="void" />
+      </method>
+      <method name="GetFilter" cname="gnome_print_filter_get_filter">
+        <return-type type="GnomePrintFilter*" />
+        <parameters>
+          <parameter type="guint" name="arg1" />
+        </parameters>
+      </method>
+      <method name="GetPredecessor" cname="gnome_print_filter_get_predecessor">
+        <return-type type="GnomePrintFilter*" />
+        <parameters>
+          <parameter type="guint" name="i" />
+        </parameters>
+      </method>
+      <method name="GetSuccessor" cname="gnome_print_filter_get_successor">
+        <return-type type="GnomePrintFilter*" />
+        <parameters>
+          <parameter type="guint" name="i" />
+        </parameters>
+      </method>
+      <method name="GetType" cname="gnome_print_filter_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="Glyphlist" cname="gnome_print_filter_glyphlist">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="const-gdouble*" name="arg1" />
+          <parameter type="GnomeGlyphList*" name="arg2" />
+        </parameters>
+      </method>
+      <method name="Grestore" cname="gnome_print_filter_grestore">
+        <return-type type="gint" />
+      </method>
+      <method name="Gsave" cname="gnome_print_filter_gsave">
+        <return-type type="gint" />
+      </method>
+      <method name="Image" cname="gnome_print_filter_image">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="const-gdouble*" name="arg1" />
+          <parameter type="const-guchar*" name="arg2" />
+          <parameter type="gint" name="arg3" />
+          <parameter type="gint" name="arg4" />
+          <parameter type="gint" name="arg5" />
+          <parameter type="gint" name="arg6" />
+        </parameters>
+      </method>
+      <method name="IsPredecessor" cname="gnome_print_filter_is_predecessor">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="GnomePrintFilter*" name="p" />
+          <parameter type="gboolean" name="indirect" />
+        </parameters>
+      </method>
+      <constructor cname="gnome_print_filter_new_from_description">
+        <parameters>
+          <parameter type="const-gchar*" name="arg1" />
+          <parameter type="GError**" name="arg2" />
+        </parameters>
+      </constructor>
+      <constructor cname="gnome_print_filter_new_from_module_name">
+        <parameters>
+          <parameter type="const-gchar*" name="module_name" />
+          <parameter type="const-gchar*" name="first_property_name" />
+          <parameter ellipsis="true" />
+        </parameters>
+      </constructor>
+      <method name="RemoveFilter" cname="gnome_print_filter_remove_filter">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GnomePrintFilter*" name="arg1" />
+        </parameters>
+      </method>
+      <method name="RemoveFilters" cname="gnome_print_filter_remove_filters">
+        <return-type type="void" />
+      </method>
+      <method name="RemovePredecessor" cname="gnome_print_filter_remove_predecessor">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GnomePrintFilter*" name="p" />
+        </parameters>
+      </method>
+      <method name="Reset" cname="gnome_print_filter_reset">
+        <return-type type="void" />
+      </method>
+      <method name="Setlinewidth" cname="gnome_print_filter_setlinewidth">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="gdouble" name="arg1" />
+        </parameters>
+      </method>
+      <method name="Setopacity" cname="gnome_print_filter_setopacity">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="gdouble" name="arg1" />
+        </parameters>
+      </method>
+      <method name="Setrgbcolor" cname="gnome_print_filter_setrgbcolor">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="gdouble" name="arg1" />
+          <parameter type="gdouble" name="arg2" />
+          <parameter type="gdouble" name="arg3" />
+        </parameters>
+      </method>
+      <method name="Showpage" cname="gnome_print_filter_showpage">
+        <return-type type="gint" />
+      </method>
+      <method name="Stroke" cname="gnome_print_filter_stroke">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="const-ArtBpath*" name="arg1" />
+        </parameters>
+      </method>
+    </object>
+    <object name="PrintJob" cname="GnomePrintJob" parent="GObject">
+      <property name="Config" cname="config" type="GnomePrintConfig" readable="true" writeable="true" construct-only="true" />
+      <property name="Context" cname="context" type="GnomePrintMeta" readable="true" writeable="true" />
+      <method name="Close" cname="gnome_print_job_close">
+        <return-type type="gint" />
+      </method>
+      <method name="GetConfig" cname="gnome_print_job_get_config">
+        <return-type type="GnomePrintConfig*" />
+      </method>
+      <method name="GetContext" cname="gnome_print_job_get_context">
+        <return-type type="GnomePrintContext*" />
+      </method>
+      <method name="GetPageSize" cname="gnome_print_job_get_page_size">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="gdouble*" name="width" />
+          <parameter type="gdouble*" name="height" />
+        </parameters>
+      </method>
+      <method name="GetPageSizeFromConfig" cname="gnome_print_job_get_page_size_from_config" shared="true">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="GnomePrintConfig*" name="config" />
+          <parameter type="gdouble*" name="width" />
+          <parameter type="gdouble*" name="height" />
+        </parameters>
+      </method>
+      <method name="GetPages" cname="gnome_print_job_get_pages">
+        <return-type type="gint" />
+      </method>
+      <method name="GetType" cname="gnome_print_job_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="gnome_print_job_new">
+        <parameters>
+          <parameter type="GnomePrintConfig*" name="config" />
+        </parameters>
+      </constructor>
+      <method name="Print" cname="gnome_print_job_print">
+        <return-type type="gint" />
+      </method>
+      <method name="PrintToFile" cname="gnome_print_job_print_to_file">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="gchar*" name="output" />
+        </parameters>
+      </method>
+      <method name="Render" cname="gnome_print_job_render">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="ctx" />
+        </parameters>
+      </method>
+      <method name="RenderPage" cname="gnome_print_job_render_page">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="ctx" />
+          <parameter type="gint" name="page" />
+          <parameter type="gboolean" name="pageops" />
+        </parameters>
+      </method>
+      <method name="SetFile" cname="gnome_print_job_set_file">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gchar*" name="input" />
+        </parameters>
+      </method>
+    </object>
+    <object name="PrintMeta" cname="GnomePrintMeta" parent="GnomePrintContext">
+      <method name="GetBuffer" cname="gnome_print_meta_get_buffer">
+        <return-type type="const-guchar*" />
+      </method>
+      <method name="GetLength" cname="gnome_print_meta_get_length">
+        <return-type type="gint" />
+      </method>
+      <method name="GetPageName" cname="gnome_print_meta_get_page_name">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="guint" name="page" />
+          <parameter type="guchar**" name="page_name" />
+        </parameters>
+      </method>
+      <method name="GetPages" cname="gnome_print_meta_get_pages">
+        <return-type type="int" />
+      </method>
+      <method name="GetType" cname="gnome_print_meta_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="gnome_print_meta_new" />
+      <method name="Render" cname="gnome_print_meta_render">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="ctx" />
+        </parameters>
+      </method>
+      <method name="RenderData" cname="gnome_print_meta_render_data" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="ctx" />
+          <parameter type="const-guchar*" name="data" />
+          <parameter type="gint" name="length" />
+        </parameters>
+      </method>
+      <method name="RenderDataPage" cname="gnome_print_meta_render_data_page" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="ctx" />
+          <parameter type="const-guchar*" name="data" />
+          <parameter type="gint" name="length" />
+          <parameter type="gint" name="page" />
+          <parameter type="gboolean" name="pageops" />
+        </parameters>
+      </method>
+      <method name="RenderFile" cname="gnome_print_meta_render_file" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="ctx" />
+          <parameter type="const-guchar*" name="filename" />
+        </parameters>
+      </method>
+      <method name="RenderFilePage" cname="gnome_print_meta_render_file_page" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="ctx" />
+          <parameter type="const-guchar*" name="filename" />
+          <parameter type="gint" name="page" />
+          <parameter type="gboolean" name="pageops" />
+        </parameters>
+      </method>
+      <method name="RenderPage" cname="gnome_print_meta_render_page">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="ctx" />
+          <parameter type="gint" name="page" />
+          <parameter type="gboolean" name="pageops" />
+        </parameters>
+      </method>
+      <method name="Reset" cname="gnome_print_meta_reset">
+        <return-type type="void" />
+      </method>
+    </object>
+    <object name="PrintSvg" cname="GnomePrintSvg">
+      <method name="GetType" cname="gnome_print_svg_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="gnome_print_svg_new">
+        <parameters>
+          <parameter type="GnomePrintConfig*" name="config" />
+        </parameters>
+      </constructor>
+    </object>
+    <object name="PrintTransport" cname="GnomePrintTransport" parent="GObject">
+      <field name="Config" cname="config" type="GnomePrintConfig*" />
+      <field name="Opened" cname="opened" bits="1" type="guint" />
+      <field name="Err" cname="err" type="GError*" />
+      <virtual_method name="Construct" cname="construct">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintTransport*" name="transport" />
+        </parameters>
+      </virtual_method>
+      <virtual_method name="Open" cname="open">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintTransport*" name="transport" />
+        </parameters>
+      </virtual_method>
+      <virtual_method name="Close" cname="close">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintTransport*" name="transport" />
+        </parameters>
+      </virtual_method>
+      <virtual_method name="Write" cname="write">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintTransport*" name="transport" />
+          <parameter type="const-guchar*" name="buf" />
+          <parameter type="gint" name="len" />
+        </parameters>
+      </virtual_method>
+      <virtual_method name="PrintFile" cname="print_file">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintTransport*" name="transport" />
+          <parameter type="const-guchar*" name="file_name" />
+        </parameters>
+      </virtual_method>
+      <virtual_method name="Exists" cname="exists">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-GnomePrintTransport*" name="transport" />
+        </parameters>
+      </virtual_method>
+      <method name="Close" cname="gnome_print_transport_close">
+        <return-type type="gint" />
+      </method>
+      <method name="ExistsByName" cname="gnome_print_transport_exists_by_name" shared="true">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-char*" name="name" />
+        </parameters>
+      </method>
+      <method name="GetType" cname="gnome_print_transport_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="gnome_print_transport_new">
+        <parameters>
+          <parameter type="GnomePrintConfig*" name="config" />
+        </parameters>
+      </constructor>
+      <method name="Open" cname="gnome_print_transport_open">
+        <return-type type="gint" />
+      </method>
+      <method name="PrintFile" cname="gnome_print_transport_print_file">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="const-guchar*" name="file_name" />
+        </parameters>
+      </method>
+      <method name="Printf" cname="gnome_print_transport_printf">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="const-char*" name="fmt" printf_format="true" />
+          <parameter ellipsis="true" printf_format_args="true" />
+        </parameters>
+      </method>
+      <method name="SetError" cname="gnome_print_transport_set_error">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GError*" name="err" />
+        </parameters>
+      </method>
+      <method name="Write" cname="gnome_print_transport_write">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="const-guchar*" name="buf" />
+          <parameter type="gint" name="len" />
+        </parameters>
+      </method>
+    </object>
+    <object name="RFont" cname="GnomeRFont" parent="GObject">
+      <method name="GetClosestPangoFont" cname="gnome_rfont_get_closest_pango_font">
+        <return-type type="PangoFont*" />
+        <parameters>
+          <parameter type="PangoFontMap*" name="map" />
+        </parameters>
+      </method>
+      <method name="GetFace" cname="gnome_rfont_get_face">
+        <return-type type="GnomeFontFace*" />
+      </method>
+      <method name="GetFont" cname="gnome_rfont_get_font">
+        <return-type type="GnomeFont*" />
+      </method>
+      <method name="GetGlyphBpath" cname="gnome_rfont_get_glyph_bpath">
+        <return-type type="const-ArtBpath*" />
+        <parameters>
+          <parameter type="gint" name="glyph" />
+        </parameters>
+      </method>
+      <method name="GetGlyphStdadvance" cname="gnome_rfont_get_glyph_stdadvance">
+        <return-type type="ArtPoint*" />
+        <parameters>
+          <parameter type="gint" name="glyph" />
+          <parameter type="ArtPoint*" name="advance" />
+        </parameters>
+      </method>
+      <method name="GetGlyphStdbbox" cname="gnome_rfont_get_glyph_stdbbox">
+        <return-type type="ArtDRect*" />
+        <parameters>
+          <parameter type="gint" name="glyph" />
+          <parameter type="ArtDRect*" name="bbox" />
+        </parameters>
+      </method>
+      <method name="GetGlyphStdkerning" cname="gnome_rfont_get_glyph_stdkerning">
+        <return-type type="ArtPoint*" />
+        <parameters>
+          <parameter type="gint" name="glyph0" />
+          <parameter type="gint" name="glyph1" />
+          <parameter type="ArtPoint*" name="kerning" />
+        </parameters>
+      </method>
+      <method name="GetGlyphSvp" cname="gnome_rfont_get_glyph_svp">
+        <return-type type="const-ArtSVP*" />
+        <parameters>
+          <parameter type="gint" name="glyph" />
+        </parameters>
+      </method>
+      <method name="GetMatrix" cname="gnome_rfont_get_matrix">
+        <return-type type="gdouble*" />
+        <parameters>
+          <parameter type="gdouble*" name="matrix" />
+        </parameters>
+      </method>
+      <method name="GetPangoDescription" cname="gnome_rfont_get_pango_description">
+        <return-type type="PangoFontDescription*" />
+      </method>
+      <method name="GetType" cname="gnome_rfont_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+    </object>
+    <struct name="GPGC" cname="GPGC" opaque="true" />
+    <boxed name="GlyphList" cname="GnomeGlyphList" opaque="true">
+      <method name="Advance" cname="gnome_glyphlist_advance">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="advance" />
+        </parameters>
+      </method>
+      <method name="Bbox" cname="gnome_glyphlist_bbox">
+        <return-type type="ArtDRect*" />
+        <parameters>
+          <parameter type="const-gdouble*" name="transform" />
+          <parameter type="gint" name="flags" />
+          <parameter type="ArtDRect*" name="bbox" />
+        </parameters>
+      </method>
+      <method name="Check" cname="gnome_glyphlist_check">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="gboolean" name="rules" />
+        </parameters>
+      </method>
+      <method name="Color" cname="gnome_glyphlist_color">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="guint32" name="color" />
+        </parameters>
+      </method>
+      <method name="Dump" cname="gnome_glyphlist_dump">
+        <return-type type="void" />
+      </method>
+      <method name="DumpPgl" cname="gnome_glyphlist_dump_pgl">
+        <return-type type="void" />
+      </method>
+      <method name="Duplicate" cname="gnome_glyphlist_duplicate">
+        <return-type type="GnomeGlyphList*" />
+      </method>
+      <method name="Font" cname="gnome_glyphlist_font">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GnomeFont*" name="font" />
+        </parameters>
+      </method>
+      <method name="FromTextDumb" cname="gnome_glyphlist_from_text_dumb" shared="true">
+        <return-type type="GnomeGlyphList*" />
+        <parameters>
+          <parameter type="GnomeFont*" name="font" />
+          <parameter type="guint32" name="color" />
+          <parameter type="gdouble" name="kerning" />
+          <parameter type="gdouble" name="letterspace" />
+          <parameter type="const-guchar*" name="text" />
+        </parameters>
+      </method>
+      <method name="FromTextSizedDumb" cname="gnome_glyphlist_from_text_sized_dumb" shared="true">
+        <return-type type="GnomeGlyphList*" />
+        <parameters>
+          <parameter type="GnomeFont*" name="font" />
+          <parameter type="guint32" name="color" />
+          <parameter type="gdouble" name="kerning" />
+          <parameter type="gdouble" name="letterspace" />
+          <parameter type="const-guchar*" name="text" />
+          <parameter type="gint" name="length" />
+        </parameters>
+      </method>
+      <method name="GetType" cname="gnome_glyphlist_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="Glyph" cname="gnome_glyphlist_glyph">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gint" name="glyph" />
+        </parameters>
+      </method>
+      <method name="Glyphs" cname="gnome_glyphlist_glyphs">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gint*" name="glyphs" />
+          <parameter type="gint" name="num_glyphs" />
+        </parameters>
+      </method>
+      <method name="Kerning" cname="gnome_glyphlist_kerning">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gdouble" name="kerning" />
+        </parameters>
+      </method>
+      <method name="Letterspace" cname="gnome_glyphlist_letterspace">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gdouble" name="letterspace" />
+        </parameters>
+      </method>
+      <method name="Moveto" cname="gnome_glyphlist_moveto">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gdouble" name="x" />
+          <parameter type="gdouble" name="y" />
+        </parameters>
+      </method>
+      <constructor cname="gnome_glyphlist_new" />
+      <method name="Ref" cname="gnome_glyphlist_ref">
+        <return-type type="GnomeGlyphList*" />
+      </method>
+      <method name="Rmoveto" cname="gnome_glyphlist_rmoveto">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gdouble" name="x" />
+          <parameter type="gdouble" name="y" />
+        </parameters>
+      </method>
+      <method name="TextDumb" cname="gnome_glyphlist_text_dumb">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-guchar*" name="text" />
+        </parameters>
+      </method>
+      <method name="TextSizedDumb" cname="gnome_glyphlist_text_sized_dumb">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-guchar*" name="text" />
+          <parameter type="gint" name="length" />
+        </parameters>
+      </method>
+      <method name="Unref" cname="gnome_glyphlist_unref">
+        <return-type type="GnomeGlyphList*" />
+      </method>
+    </boxed>
+    <struct name="PosGlyphList" cname="GnomePosGlyphList" opaque="true" />
+    <struct name="PrintConfigOption" cname="GnomePrintConfigOption">
+      <field name="Id" cname="id" type="const-gchar*" />
+      <field name="Description" cname="description" type="const-gchar*" />
+      <field name="Index" cname="index" type="gint" />
+    </struct>
+    <struct name="PrintPaper" cname="GnomePrintPaper">
+      <field name="Version" cname="version" bits="8" type="guint" />
+      <field name="Name" cname="name" type="guchar*" />
+      <field name="Width" cname="width" type="gdouble" />
+      <field name="Height" cname="height" type="gdouble" />
+      <method name="FreeList" cname="gnome_print_paper_free_list" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GList*" name="papers" />
+        </parameters>
+      </method>
+      <method name="GetByName" cname="gnome_print_paper_get_by_name" shared="true">
+        <return-type type="const-GnomePrintPaper*" />
+        <parameters>
+          <parameter type="const-guchar*" name="name" />
+        </parameters>
+      </method>
+      <method name="GetBySize" cname="gnome_print_paper_get_by_size" shared="true">
+        <return-type type="const-GnomePrintPaper*" />
+        <parameters>
+          <parameter type="gdouble" name="width" />
+          <parameter type="gdouble" name="height" />
+        </parameters>
+      </method>
+      <method name="GetClosestBySize" cname="gnome_print_paper_get_closest_by_size" shared="true">
+        <return-type type="const-GnomePrintPaper*" />
+        <parameters>
+          <parameter type="gdouble" name="width" />
+          <parameter type="gdouble" name="height" />
+          <parameter type="gboolean" name="mustfit" />
+        </parameters>
+      </method>
+      <method name="GetDefault" cname="gnome_print_paper_get_default" shared="true">
+        <return-type type="const-GnomePrintPaper*" />
+      </method>
+      <method name="GetList" cname="gnome_print_paper_get_list" shared="true">
+        <return-type type="GList*" />
+      </method>
+    </struct>
+    <boxed name="PrintUnit" cname="GnomePrintUnit">
+      <field name="Version" cname="version" bits="8" type="guint" />
+      <field name="Base" cname="base" bits="8" type="guint" />
+      <field name="Unittobase" cname="unittobase" type="gdouble" />
+      <field name="Name" cname="name" type="guchar*" />
+      <field name="Abbr" cname="abbr" type="guchar*" />
+      <field name="Plural" cname="plural" type="guchar*" />
+      <field name="AbbrPlural" cname="abbr_plural" type="guchar*" />
+      <method name="FreeList" cname="gnome_print_unit_free_list" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GList*" name="units" />
+        </parameters>
+      </method>
+      <method name="GetByAbbreviation" cname="gnome_print_unit_get_by_abbreviation" shared="true">
+        <return-type type="const-GnomePrintUnit*" />
+        <parameters>
+          <parameter type="const-guchar*" name="abbreviation" />
+        </parameters>
+      </method>
+      <method name="GetByName" cname="gnome_print_unit_get_by_name" shared="true">
+        <return-type type="const-GnomePrintUnit*" />
+        <parameters>
+          <parameter type="const-guchar*" name="name" />
+        </parameters>
+      </method>
+      <method name="GetDefault" cname="gnome_print_unit_get_default" shared="true">
+        <return-type type="const-GnomePrintUnit*" />
+      </method>
+      <method name="GetIdentity" cname="gnome_print_unit_get_identity" shared="true">
+        <return-type type="const-GnomePrintUnit*" />
+        <parameters>
+          <parameter type="guint" name="base" />
+        </parameters>
+      </method>
+      <method name="GetList" cname="gnome_print_unit_get_list" shared="true">
+        <return-type type="GList*" />
+        <parameters>
+          <parameter type="guint" name="bases" />
+        </parameters>
+      </method>
+      <method name="GetName" cname="gnome_print_unit_get_name">
+        <return-type type="gchar*" />
+        <parameters>
+          <parameter type="gboolean" name="plural" />
+          <parameter type="gboolean" name="abbreviation" />
+          <parameter type="gint" name="flags" />
+        </parameters>
+      </method>
+      <method name="GetType" cname="gnome_print_unit_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+    </boxed>
+    <struct name="GraphT" cname="graph_t">
+      <field name="Filter" cname="filter" type="GnomePrintFilter*" />
+      <field name="Error" cname="error" type="GError*" />
+    </struct>
+    <struct name="PoolT" cname="pool_t">
+      <field name="A" cname="a" type="GPtrArray*" />
+    </struct>
+    <class name="Pgl" cname="GnomePgl_">
+      <method name="Bbox" cname="gnome_pgl_bbox" shared="true">
+        <return-type type="ArtDRect*" />
+        <parameters>
+          <parameter type="const-GnomePosGlyphList*" name="pgl" />
+          <parameter type="ArtDRect*" name="bbox" />
+        </parameters>
+      </method>
+      <method name="Destroy" cname="gnome_pgl_destroy" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GnomePosGlyphList*" name="pgl" />
+        </parameters>
+      </method>
+      <method name="FromGl" cname="gnome_pgl_from_gl" shared="true">
+        <return-type type="GnomePosGlyphList*" />
+        <parameters>
+          <parameter type="const-GnomeGlyphList*" name="gl" />
+          <parameter type="const-gdouble*" name="transform" />
+          <parameter type="guint" name="flags" />
+        </parameters>
+      </method>
+      <method name="RenderRgb8" cname="gnome_pgl_render_rgb8" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-GnomePosGlyphList*" name="pgl" />
+          <parameter type="gdouble" name="x" />
+          <parameter type="gdouble" name="y" />
+          <parameter type="guchar*" name="buf" />
+          <parameter type="gint" name="width" />
+          <parameter type="gint" name="height" />
+          <parameter type="gint" name="rowstride" />
+          <parameter type="guint" name="flags" />
+        </parameters>
+      </method>
+      <method name="RenderRgba8" cname="gnome_pgl_render_rgba8" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-GnomePosGlyphList*" name="pgl" />
+          <parameter type="gdouble" name="x" />
+          <parameter type="gdouble" name="y" />
+          <parameter type="guchar*" name="buf" />
+          <parameter type="gint" name="width" />
+          <parameter type="gint" name="height" />
+          <parameter type="gint" name="rowstride" />
+          <parameter type="guint" name="flags" />
+        </parameters>
+      </method>
+      <method name="TestPoint" cname="gnome_pgl_test_point" shared="true">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-GnomePosGlyphList*" name="pgl" />
+          <parameter type="gdouble" name="x" />
+          <parameter type="gdouble" name="y" />
+        </parameters>
+      </method>
+    </class>
+    <class name="Print" cname="GnomePrint_">
+      <method name="Arcto" cname="gnome_print_arcto" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="gdouble" name="x" />
+          <parameter type="gdouble" name="y" />
+          <parameter type="gdouble" name="radius" />
+          <parameter type="gdouble" name="angle1" />
+          <parameter type="gdouble" name="angle2" />
+          <parameter type="gint" name="direction" />
+        </parameters>
+      </method>
+      <method name="ArtRgbaRgbaAffine" cname="gnome_print_art_rgba_rgba_affine" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="art_u8*" name="dst" />
+          <parameter type="int" name="x0" />
+          <parameter type="int" name="y0" />
+          <parameter type="int" name="x1" />
+          <parameter type="int" name="y1" />
+          <parameter type="int" name="dst_rowstride" />
+          <parameter type="const-art_u8*" name="src" />
+          <parameter type="int" name="src_width" />
+          <parameter type="int" name="src_height" />
+          <parameter type="int" name="src_rowstride" />
+          <parameter type="const-double" array="true" name="affine" />
+          <parameter type="ArtFilterLevel" name="level" />
+          <parameter type="ArtAlphaGamma*" name="alphagamma" />
+        </parameters>
+      </method>
+      <method name="ArtRgbaSvpAlpha" cname="gnome_print_art_rgba_svp_alpha" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-ArtSVP*" name="svp" />
+          <parameter type="int" name="x0" />
+          <parameter type="int" name="y0" />
+          <parameter type="int" name="x1" />
+          <parameter type="int" name="y1" />
+          <parameter type="art_u32" name="rgba" />
+          <parameter type="art_u8*" name="buf" />
+          <parameter type="int" name="rowstride" />
+          <parameter type="ArtAlphaGamma*" name="alphagamma" />
+        </parameters>
+      </method>
+      <method name="Beginpage" cname="gnome_print_beginpage" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="const-guchar*" name="name" />
+        </parameters>
+      </method>
+      <method name="Bpath" cname="gnome_print_bpath" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="const-ArtBpath*" name="bpath" />
+          <parameter type="gboolean" name="append" />
+        </parameters>
+      </method>
+      <method name="Clip" cname="gnome_print_clip" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+        </parameters>
+      </method>
+      <method name="Closepath" cname="gnome_print_closepath" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+        </parameters>
+      </method>
+      <method name="Concat" cname="gnome_print_concat" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="const-gdouble*" name="matrix" />
+        </parameters>
+      </method>
+      <method name="ConvertDistance" cname="gnome_print_convert_distance" shared="true">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="gdouble*" name="distance" />
+          <parameter type="const-GnomePrintUnit*" name="from" />
+          <parameter type="const-GnomePrintUnit*" name="to" />
+        </parameters>
+      </method>
+      <method name="ConvertDistanceFull" cname="gnome_print_convert_distance_full" shared="true">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="gdouble*" name="distance" />
+          <parameter type="const-GnomePrintUnit*" name="from" />
+          <parameter type="const-GnomePrintUnit*" name="to" />
+          <parameter type="gdouble" name="ctmscale" />
+          <parameter type="gdouble" name="devicescale" />
+        </parameters>
+      </method>
+      <method name="Curveto" cname="gnome_print_curveto" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="gdouble" name="x1" />
+          <parameter type="gdouble" name="y1" />
+          <parameter type="gdouble" name="x2" />
+          <parameter type="gdouble" name="y2" />
+          <parameter type="gdouble" name="x3" />
+          <parameter type="gdouble" name="y3" />
+        </parameters>
+      </method>
+      <method name="EndDoc" cname="gnome_print_end_doc" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+        </parameters>
+      </method>
+      <method name="Eoclip" cname="gnome_print_eoclip" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+        </parameters>
+      </method>
+      <method name="Eofill" cname="gnome_print_eofill" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+        </parameters>
+      </method>
+      <method name="Fill" cname="gnome_print_fill" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+        </parameters>
+      </method>
+      <method name="Glyphlist" cname="gnome_print_glyphlist" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="GnomeGlyphList*" name="glyphlist" />
+        </parameters>
+      </method>
+      <method name="Grayimage" cname="gnome_print_grayimage" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="const-guchar*" name="data" />
+          <parameter type="gint" name="width" />
+          <parameter type="gint" name="height" />
+          <parameter type="gint" name="rowstride" />
+        </parameters>
+      </method>
+      <method name="Grestore" cname="gnome_print_grestore" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+        </parameters>
+      </method>
+      <method name="Gsave" cname="gnome_print_gsave" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+        </parameters>
+      </method>
+      <method name="LineStroked" cname="gnome_print_line_stroked" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="gdouble" name="x0" />
+          <parameter type="gdouble" name="y0" />
+          <parameter type="gdouble" name="x1" />
+          <parameter type="gdouble" name="y1" />
+        </parameters>
+      </method>
+      <method name="Lineto" cname="gnome_print_lineto" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="gdouble" name="x" />
+          <parameter type="gdouble" name="y" />
+        </parameters>
+      </method>
+      <method name="Moveto" cname="gnome_print_moveto" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="gdouble" name="x" />
+          <parameter type="gdouble" name="y" />
+        </parameters>
+      </method>
+      <method name="Newpath" cname="gnome_print_newpath" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+        </parameters>
+      </method>
+      <method name="PangoCreateContext" cname="gnome_print_pango_create_context" shared="true">
+        <return-type type="PangoContext*" />
+        <parameters>
+          <parameter type="PangoFontMap*" name="fontmap" />
+        </parameters>
+      </method>
+      <method name="PangoCreateLayout" cname="gnome_print_pango_create_layout" shared="true">
+        <return-type type="PangoLayout*" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="gpc" />
+        </parameters>
+      </method>
+      <method name="PangoFontMapNew" cname="gnome_print_pango_font_map_new" shared="true">
+        <return-type type="PangoFontMap*" />
+      </method>
+      <method name="PangoGetDefaultFontMap" cname="gnome_print_pango_get_default_font_map" shared="true">
+        <return-type type="PangoFontMap*" />
+      </method>
+      <method name="PangoGlyphString" cname="gnome_print_pango_glyph_string" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="gpc" />
+          <parameter type="PangoFont*" name="font" />
+          <parameter type="PangoGlyphString*" name="glyphs" />
+        </parameters>
+      </method>
+      <method name="PangoLayout" cname="gnome_print_pango_layout" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="gpc" />
+          <parameter type="PangoLayout*" name="layout" />
+        </parameters>
+      </method>
+      <method name="PangoLayoutLine" cname="gnome_print_pango_layout_line" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="gpc" />
+          <parameter type="PangoLayoutLine*" name="line" />
+        </parameters>
+      </method>
+      <method name="PangoLayoutPrint" cname="gnome_print_pango_layout_print" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="gpc" />
+          <parameter type="PangoLayout*" name="pl" />
+        </parameters>
+      </method>
+      <method name="PangoUpdateContext" cname="gnome_print_pango_update_context" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="PangoContext*" name="context" />
+          <parameter type="GnomePrintContext*" name="gpc" />
+        </parameters>
+      </method>
+      <method name="RectFilled" cname="gnome_print_rect_filled" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="gdouble" name="x" />
+          <parameter type="gdouble" name="y" />
+          <parameter type="gdouble" name="width" />
+          <parameter type="gdouble" name="height" />
+        </parameters>
+      </method>
+      <method name="RectStroked" cname="gnome_print_rect_stroked" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="gdouble" name="x" />
+          <parameter type="gdouble" name="y" />
+          <parameter type="gdouble" name="width" />
+          <parameter type="gdouble" name="height" />
+        </parameters>
+      </method>
+      <method name="Rgbaimage" cname="gnome_print_rgbaimage" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="const-guchar*" name="data" />
+          <parameter type="gint" name="width" />
+          <parameter type="gint" name="height" />
+          <parameter type="gint" name="rowstride" />
+        </parameters>
+      </method>
+      <method name="Rgbimage" cname="gnome_print_rgbimage" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="const-guchar*" name="data" />
+          <parameter type="gint" name="width" />
+          <parameter type="gint" name="height" />
+          <parameter type="gint" name="rowstride" />
+        </parameters>
+      </method>
+      <method name="Rotate" cname="gnome_print_rotate" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="gdouble" name="theta" />
+        </parameters>
+      </method>
+      <method name="Scale" cname="gnome_print_scale" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="gdouble" name="sx" />
+          <parameter type="gdouble" name="sy" />
+        </parameters>
+      </method>
+      <method name="Setdash" cname="gnome_print_setdash" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="gint" name="n_values" />
+          <parameter type="const-gdouble*" name="values" />
+          <parameter type="gdouble" name="offset" />
+        </parameters>
+      </method>
+      <method name="Setfont" cname="gnome_print_setfont" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="const-GnomeFont*" name="font" />
+        </parameters>
+      </method>
+      <method name="Setlinecap" cname="gnome_print_setlinecap" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="gint" name="captype" />
+        </parameters>
+      </method>
+      <method name="Setlinejoin" cname="gnome_print_setlinejoin" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="gint" name="jointype" />
+        </parameters>
+      </method>
+      <method name="Setlinewidth" cname="gnome_print_setlinewidth" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="gdouble" name="width" />
+        </parameters>
+      </method>
+      <method name="Setmiterlimit" cname="gnome_print_setmiterlimit" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="gdouble" name="limit" />
+        </parameters>
+      </method>
+      <method name="Setopacity" cname="gnome_print_setopacity" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="gdouble" name="opacity" />
+        </parameters>
+      </method>
+      <method name="Setrgbcolor" cname="gnome_print_setrgbcolor" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="gdouble" name="r" />
+          <parameter type="gdouble" name="g" />
+          <parameter type="gdouble" name="b" />
+        </parameters>
+      </method>
+      <method name="Show" cname="gnome_print_show" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="const-guchar*" name="text" />
+        </parameters>
+      </method>
+      <method name="ShowSized" cname="gnome_print_show_sized" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="const-guchar*" name="text" />
+          <parameter type="gint" name="bytes" />
+        </parameters>
+      </method>
+      <method name="Showpage" cname="gnome_print_showpage" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+        </parameters>
+      </method>
+      <method name="Stroke" cname="gnome_print_stroke" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+        </parameters>
+      </method>
+      <method name="Strokepath" cname="gnome_print_strokepath" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+        </parameters>
+      </method>
+      <method name="Translate" cname="gnome_print_translate" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="gdouble" name="x" />
+          <parameter type="gdouble" name="y" />
+        </parameters>
+      </method>
+      <method name="Vpath" cname="gnome_print_vpath" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="GnomePrintContext*" name="pc" />
+          <parameter type="const-ArtVpath*" name="vpath" />
+          <parameter type="gboolean" name="append" />
+        </parameters>
+      </method>
+    </class>
+  </namespace>
+  <namespace name="Gnome" library="gnomeprintui-2-2">
+    <enum name="PaperSelectorFlags" cname="GnomePaperSelectorFlags" gtype="gnome_paper_selector_flags_get_type" type="flags">
+      <member cname="GNOME_PAPER_SELECTOR_MARGINS" name="Margins" value="1 &lt;&lt; 0" />
+      <member cname="GNOME_PAPER_SELECTOR_FEED_ORIENTATION" name="FeedOrientation" value="1 &lt;&lt; 1" />
+    </enum>
+    <enum name="PrintButtons" cname="GnomePrintButtons" gtype="gnome_print_buttons_get_type" type="enum">
+      <member cname="GNOME_PRINT_DIALOG_RESPONSE_PRINT" name="Print" value="1" />
+      <member cname="GNOME_PRINT_DIALOG_RESPONSE_PREVIEW" name="Preview" />
+      <member cname="GNOME_PRINT_DIALOG_RESPONSE_CANCEL" name="Cancel" value="GTK_RESPONSE_CANCEL" />
+    </enum>
+    <enum name="PrintDialogFlags" cname="GnomePrintDialogFlags" gtype="gnome_print_dialog_flags_get_type" type="flags">
+      <member cname="GNOME_PRINT_DIALOG_RANGE" name="Range" value="1 &lt;&lt; 0" />
+      <member cname="GNOME_PRINT_DIALOG_COPIES" name="Copies" value="1 &lt;&lt; 1" />
+    </enum>
+    <enum name="PrintDialogRangeFlags" cname="GnomePrintDialogRangeFlags" gtype="gnome_print_dialog_range_flags_get_type" type="flags">
+      <member cname="GNOME_PRINT_RANGE_CURRENT" name="Current" value="1 &lt;&lt; 0" />
+      <member cname="GNOME_PRINT_RANGE_ALL" name="All" value="1 &lt;&lt; 1" />
+      <member cname="GNOME_PRINT_RANGE_RANGE" name="Range" value="1 &lt;&lt; 2" />
+      <member cname="GNOME_PRINT_RANGE_SELECTION" name="Selection" value="1 &lt;&lt; 3" />
+      <member cname="GNOME_PRINT_RANGE_SELECTION_UNSENSITIVE" name="SelectionUnsensitive" value="1 &lt;&lt; 4" />
+    </enum>
+    <enum name="PrintRangeType" cname="GnomePrintRangeType" gtype="gnome_print_range_type_get_type" type="enum">
+      <member cname="GNOME_PRINT_RANGETYPE_NONE" name="None" />
+      <member cname="GNOME_PRINT_RANGETYPE_CUSTOM" name="Custom" />
+      <member cname="GNOME_PRINT_RANGETYPE_PAGES" name="Pages" />
+    </enum>
+    <object name="FontDialog" cname="GnomeFontDialog" parent="GtkDialog">
+      <method name="GetFontsel" cname="gnome_font_dialog_get_fontsel">
+        <return-type type="GtkWidget*" />
+      </method>
+      <method name="GetPreview" cname="gnome_font_dialog_get_preview">
+        <return-type type="GtkWidget*" />
+      </method>
+      <method name="GetType" cname="gnome_font_dialog_get_type" shared="true">
+        <return-type type="GtkType" />
+      </method>
+      <constructor cname="gnome_font_dialog_new">
+        <parameters>
+          <parameter type="const-gchar*" name="title" />
+        </parameters>
+      </constructor>
+    </object>
+    <object name="FontPreview" cname="GnomeFontPreview" parent="GtkImage">
+      <method name="GetType" cname="gnome_font_preview_get_type" shared="true">
+        <return-type type="GtkType" />
+      </method>
+      <constructor cname="gnome_font_preview_new" />
+      <method name="SetColor" cname="gnome_font_preview_set_color">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="guint32" name="color" />
+        </parameters>
+      </method>
+      <method name="SetFont" cname="gnome_font_preview_set_font">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GnomeFont*" name="font" />
+        </parameters>
+      </method>
+      <method name="SetPhrase" cname="gnome_font_preview_set_phrase">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-guchar*" name="phrase" />
+        </parameters>
+      </method>
+    </object>
+    <object name="FontSelection" cname="GnomeFontSelection" parent="GtkHBox">
+      <signal name="FontSet" cname="font_set" when="FIRST" field_name="font_set">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GnomeFontSelection*" name="fontsel" />
+          <parameter type="GnomeFont*" name="font" />
+        </parameters>
+      </signal>
+      <method name="GetFace" cname="gnome_font_selection_get_face">
+        <return-type type="GnomeFontFace*" />
+      </method>
+      <method name="GetFont" cname="gnome_font_selection_get_font">
+        <return-type type="GnomeFont*" />
+      </method>
+      <method name="GetSize" cname="gnome_font_selection_get_size">
+        <return-type type="gdouble" />
+      </method>
+      <method name="GetType" cname="gnome_font_selection_get_type" shared="true">
+        <return-type type="GtkType" />
+      </method>
+      <constructor cname="gnome_font_selection_new" />
+      <method name="SetFont" cname="gnome_font_selection_set_font">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GnomeFont*" name="font" />
+        </parameters>
+      </method>
+    </object>
+    <object name="PaperSelector" cname="GnomePaperSelector" parent="GtkHBox">
+      <property name="Width" cname="width" type="gdouble" readable="true" />
+      <property name="Height" cname="height" type="gdouble" readable="true" />
+      <property name="Config" cname="config" type="GnomePrintConfig" readable="true" writeable="true" />
+      <method name="GetType" cname="gnome_paper_selector_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="gnome_paper_selector_new">
+        <parameters>
+          <parameter type="GnomePrintConfig*" name="config" />
+        </parameters>
+      </constructor>
+      <constructor cname="gnome_paper_selector_new_with_flags">
+        <parameters>
+          <parameter type="GnomePrintConfig*" name="config" />
+          <parameter type="gint" name="flags" />
+        </parameters>
+      </constructor>
+    </object>
+    <object name="PrintConfigDialog" cname="GnomePrintConfigDialog" parent="GtkDialog">
+      <property name="PrintConfig" cname="print_config" type="gpointer" writeable="true" construct-only="true" />
+      <method name="Construct" cname="gnome_print_config_dialog_construct">
+        <return-type type="void" />
+      </method>
+      <method name="GetType" cname="gnome_print_config_dialog_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="gnome_print_config_dialog_new">
+        <parameters>
+          <parameter type="GnomePrintConfig*" name="gpc" />
+        </parameters>
+      </constructor>
+    </object>
+    <object name="PrintContentSelector" cname="GnomePrintContentSelector" parent="GtkFrame">
+      <field name="Priv" cname="priv" type="GnomePrintContentSelectorPrivate*" />
+      <property name="Total" cname="total" type="guint" readable="true" writeable="true" />
+      <property name="Current" cname="current" type="guint" readable="true" writeable="true" />
+      <method name="GetType" cname="gnome_print_content_selector_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+    </object>
+    <object name="PrintDialog" cname="GnomePrintDialog" parent="GtkDialog">
+      <property name="PrintConfig" cname="print_config" type="GnomePrintConfig" readable="true" writeable="true" />
+      <property name="PrinterSelector" cname="printer_selector" type="GnomePrinterSelector" readable="true" />
+      <property name="Notebook" cname="notebook" type="GtkNotebook" readable="true" />
+      <property name="ContentSelector" cname="content_selector" type="GnomePrintContentSelector" readable="true" writeable="true" />
+      <property name="PageSelector" cname="page_selector" type="GnomePrintPageSelector" readable="true" />
+      <property name="Title" cname="title" type="gchar*" readable="true" writeable="true" />
+      <property name="Flags" cname="flags" type="gint" readable="true" writeable="true" />
+      <method name="Construct" cname="gnome_print_dialog_construct">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-guchar*" name="title" />
+          <parameter type="gint" name="flags" />
+        </parameters>
+      </method>
+      <method name="ConstructRangeAny" cname="gnome_print_dialog_construct_range_any">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gint" name="flags" />
+          <parameter type="GtkWidget*" name="range_widget" />
+          <parameter type="const-guchar*" name="currentlabel" />
+          <parameter type="const-guchar*" name="rangelabel" />
+        </parameters>
+      </method>
+      <method name="ConstructRangeCustom" cname="gnome_print_dialog_construct_range_custom">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GtkWidget*" name="custom" />
+        </parameters>
+      </method>
+      <method name="ConstructRangePage" cname="gnome_print_dialog_construct_range_page">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gint" name="flags" />
+          <parameter type="gint" name="start" />
+          <parameter type="gint" name="end" />
+          <parameter type="const-guchar*" name="currentlabel" />
+          <parameter type="const-guchar*" name="rangelabel" />
+        </parameters>
+      </method>
+      <method name="GetConfig" cname="gnome_print_dialog_get_config">
+        <return-type type="GnomePrintConfig*" />
+      </method>
+      <method name="GetCopies" cname="gnome_print_dialog_get_copies">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gint*" name="copies" />
+          <parameter type="gboolean*" name="collate" />
+        </parameters>
+      </method>
+      <method name="GetRange" cname="gnome_print_dialog_get_range">
+        <return-type type="GnomePrintRangeType" />
+      </method>
+      <method name="GetRangePage" cname="gnome_print_dialog_get_range_page">
+        <return-type type="int" />
+        <parameters>
+          <parameter type="gint*" name="start" />
+          <parameter type="gint*" name="end" />
+        </parameters>
+      </method>
+      <method name="GetType" cname="gnome_print_dialog_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="gnome_print_dialog_new">
+        <parameters>
+          <parameter type="GnomePrintJob*" name="gpj" />
+          <parameter type="const-guchar*" name="title" />
+          <parameter type="gint" name="flags" />
+        </parameters>
+      </constructor>
+      <method name="Run" cname="gnome_print_dialog_run">
+        <return-type type="gint" />
+      </method>
+      <method name="SetCopies" cname="gnome_print_dialog_set_copies">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gint" name="copies" />
+          <parameter type="gint" name="collate" />
+        </parameters>
+      </method>
+    </object>
+    <object name="PrintJobPreview" cname="GnomePrintJobPreview" parent="GtkWindow">
+      <property name="Nx" cname="nx" type="ulong" readable="true" writeable="true" />
+      <property name="Ny" cname="ny" type="ulong" readable="true" writeable="true" />
+      <property name="Job" cname="job" type="GnomePrintJob" readable="true" writeable="true" construct-only="true" />
+      <method name="GetType" cname="gnome_print_job_preview_get_type" shared="true">
+        <return-type type="GtkType" />
+      </method>
+      <constructor cname="gnome_print_job_preview_new">
+        <parameters>
+          <parameter type="GnomePrintJob*" name="gpm" />
+          <parameter type="const-guchar*" name="title" />
+        </parameters>
+      </constructor>
+    </object>
+    <object name="PrintLayoutSelector" cname="GnomePrintLayoutSelector" parent="GtkVBox">
+      <property name="Total" cname="total" type="guint" readable="true" writeable="true" />
+      <property name="OutputWidth" cname="output_width" type="gdouble" readable="true" writeable="true" />
+      <property name="OutputHeight" cname="output_height" type="gdouble" readable="true" writeable="true" />
+      <property name="InputWidth" cname="input_width" type="gdouble" readable="true" writeable="true" />
+      <property name="InputHeight" cname="input_height" type="gdouble" readable="true" writeable="true" />
+      <property name="Meta" cname="meta" type="GnomePrintMeta" readable="true" writeable="true" />
+      <property name="" cname="" type="class" />
+      <method name="GetType" cname="gnome_print_layout_selector_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+    </object>
+    <object name="PrintPageSelector" cname="GnomePrintPageSelector" parent="GtkFrame">
+      <property name="" cname="" type="class" />
+      <property name="Current" cname="current" type="guint" readable="true" writeable="true" />
+      <property name="TotalIn" cname="total_in" type="guint" readable="true" writeable="true" />
+      <property name="TotalOut" cname="total_out" type="guint" readable="true" />
+      <method name="GetType" cname="gnome_print_page_selector_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+    </object>
+    <object name="PrintPreview" cname="GnomePrintPreview" parent="GnomePrintContext">
+      <method name="GetType" cname="gnome_print_preview_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="gnome_print_preview_new">
+        <parameters>
+          <parameter type="GnomePrintConfig*" name="config" />
+          <parameter type="GnomeCanvas*" name="canvas" />
+        </parameters>
+      </constructor>
+      <constructor cname="gnome_print_preview_new_full">
+        <parameters>
+          <parameter type="GnomePrintConfig*" name="config" />
+          <parameter type="GnomeCanvas*" name="canvas" />
+          <parameter type="const-gdouble*" name="transform" />
+          <parameter type="const-ArtDRect*" name="region" />
+        </parameters>
+      </constructor>
+      <method name="Reset" cname="gnome_print_preview_reset">
+        <return-type type="void" />
+      </method>
+    </object>
+    <object name="PrintUnitSelector" cname="GnomePrintUnitSelector" parent="GtkHBox">
+      <signal name="Modified" cname="modified" when="FIRST" field_name="modified">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GnomePrintUnitSelector*" name="selector" />
+        </parameters>
+      </signal>
+      <method name="AddAdjustment" cname="gnome_print_unit_selector_add_adjustment">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GtkAdjustment*" name="adjustment" />
+        </parameters>
+      </method>
+      <method name="GetType" cname="gnome_print_unit_selector_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="GetUnit" cname="gnome_print_unit_selector_get_unit">
+        <return-type type="const-GnomePrintUnit*" />
+      </method>
+      <constructor cname="gnome_print_unit_selector_new">
+        <parameters>
+          <parameter type="guint" name="bases" />
+        </parameters>
+      </constructor>
+      <method name="RemoveAdjustment" cname="gnome_print_unit_selector_remove_adjustment">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GtkAdjustment*" name="adjustment" />
+        </parameters>
+      </method>
+      <method name="SetBases" cname="gnome_print_unit_selector_set_bases">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="guint" name="bases" />
+        </parameters>
+      </method>
+      <method name="SetUnit" cname="gnome_print_unit_selector_set_unit">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-GnomePrintUnit*" name="unit" />
+        </parameters>
+      </method>
+    </object>
+    <class name="Global" cname="GnomeGlobal">
+      <method name="PrintSetAtkRelation" cname="gnome_print_set_atk_relation" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GtkWidget*" name="label" />
+          <parameter type="GtkWidget*" name="widget" />
+        </parameters>
+      </method>
+    </class>
+  </namespace>
+</api>

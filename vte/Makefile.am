@@ -14,7 +14,7 @@ INCLUDE_API =
 METADATA = Vte.metadata
 SYMBOLS =
 references = 
-glue_includes = vte/vte.h
+glue_args = --glue-includes=vte/vte.h --gluelib-name=vtesharpglue-2 --glue-filename=glue/generated.c
 
 sources = 
 

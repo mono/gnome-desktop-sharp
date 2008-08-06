@@ -2,15 +2,17 @@
   <api filename="../gnomedesktop/gnomedesktop-api.raw">
     <library name="gnome-desktop-2">
       <namespace name="Gnome">
-        <directory path="gnome-desktop-2.20.0/libgnome-desktop" />
-        <directory path="gnome-desktop-2.20.0/libgnome-desktop/libgnome" />
+        <directory path="gnome-desktop-2.23.5/libgnome-desktop" >
+          <exclude>edid.h</exclude>
+        </directory>
+        <directory path="gnome-desktop-2.23.5/libgnome-desktop/libgnome" />
       </namespace>
     </library>
   </api>
   <api filename="../wnck/wnck-api.raw">
     <library name="wnck-1">
       <namespace name="Wnck">
-        <directory path="libwnck-2.20.0/libwnck">
+        <directory path="libwnck-2.23.4/libwnck">
           <exclude>inlinepixbufs.h</exclude>
           <exclude>pager-accessible-factory.h</exclude>
           <exclude>pager-accessible.h</exclude>
@@ -26,7 +28,7 @@
   <api filename="../nautilusburn/nautilusburn-api.raw">
     <library name="nautilus-burn">
       <namespace name="NautilusBurn">
-        <directory path="nautilus-cd-burner-2.20.0/src">
+        <directory path="nautilus-cd-burner-2.22.1/src">
           <exclude>bcs-test.c</exclude>
           <exclude>burn-extension.c</exclude>
           <exclude>list_cddrives.c</exclude>
@@ -67,7 +69,7 @@
   <api filename="../rsvg/rsvg2-api.raw">
     <library name="rsvg-2">
       <namespace name="Rsvg">
-        <directory path="librsvg-2.18.2">
+        <directory path="librsvg-2.22.2">
 	  <exclude>rsvg-bpath-util.h</exclude>
 	  <exclude>rsvg-cairo-clip.h</exclude>
 	  <exclude>rsvg-cairo-draw.h</exclude>
@@ -92,7 +94,7 @@
   <api filename="../vte/vte-api.raw">
     <library name="vte">
       <namespace name="Vte">
-        <directory path="vte-0.16.9/src">
+        <directory path="vte-0.16.14/src">
 	  <exclude>buffer.h</exclude>
 	  <exclude>caps.h</exclude>
 	  <exclude>debug.h</exclude>
@@ -131,14 +133,14 @@
   <api filename="../gtkhtml/gtkhtml-api.raw">
     <library name="gtkhtml-3.0">
       <namespace name="Gtk">
-        <dir>gtkhtml-3.16.0/src</dir>
+        <dir>gtkhtml-3.23.5/gtkhtml</dir>
       </namespace>
     </library>
   </api>
   <api filename="../gtksourceview/gtksourceview2-api.raw">
     <library name="gtksourceview-2.0">
       <namespace name="Gtk">
-        <directory path="gtksourceview-2.0.0/gtksourceview">
+        <directory path="gtksourceview-2.2.2/gtksourceview">
 	  <exclude>gtksourceundomanager.h</exclude>
 	  <exclude>gtktextregion.h</exclude>
 	  <exclude>gtksourceview-i18n.h</exclude>
@@ -146,6 +148,48 @@
 	  <exclude>gtksourcecontextengine.h</exclude>
 	  <exclude>gtksourceengine.h</exclude>
         </directory>
+      </namespace>
+    </library>
+  </api>
+  <api filename="../gnomepanel/gnome-panel-api.raw">
+    <library name="panel-applet-2">
+      <namespace name="Gnome">
+        <dir>gnome-panel-2.23.5/libpanel-applet</dir>
+      </namespace>
+    </library>
+  </api>
+  <api filename="../gnomeprint/gnome-print-api.raw">
+    <library name="gnomeprint-2-2">
+      <namespace name="Gnome">
+        <directory path="libgnomeprint-2.18.4/libgnomeprint">
+	  <exclude>gnome-font-family.h</exclude>
+	  <exclude>gnome-fontmap.h</exclude>
+	  <exclude>gnome-print-encode.h</exclude>
+	  <exclude>gnome-print-frgba.h</exclude>
+	  <exclude>gnome-print-gdi.h</exclude>
+	  <exclude>gnome-print-i18n.h</exclude>
+	  <exclude>gnome-print-module.h</exclude>
+	  <exclude>gnome-print-multipage.h</exclude>
+	  <exclude>gnome-print-pdf.h</exclude>
+	  <exclude>gnome-print-ps2.h</exclude>
+	  <exclude>gnome-print-rbuf.h</exclude>
+	  <exclude>gnome-print-rgbp.h</exclude>
+	  <exclude>gp-path.h</exclude>
+	  <exclude>gp-truetype-utils.h</exclude>
+	  <exclude>gp-tt-t1.h</exclude>
+	</directory>
+      </namespace>
+    </library>
+    <library name="gnomeprintui-2-2">
+      <namespace name="Gnome">
+        <directory path="libgnomeprintui-2.18.2/libgnomeprintui">
+	  <exclude>gnome-canvas-hacktext.h</exclude>
+	  <exclude>gnome-print-copies.h</exclude>
+	  <exclude>gnome-print-i18n.h</exclude>
+	  <exclude>gnome-print-paper-preview.h</exclude>
+	  <exclude>gnome-print-widget.h</exclude>
+	  <exclude>gnome-printer-selector.h</exclude>
+	</directory>
       </namespace>
     </library>
   </api>

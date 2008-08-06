@@ -1,3 +1,5 @@
+SUBDIRS= . glue
+
 pkg = gtksourceview2
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = gtksourceview2-sharp.pc
@@ -7,6 +9,7 @@ API_VERSION = 2.0.0.0
 INCLUDE_API =
 METADATA = Gtk.metadata
 references =
+glue_args = --glue-includes=gtksourceview/gtksourceview.h --gluelib-name=gtksourceview2sharpglue-2 --glue-filename=glue/generated.c
 
 sources =			\
 	GtkSourceView.cs

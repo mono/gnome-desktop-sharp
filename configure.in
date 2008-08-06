@@ -1,7 +1,7 @@
 AC_INIT(README)
 AC_CANONICAL_SYSTEM
 AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE(gnome-desktop-sharp, 2.20.1)
+AM_INIT_AUTOMAKE(gnome-desktop-sharp, 2.23.90)
 AM_MAINTAINER_MODE
 
 case "$host" in
@@ -156,8 +156,8 @@ AC_PATH_PROG(GAPI_FIXUP, gapi2-fixup, no)
 AC_SUBST(GAPI_FIXUP)
 
 ## Versions of dependencies
-GNOME_REQUIRED_VERSION=2.20.0
-GNOME_SHARP_REQUIRED_VERSION=2.20.0
+GNOME_REQUIRED_VERSION=2.23.0
+GNOME_SHARP_REQUIRED_VERSION=2.23.0
 
 PKG_CHECK_MODULES(GNOMESHARP, gnome-sharp-2.0 >= $GNOME_SHARP_REQUIRED_VERSION, enable_gnome=yes, enable_gnome=no)
 AC_SUBST(GNOMESHARP_CFLAGS)
@@ -166,29 +166,41 @@ AC_SUBST(GNOMESHARP_LIBS)
 AM_CONDITIONAL(ENABLE_GNOME, test "x$enable_gnome" = "xyes")
 AC_SUBST(CFLAGS)
 
-PKG_CHECK_MODULES(NAUTILUSBURN, libnautilus-burn >= $GNOME_REQUIRED_VERSION, enable_nautilusburn=yes, enable_nautilusburn=no)
+NAUTILUSBURN_REQUIRED_VERSION=2.22.1
+
+PKG_CHECK_MODULES(NAUTILUSBURN, libnautilus-burn >= $NAUTILUSBURN_REQUIRED_VERSION, enable_nautilusburn=yes, enable_nautilusburn=no)
 AC_SUBST(NAUTILUSBURN_CFLAGS)
 AC_SUBST(NAUTILUSBURN_LIBS)
 
-RSVG_REQUIRED_VERSION=2.18.2
+RSVG_REQUIRED_VERSION=2.22.2
 
 PKG_CHECK_MODULES(RSVG, librsvg-2.0 >= $RSVG_REQUIRED_VERSION, enable_rsvg=yes, enable_rsvg=no)
 AC_SUBST(RSVG_CFLAGS)
 AC_SUBST(RSVG_LIBS)
 
-GTKHTML_REQUIRED_VERSION=3.16.0
+PKG_CHECK_MODULES(GNOME_PANEL, libpanelapplet-2.0 >= $GNOME_REQUIRED_VERSION, enable_gnome_panel=yes, enable_gnome_panel=no)
+AC_SUBST(GNOME_PANEL_CFLAGS)
+AC_SUBST(GNOME_PANEL_LIBS)
+
+GNOME_PRINT_REQUIRED_VERSION=2.18.0
+
+PKG_CHECK_MODULES(GNOME_PRINT, libgnomeprint-2.2 >= $GNOME_PRINT_REQUIRED_VERSION libgnomeprintui-2.2 >= $GNOME_PRINT_REQUIRED_VERSION, enable_gnome_print=yes, enable_gnome_print=no)
+AC_SUBST(GNOME_PRINT_CFLAGS)
+AC_SUBST(GNOME_PRINT_LIBS)
+
+GTKHTML_REQUIRED_VERSION=3.23.5
 
 PKG_CHECK_MODULES(GTKHTML, libgtkhtml-3.14 >= $GTKHTML_REQUIRED_VERSION, enable_gtkhtml=yes, enable_gtkhtml=no)
 AC_SUBST(GTKHTML_CFLAGS)
 AC_SUBST(GTKHTML_LIBS)
 
-GTKSOURCEVIEW_REQUIRED_VERSION=2.0.0
+GTKSOURCEVIEW_REQUIRED_VERSION=2.2.2
 
 PKG_CHECK_MODULES(GTKSOURCEVIEW, gtksourceview-2.0 >= $GTKSOURCEVIEW_REQUIRED_VERSION, enable_gtksourceview=yes, enable_gtksourceview=no)
 AC_SUBST(GTKSOURCEVIEW_CFLAGS)
 AC_SUBST(GTKSOURCEVIEW_LIBS)
 
-VTE_REQUIRED_VERSION=0.16.9
+VTE_REQUIRED_VERSION=0.16.14
 
 PKG_CHECK_MODULES(VTE, vte >= $VTE_REQUIRED_VERSION, enable_vte=yes, enable_vte=no)
 AC_SUBST(VTE_CFLAGS)
@@ -199,6 +211,8 @@ AC_SUBST(WNCK_CFLAGS)
 AC_SUBST(WNCK_LIBS)
 
 AM_CONDITIONAL(ENABLE_GTKHTML, test "x$enable_gtkhtml" = "xyes")
+AM_CONDITIONAL(ENABLE_GNOME_PANEL, test "x$enable_gnome_panel" = "xyes")
+AM_CONDITIONAL(ENABLE_GNOME_PRINT, test "x$enable_gnome_print" = "xyes")
 AM_CONDITIONAL(ENABLE_GTKSOURCEVIEW, test "x$enable_gtksourceview" = "xyes")
 AM_CONDITIONAL(ENABLE_NAUTILUSBURN, test "x$enable_nautilusburn" = "xyes")
 AM_CONDITIONAL(ENABLE_RSVG, test "x$enable_rsvg" = "xyes")
@@ -213,16 +227,26 @@ sources/Makefile
 gnomedesktop/Makefile
 gnomedesktop/gnomedesktop-sharp.dll.config
 gnomedesktop/gnome-desktop-sharp-2.0.pc
+gnomepanel/Makefile
+gnomepanel/glue/Makefile
+gnomepanel/gnome-panel-sharp.dll.config
+gnomepanel/gnome-panel-sharp-2.24.pc
+gnomeprint/Makefile
+gnomeprint/gnome-print-sharp.dll.config
+gnomeprint/gnome-print-sharp-2.18.pc
 nautilusburn/Makefile
+nautilusburn/glue/Makefile
 nautilusburn/nautilusburn-sharp.dll.config
 nautilusburn/nautilusburn-sharp.pc
 rsvg/Makefile
 rsvg/rsvg2-sharp.dll.config
 rsvg/rsvg2-sharp-2.0.pc
 gtkhtml/Makefile
+gtkhtml/glue/Makefile
 gtkhtml/gtkhtml-sharp.dll.config
 gtkhtml/gtkhtml-sharp-3.14.pc
 gtksourceview/Makefile
+gtksourceview/glue/Makefile
 gtksourceview/gtksourceview2-sharp.dll.config
 gtksourceview/gtksourceview2-sharp.pc
 vte/Makefile
@@ -230,6 +254,7 @@ vte/vte-sharp.dll.config
 vte/vte-sharp-0.16.pc
 vte/glue/Makefile
 wnck/Makefile
+wnck/glue/Makefile
 wnck/wnck-sharp.dll.config
 wnck/wnck-sharp-1.0.pc
 ])
@@ -245,6 +270,8 @@ echo "   * $CS compiler: $CSC $CSFLAGS"
 echo ""
 echo "   Optional assemblies included in the build:"
 echo ""
+echo "      * gnome-panel-sharp.dll: $enable_gnome_panel"
+echo "      * gnome-print-sharp.dll: $enable_gnome_print"
 echo "      * gtkhtml-sharp.dll: $enable_gtkhtml"
 echo "      * gtksourceview2-sharp.dll: $enable_gtksourceview"
 echo "      * nautilusburn-sharp.dll: $enable_nautilusburn"

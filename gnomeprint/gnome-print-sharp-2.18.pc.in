@@ -1,0 +1,12 @@
+prefix=${pcfiledir}/../..
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+gapidir=${prefix}/share/gnome-print-sharp/2.18
+assemblies_dir=${libdir}/mono/gnome-print-sharp-2.18
+
+Name: GnomePrint#
+Description: GnomePrint# - libgnomeprint and libgnomeprintui .NET Bindings
+Version: @VERSION@
+Requires: gtk-sharp-2.0
+Cflags: -I:${gapidir}/gnome-print-api.xml
+Libs: -r:${assemblies_dir}/gnome-print-sharp.dll

@@ -185,6 +185,7 @@
       <member cname="GTK_HTML_EDITOR_EVENT_COMMAND_AFTER" name="CommandAfter" />
       <member cname="GTK_HTML_EDITOR_EVENT_IMAGE_URL" name="ImageUrl" />
       <member cname="GTK_HTML_EDITOR_EVENT_DELETE" name="Delete" />
+      <member cname="GTK_HTML_EDITOR_EVENT_LINK_CLICKED" name="LinkClicked" />
     </enum>
     <enum name="HTMLFontStyle" cname="GtkHTMLFontStyle" type="flags">
       <member cname="GTK_HTML_FONT_STYLE_DEFAULT" name="Default" />
@@ -321,14 +322,14 @@
       <field name="VadjConnection" cname="vadj_connection" type="guint" />
       <field name="BindingHandled" cname="binding_handled" type="gboolean" />
       <field name="Priv" cname="priv" type="GtkHTMLPrivate*" />
-      <signal name="TitleChanged" cname="title_changed" when="FIRST">
+      <signal name="TitleChanged" cname="title_changed" when="FIRST" field_name="title_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="GtkHTML*" name="html" />
           <parameter type="const-gchar*" name="new_title" />
         </parameters>
       </signal>
-      <signal name="UrlRequested" cname="url_requested" when="FIRST">
+      <signal name="UrlRequested" cname="url_requested" when="FIRST" field_name="url_requested">
         <return-type type="void" />
         <parameters>
           <parameter type="GtkHTML*" name="html" />
@@ -336,41 +337,41 @@
           <parameter type="GtkHTMLStream*" name="handle" />
         </parameters>
       </signal>
-      <signal name="LoadDone" cname="load_done" when="FIRST">
+      <signal name="LoadDone" cname="load_done" when="FIRST" field_name="load_done">
         <return-type type="void" />
         <parameters>
           <parameter type="GtkHTML*" name="html" />
         </parameters>
       </signal>
-      <signal name="LinkClicked" cname="link_clicked" when="FIRST">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="GtkHTML*" name="html" />
-          <parameter type="const-gchar*" name="url" />
-        </parameters>
-      </signal>
-      <signal name="SetBase" cname="set_base" when="FIRST">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="GtkHTML*" name="html" />
-          <parameter type="const-gchar*" name="base_url" />
-        </parameters>
-      </signal>
-      <signal name="SetBaseTarget" cname="set_base_target" when="FIRST">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="GtkHTML*" name="html" />
-          <parameter type="const-gchar*" name="base_url" />
-        </parameters>
-      </signal>
-      <signal name="OnUrl" cname="on_url" when="FIRST">
+      <signal name="LinkClicked" cname="link_clicked" when="FIRST" field_name="link_clicked">
         <return-type type="void" />
         <parameters>
           <parameter type="GtkHTML*" name="html" />
           <parameter type="const-gchar*" name="url" />
         </parameters>
       </signal>
-      <signal name="Redirect" cname="redirect" when="FIRST">
+      <signal name="SetBase" cname="set_base" when="FIRST" field_name="set_base">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GtkHTML*" name="html" />
+          <parameter type="const-gchar*" name="base_url" />
+        </parameters>
+      </signal>
+      <signal name="SetBaseTarget" cname="set_base_target" when="FIRST" field_name="set_base_target">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GtkHTML*" name="html" />
+          <parameter type="const-gchar*" name="base_url" />
+        </parameters>
+      </signal>
+      <signal name="OnUrl" cname="on_url" when="FIRST" field_name="on_url">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GtkHTML*" name="html" />
+          <parameter type="const-gchar*" name="url" />
+        </parameters>
+      </signal>
+      <signal name="Redirect" cname="redirect" when="FIRST" field_name="redirect">
         <return-type type="void" />
         <parameters>
           <parameter type="GtkHTML*" name="html" />
@@ -378,7 +379,7 @@
           <parameter type="int" name="delay" />
         </parameters>
       </signal>
-      <signal name="Submit" cname="submit" when="FIRST">
+      <signal name="Submit" cname="submit" when="FIRST" field_name="submit">
         <return-type type="void" />
         <parameters>
           <parameter type="GtkHTML*" name="html" />
@@ -387,62 +388,62 @@
           <parameter type="const-gchar*" name="encoding" />
         </parameters>
       </signal>
-      <signal name="ObjectRequested" cname="object_requested" when="LAST">
+      <signal name="ObjectRequested" cname="object_requested" when="LAST" field_name="object_requested">
         <return-type type="gboolean" />
         <parameters>
           <parameter type="GtkHTML*" name="html" />
           <parameter type="GtkHTMLEmbedded*" name="arg2" />
         </parameters>
       </signal>
-      <signal name="CurrentParagraphStyleChanged" cname="current_paragraph_style_changed" when="FIRST">
+      <signal name="CurrentParagraphStyleChanged" cname="current_paragraph_style_changed" when="FIRST" field_name="current_paragraph_style_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="GtkHTML*" name="html" />
           <parameter type="GtkHTMLParagraphStyle" name="new_style" />
         </parameters>
       </signal>
-      <signal name="CurrentParagraphIndentationChanged" cname="current_paragraph_indentation_changed" when="FIRST">
+      <signal name="CurrentParagraphIndentationChanged" cname="current_paragraph_indentation_changed" when="FIRST" field_name="current_paragraph_indentation_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="GtkHTML*" name="html" />
           <parameter type="guint" name="new_indentation" />
         </parameters>
       </signal>
-      <signal name="CurrentParagraphAlignmentChanged" cname="current_paragraph_alignment_changed" when="FIRST">
+      <signal name="CurrentParagraphAlignmentChanged" cname="current_paragraph_alignment_changed" when="FIRST" field_name="current_paragraph_alignment_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="GtkHTML*" name="html" />
           <parameter type="GtkHTMLParagraphAlignment" name="new_alignment" />
         </parameters>
       </signal>
-      <signal name="InsertionFontStyleChanged" cname="insertion_font_style_changed" when="FIRST">
+      <signal name="InsertionFontStyleChanged" cname="insertion_font_style_changed" when="FIRST" field_name="insertion_font_style_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="GtkHTML*" name="html" />
           <parameter type="GtkHTMLFontStyle" name="style" />
         </parameters>
       </signal>
-      <signal name="InsertionColorChanged" cname="insertion_color_changed" when="FIRST">
+      <signal name="InsertionColorChanged" cname="insertion_color_changed" when="FIRST" field_name="insertion_color_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="GtkHTML*" name="html" />
           <parameter type="GdkColor*" name="color" />
         </parameters>
       </signal>
-      <signal name="SizeChanged" cname="size_changed" when="FIRST">
+      <signal name="SizeChanged" cname="size_changed" when="FIRST" field_name="size_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="GtkHTML*" name="html" />
         </parameters>
       </signal>
-      <signal name="IframeCreated" cname="iframe_created" when="FIRST">
+      <signal name="IframeCreated" cname="iframe_created" when="FIRST" field_name="iframe_created">
         <return-type type="void" />
         <parameters>
           <parameter type="GtkHTML*" name="html" />
           <parameter type="GtkHTML*" name="iframe" />
         </parameters>
       </signal>
-      <signal name="Scroll" cname="scroll" when="LAST">
+      <signal name="Scroll" cname="scroll" when="LAST" field_name="scroll">
         <return-type type="void" />
         <parameters>
           <parameter type="GtkHTML*" name="html" />
@@ -451,7 +452,7 @@
           <parameter type="gfloat" name="position" />
         </parameters>
       </signal>
-      <signal name="CursorMove" cname="cursor_move" when="LAST">
+      <signal name="CursorMove" cname="cursor_move" when="LAST" field_name="cursor_move">
         <return-type type="void" />
         <parameters>
           <parameter type="GtkHTML*" name="html" />
@@ -459,20 +460,20 @@
           <parameter type="GtkHTMLCursorSkipType" name="skip" />
         </parameters>
       </signal>
-      <signal name="Command" cname="command" when="LAST">
+      <signal name="Command" cname="command" when="LAST" field_name="command">
         <return-type type="gboolean" />
         <parameters>
           <parameter type="GtkHTML*" name="html" />
           <parameter type="GtkHTMLCommandType" name="com_type" />
         </parameters>
       </signal>
-      <signal name="CursorChanged" cname="cursor_changed" when="FIRST">
+      <signal name="CursorChanged" cname="cursor_changed" when="FIRST" field_name="cursor_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="GtkHTML*" name="html" />
         </parameters>
       </signal>
-      <signal name="ObjectInserted" cname="object_inserted" when="FIRST">
+      <signal name="ObjectInserted" cname="object_inserted" when="FIRST" field_name="object_inserted">
         <return-type type="void" />
         <parameters>
           <parameter type="GtkHTML*" name="html" />
@@ -480,7 +481,7 @@
           <parameter type="int" name="len" />
         </parameters>
       </signal>
-      <signal name="ObjectDelete" cname="object_delete" when="FIRST">
+      <signal name="ObjectDelete" cname="object_delete" when="FIRST" field_name="object_delete">
         <return-type type="void" />
         <parameters>
           <parameter type="GtkHTML*" name="html" />
@@ -606,11 +607,21 @@
       <method name="GetCaretMode" cname="gtk_html_get_caret_mode">
         <return-type type="gboolean" />
       </method>
+      <method name="GetCursorImageSrc" cname="gtk_html_get_cursor_image_src">
+        <return-type type="char*" />
+      </method>
       <method name="GetCursorUrl" cname="gtk_html_get_cursor_url">
         <return-type type="char*" />
       </method>
       <method name="GetEditable" cname="gtk_html_get_editable">
         <return-type type="gboolean" />
+      </method>
+      <method name="GetImageSrcAt" cname="gtk_html_get_image_src_at">
+        <return-type type="char*" />
+        <parameters>
+          <parameter type="int" name="x" />
+          <parameter type="int" name="y" />
+        </parameters>
       </method>
       <method name="GetInlineSpelling" cname="gtk_html_get_inline_spelling">
         <return-type type="gboolean" />
@@ -649,6 +660,12 @@
           <parameter type="int*" name="len" />
         </parameters>
       </method>
+      <method name="GetSelectionPlainText" cname="gtk_html_get_selection_plain_text">
+        <return-type type="char*" />
+        <parameters>
+          <parameter type="int*" name="len" />
+        </parameters>
+      </method>
       <method name="GetTitle" cname="gtk_html_get_title">
         <return-type type="const-gchar*" />
       </method>
@@ -656,7 +673,7 @@
         <return-type type="GtkHTML*" />
       </method>
       <method name="GetType" cname="gtk_html_get_type" shared="true">
-        <return-type type="GtkType" />
+        <return-type type="GType" />
       </method>
       <method name="GetUrlAt" cname="gtk_html_get_url_at">
         <return-type type="char*" />
@@ -858,6 +875,12 @@
           <parameter type="gboolean" name="block" />
         </parameters>
       </method>
+      <method name="SetCaretFirstFocusAnchor" cname="gtk_html_set_caret_first_focus_anchor">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-char*" name="name" />
+        </parameters>
+      </method>
       <method name="SetCaretMode" cname="gtk_html_set_caret_mode">
         <return-type type="void" />
         <parameters>
@@ -1006,13 +1029,13 @@
       <field name="Params" cname="params" type="GHashTable*" />
       <field name="Priv" cname="priv" type="GtkHTMLEmbeddedPrivate*" />
       <field name="Descent" cname="descent" type="int" />
-      <signal name="Changed" cname="changed" when="FIRST">
+      <signal name="Changed" cname="changed" when="FIRST" field_name="changed">
         <return-type type="void" />
         <parameters>
           <parameter type="GtkHTMLEmbedded*" name="arg1" />
         </parameters>
       </signal>
-      <signal name="DrawGdk" cname="draw_gdk" when="FIRST">
+      <signal name="DrawGdk" cname="draw_gdk" when="FIRST" field_name="draw_gdk">
         <return-type type="void" />
         <parameters>
           <parameter type="GtkHTMLEmbedded*" name="arg1" />
@@ -1022,7 +1045,7 @@
           <parameter type="gint" name="arg5" />
         </parameters>
       </signal>
-      <signal name="DrawPrint" cname="draw_print" when="FIRST">
+      <signal name="DrawPrint" cname="draw_print" when="FIRST" field_name="draw_print">
         <return-type type="void" />
         <parameters>
           <parameter type="GtkHTMLEmbedded*" name="arg1" />

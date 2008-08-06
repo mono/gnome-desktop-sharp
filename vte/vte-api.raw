@@ -53,37 +53,37 @@
       <field name="WindowTitle" cname="window_title" type="char*" access="public" />
       <field name="IconTitle" cname="icon_title" type="char*" access="public" />
       <field name="Pvt" cname="pvt" type="VteTerminalPrivate*" />
-      <signal name="Eof" cname="eof" when="LAST">
+      <signal name="Eof" cname="eof" when="LAST" field_name="eof">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
         </parameters>
       </signal>
-      <signal name="ChildExited" cname="child-exited" when="LAST">
+      <signal name="ChildExited" cname="child-exited" when="LAST" field_name="child_exited">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
         </parameters>
       </signal>
-      <signal name="WindowTitleChanged" cname="window-title-changed" when="LAST">
+      <signal name="WindowTitleChanged" cname="window-title-changed" when="LAST" field_name="window_title_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
         </parameters>
       </signal>
-      <signal name="IconTitleChanged" cname="icon-title-changed" when="LAST">
+      <signal name="IconTitleChanged" cname="icon-title-changed" when="LAST" field_name="icon_title_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
         </parameters>
       </signal>
-      <signal name="EncodingChanged" cname="encoding-changed" when="LAST">
+      <signal name="EncodingChanged" cname="encoding-changed" when="LAST" field_name="encoding_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
         </parameters>
       </signal>
-      <signal name="Commit" cname="commit" when="LAST">
+      <signal name="Commit" cname="commit" when="LAST" field_name="commit">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
@@ -91,13 +91,13 @@
           <parameter type="guint" name="size" />
         </parameters>
       </signal>
-      <signal name="EmulationChanged" cname="emulation-changed" when="LAST">
+      <signal name="EmulationChanged" cname="emulation-changed" when="LAST" field_name="emulation_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
         </parameters>
       </signal>
-      <signal name="CharSizeChanged" cname="char-size-changed" when="LAST">
+      <signal name="CharSizeChanged" cname="char-size-changed" when="LAST" field_name="char_size_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
@@ -105,67 +105,67 @@
           <parameter type="guint" name="char_height" />
         </parameters>
       </signal>
-      <signal name="SelectionChanged" cname="selection-changed" when="LAST">
+      <signal name="SelectionChanged" cname="selection-changed" when="LAST" field_name="selection_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
         </parameters>
       </signal>
-      <signal name="ContentsChanged" cname="contents-changed" when="LAST">
+      <signal name="ContentsChanged" cname="contents-changed" when="LAST" field_name="contents_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
         </parameters>
       </signal>
-      <signal name="CursorMoved" cname="cursor-moved" when="LAST">
+      <signal name="CursorMoved" cname="cursor-moved" when="LAST" field_name="cursor_moved">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
         </parameters>
       </signal>
-      <signal name="DeiconifyWindow" cname="deiconify-window" when="LAST">
+      <signal name="DeiconifyWindow" cname="deiconify-window" when="LAST" field_name="deiconify_window">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
         </parameters>
       </signal>
-      <signal name="IconifyWindow" cname="iconify-window" when="LAST">
+      <signal name="IconifyWindow" cname="iconify-window" when="LAST" field_name="iconify_window">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
         </parameters>
       </signal>
-      <signal name="RaiseWindow" cname="raise-window" when="LAST">
+      <signal name="RaiseWindow" cname="raise-window" when="LAST" field_name="raise_window">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
         </parameters>
       </signal>
-      <signal name="LowerWindow" cname="lower-window" when="LAST">
+      <signal name="LowerWindow" cname="lower-window" when="LAST" field_name="lower_window">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
         </parameters>
       </signal>
-      <signal name="RefreshWindow" cname="refresh-window" when="LAST">
+      <signal name="RefreshWindow" cname="refresh-window" when="LAST" field_name="refresh_window">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
         </parameters>
       </signal>
-      <signal name="RestoreWindow" cname="restore-window" when="LAST">
+      <signal name="RestoreWindow" cname="restore-window" when="LAST" field_name="restore_window">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
         </parameters>
       </signal>
-      <signal name="MaximizeWindow" cname="maximize-window" when="LAST">
+      <signal name="MaximizeWindow" cname="maximize-window" when="LAST" field_name="maximize_window">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
         </parameters>
       </signal>
-      <signal name="ResizeWindow" cname="resize-window" when="LAST">
+      <signal name="ResizeWindow" cname="resize-window" when="LAST" field_name="resize_window">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
@@ -173,7 +173,7 @@
           <parameter type="guint" name="height" />
         </parameters>
       </signal>
-      <signal name="MoveWindow" cname="move-window" when="LAST">
+      <signal name="MoveWindow" cname="move-window" when="LAST" field_name="move_window">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
@@ -181,56 +181,56 @@
           <parameter type="guint" name="y" />
         </parameters>
       </signal>
-      <signal name="StatusLineChanged" cname="status-line-changed" when="LAST">
+      <signal name="StatusLineChanged" cname="status-line-changed" when="LAST" field_name="status_line_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
         </parameters>
       </signal>
-      <signal name="IncreaseFontSize" cname="increase-font-size" when="LAST">
+      <signal name="IncreaseFontSize" cname="increase-font-size" when="LAST" field_name="increase_font_size">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
         </parameters>
       </signal>
-      <signal name="DecreaseFontSize" cname="decrease-font-size" when="LAST">
+      <signal name="DecreaseFontSize" cname="decrease-font-size" when="LAST" field_name="decrease_font_size">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
         </parameters>
       </signal>
-      <signal name="TextModified" cname="text-modified" when="LAST">
+      <signal name="TextModified" cname="text-modified" when="LAST" field_name="text_modified">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
         </parameters>
       </signal>
-      <signal name="TextInserted" cname="text-inserted" when="LAST">
+      <signal name="TextInserted" cname="text-inserted" when="LAST" field_name="text_inserted">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
         </parameters>
       </signal>
-      <signal name="TextDeleted" cname="text-deleted" when="LAST">
+      <signal name="TextDeleted" cname="text-deleted" when="LAST" field_name="text_deleted">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
         </parameters>
       </signal>
-      <signal name="TextScrolled" cname="text-scrolled" when="LAST">
+      <signal name="TextScrolled" cname="text-scrolled" when="LAST" field_name="text_scrolled">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
           <parameter type="gint" name="delta" />
         </parameters>
       </signal>
-      <signal name="CopyClipboard" cname="copy-clipboard" when="LAST">
+      <signal name="CopyClipboard" cname="copy-clipboard" when="LAST" field_name="copy_clipboard">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />
         </parameters>
       </signal>
-      <signal name="PasteClipboard" cname="paste-clipboard" when="LAST">
+      <signal name="PasteClipboard" cname="paste-clipboard" when="LAST" field_name="paste_clipboard">
         <return-type type="void" />
         <parameters>
           <parameter type="VteTerminal*" name="terminal" />

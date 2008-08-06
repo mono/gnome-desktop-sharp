@@ -86,6 +86,7 @@
       <member cname="NAUTILUS_BURN_RECORDER_WRITE_OVERBURN" name="Overburn" value="1 &lt;&lt; 5" />
       <member cname="NAUTILUS_BURN_RECORDER_WRITE_BURNPROOF" name="Burnproof" value="1 &lt;&lt; 6" />
       <member cname="NAUTILUS_BURN_RECORDER_WRITE_JOLIET" name="Joliet" value="1 &lt;&lt; 7" />
+      <member cname="NAUTILUS_BURN_RECORDER_WRITE_UDF" name="Udf" value="1 &lt;&lt; 8" />
     </enum>
     <callback name="CancelFunc" cname="CancelFunc">
       <return-type type="void" />
@@ -95,25 +96,28 @@
     </callback>
     <object name="Drive" cname="NautilusBurnDrive" parent="GObject">
       <field name="Priv" cname="priv" type="NautilusBurnDrivePrivate*" />
-      <signal name="MediaAdded" cname="media-added" when="LAST">
+      <signal name="MediaAdded" cname="media-added" when="LAST" field_name="media_added">
         <return-type type="void" />
         <parameters>
           <parameter type="NautilusBurnDrive*" name="drive" />
         </parameters>
       </signal>
-      <signal name="MediaRemoved" cname="media-removed" when="LAST">
+      <signal name="MediaRemoved" cname="media-removed" when="LAST" field_name="media_removed">
         <return-type type="void" />
         <parameters>
           <parameter type="NautilusBurnDrive*" name="drive" />
         </parameters>
       </signal>
-      <signal name="Disconnected" cname="disconnected" when="LAST">
+      <signal name="Disconnected" cname="disconnected" when="LAST" field_name="disconnected">
         <return-type type="void" />
         <parameters>
           <parameter type="NautilusBurnDrive*" name="drive" />
         </parameters>
       </signal>
       <property name="EnableMonitor" cname="enable-monitor" type="gboolean" readable="true" writeable="true" />
+      <method name="CanEject" cname="nautilus_burn_drive_can_eject">
+        <return-type type="gboolean" />
+      </method>
       <method name="CanRewrite" cname="nautilus_burn_drive_can_rewrite">
         <return-type type="gboolean" />
       </method>
@@ -227,28 +231,28 @@
     </object>
     <object name="DriveMonitor" cname="NautilusBurnDriveMonitor" parent="GObject">
       <field name="Priv" cname="priv" type="NautilusBurnDriveMonitorPrivate*" />
-      <signal name="MediaAdded" cname="media-added" when="FIRST">
+      <signal name="MediaAdded" cname="media-added" when="FIRST" field_name="media_added">
         <return-type type="void" />
         <parameters>
           <parameter type="NautilusBurnDriveMonitor*" name="monitor" />
           <parameter type="NautilusBurnDrive*" name="drive" />
         </parameters>
       </signal>
-      <signal name="MediaRemoved" cname="media-removed" when="FIRST">
+      <signal name="MediaRemoved" cname="media-removed" when="FIRST" field_name="media_removed">
         <return-type type="void" />
         <parameters>
           <parameter type="NautilusBurnDriveMonitor*" name="monitor" />
           <parameter type="NautilusBurnDrive*" name="drive" />
         </parameters>
       </signal>
-      <signal name="DriveConnected" cname="drive-connected" when="FIRST">
+      <signal name="DriveConnected" cname="drive-connected" when="FIRST" field_name="drive_connected">
         <return-type type="void" />
         <parameters>
           <parameter type="NautilusBurnDriveMonitor*" name="monitor" />
           <parameter type="NautilusBurnDrive*" name="drive" />
         </parameters>
       </signal>
-      <signal name="DriveDisconnected" cname="drive-disconnected" when="FIRST">
+      <signal name="DriveDisconnected" cname="drive-disconnected" when="FIRST" field_name="drive_disconnected">
         <return-type type="void" />
         <parameters>
           <parameter type="NautilusBurnDriveMonitor*" name="monitor" />
@@ -276,7 +280,7 @@
     </object>
     <object name="Recorder" cname="NautilusBurnRecorder" parent="GObject">
       <field name="Priv" cname="priv" type="NautilusBurnRecorderPrivate*" />
-      <signal name="ProgressChanged" cname="progress-changed" when="LAST">
+      <signal name="ProgressChanged" cname="progress-changed" when="LAST" field_name="progress_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="NautilusBurnRecorder*" name="recorder" />
@@ -284,7 +288,7 @@
           <parameter type="long" name="seconds" />
         </parameters>
       </signal>
-      <signal name="ActionChanged" cname="action-changed" when="LAST">
+      <signal name="ActionChanged" cname="action-changed" when="LAST" field_name="action_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="NautilusBurnRecorder*" name="recorder" />
@@ -292,14 +296,14 @@
           <parameter type="NautilusBurnRecorderMedia" name="media" />
         </parameters>
       </signal>
-      <signal name="AnimationChanged" cname="animation-changed" when="LAST">
+      <signal name="AnimationChanged" cname="animation-changed" when="LAST" field_name="animation_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="NautilusBurnRecorder*" name="recorder" />
           <parameter type="gboolean" name="spinning" />
         </parameters>
       </signal>
-      <signal name="InsertMediaRequest" cname="insert-media-request" when="LAST">
+      <signal name="InsertMediaRequest" cname="insert-media-request" when="LAST" field_name="insert_cd_request">
         <return-type type="gboolean" />
         <parameters>
           <parameter type="NautilusBurnRecorder*" name="recorder" />
@@ -308,7 +312,7 @@
           <parameter type="gboolean" name="busy" />
         </parameters>
       </signal>
-      <signal name="WarnDataLoss" cname="warn-data-loss" when="LAST">
+      <signal name="WarnDataLoss" cname="warn-data-loss" when="LAST" field_name="warn_data_loss">
         <return-type type="int" />
         <parameters>
           <parameter type="NautilusBurnRecorder*" name="recorder" />

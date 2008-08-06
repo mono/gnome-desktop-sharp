@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<metadata>
+  <attr path="/api/namespace/object" name="disable_gtype">1</attr>
+  <attr path="/api/namespace/enum[@cname='GnomePrintButtons']/member[@name='Cancel']" name="value">(int)Gtk.ResponseType.Cancel</attr>  
+  <attr path="/api/namespace/boxed[@cname='GnomeGlyphList']/method/*/*[@type='const-guchar*']" name="type">const-gchar*</attr>
+  <attr path="/api/namespace/boxed[@cname='GnomeGlyphList']/method[@name='Ref']" name="deprecated">1</attr>
+  <attr path="/api/namespace/boxed[@cname='GnomeGlyphList']/method[@name='Unref']" name="deprecated">1</attr>
+  <attr path="/api/namespace/boxed[@cname='GnomePrintUnit']/method/*/*[@type='const-guchar*']" name="type">const-gchar*</attr>
+  <attr path="/api/namespace/boxed[@cname='GnomePrintUnit']/method[@name='GetIdentity']/*/*[@name='base']" name="name">Base</attr>
+  <attr path="/api/namespace[@library='gnomeprintui-2-2']/class[@cname='GnomeGlobal']" name="hidden">1</attr>
+  <attr path="/api/namespace/class[@cname='GnomePrint_']/method/*/*[@name='in']" name="type">const-gchar*</attr>
+  <attr path="/api/namespace/class[@cname='GnomePrint_']/method/*/*[@name='text']" name="type">const-gchar*</attr>
+  <attr path="/api/namespace/class[@cname='GnomePrint_']/method/*/*[@name='name']" name="type">const-gchar*</attr>
+  <attr path="/api/namespace/class[@cname='GnomePrint_']/method/*/*[@name='data']" name="type">const-guchar</attr>
+  <attr path="/api/namespace/class[@cname='GnomePrint_']/method/*/*[@name='data']" name="array">1</attr>
+  <attr path="/api/namespace/object[@cname='GnomeFont']/method[@name='FamilyList']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='GnomeFont']/method[@name='FamilyListFree']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='GnomeFont']/method[@name='List']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='GnomeFont']/method[@name='ListFree']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='GnomeFont']/method[@name='StyleList']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='GnomeFont']/method[@name='StyleListFree']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='GnomeFont']/method/*/*[@type='const-guchar*']" name="type">const-gchar*</attr>
+  <attr path="/api/namespace/object[@cname='GnomeFont']/method[@name='GetFamilyName']/return-type" name="type">const-gchar*</attr>
+  <attr path="/api/namespace/object[@cname='GnomeFont']/method[@name='GetFullName']/return-type" name="type">gchar*</attr>
+  <attr path="/api/namespace/object[@cname='GnomeFontFace']/method/return-type[@type='const-guchar*']" name="type">const-gchar*</attr>
+  <attr path="/api/namespace/object[@cname='GnomeFontFace']/method/*/*[@type='const-guchar*']" name="type">const-gchar*</attr>
+  <attr path="/api/namespace/object[@cname='GnomeFontPreview']/method/*/*[@type='const-guchar*']" name="type">const-gchar*</attr>
+  <attr path="/api/namespace/object[@cname='GnomePrintConfig']/method/*/*[@type='const-guchar*']" name="type">const-gchar*</attr>
+  <attr path="/api/namespace/object[@cname='GnomePrintConfig']/method[@name='Get']/return-type" name="type">gchar*</attr>
+  <attr path="/api/namespace/object[@cname='GnomePrintDialog']/method/*/*[@type='const-guchar*']" name="type">const-gchar*</attr>
+  <attr path="/api/namespace/object[@cname='GnomePrintDialog']/constructor[@cname='gnome_print_dialog_new']/*/*[@type='const-guchar*']" name="type">const-gchar*</attr>
+  <attr path="/api/namespace/object[@cname='GnomePrintDialog']/constructor[@cname='gnome_print_dialog_new']/*/*[@name='flags']" name="type">GnomePrintDialogFlags</attr>
+  <attr path="/api/namespace/object[@cname='GnomePrintFilter']/method[@name='Changed']" name="name">EmitChanged</attr>
+  <attr path="/api/namespace/object[@cname='GnomePrintFilter']/method[@name='Description']" name="name">GetDescription</attr>
+  <attr path="/api/namespace/object[@cname='GnomePrintJobPreview']/constructor/*/*[@type='const-guchar*']" name="type">const-gchar*</attr>
+  <attr path="/api/namespace/object[@cname='GnomePrintMeta']/method/*/*[@name='filename']" name="type">const-gchar*</attr>
+  <attr path="/api/namespace/object[@cname='GnomePrintTransport']" name="parent">GObject</attr>
+  <attr path="/api/namespace/struct[@cname='graph_t']" name="hidden">1</attr>
+  <attr path="/api/namespace/struct[@cname='pool_t']" name="hidden">1</attr>
+<attr path="/api/namespace/struct[@cname='GnomePrintPaper']/method/*/*[@type='const-guchar*']" name="type">const-gchar*</attr>
+</metadata>
+
+

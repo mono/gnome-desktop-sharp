@@ -1,3 +1,9 @@
+2008-08-06  Mike Kestner  <mkestner@novell.com>
+
+	* *: Update to GNOME 2.23.5 API.  Add gnome-print-sharp.dll
+	and gnome-panel-sharp.dll assemblies, along with .pcs to detect
+	their availability.
+
 2008-03-10  Mike Kestner  <mkestner@novell.com>
 
 	* configure.in: bump version and tag 2.20.1.

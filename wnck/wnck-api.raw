@@ -110,15 +110,39 @@
         <parameter type="void*" name="data" />
       </parameters>
     </callback>
+    <object name="ActionMenu" cname="WnckActionMenu" parent="GtkMenu">
+      <field name="Priv" cname="priv" type="WnckActionMenuPrivate*" />
+      <property name="Window" cname="window" type="gpointer" readable="true" writeable="true" construct-only="true" />
+      <virtual_method name="Pad1" cname="pad1">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="Pad2" cname="pad2">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="Pad3" cname="pad3">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="Pad4" cname="pad4">
+        <return-type type="void" />
+      </virtual_method>
+      <method name="GetType" cname="wnck_action_menu_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="wnck_action_menu_new">
+        <parameters>
+          <parameter type="WnckWindow*" name="window" />
+        </parameters>
+      </constructor>
+    </object>
     <object name="Application" cname="WnckApplication" parent="GObject">
       <field name="Priv" cname="priv" type="WnckApplicationPrivate*" />
-      <signal name="NameChanged" cname="name_changed" when="LAST">
+      <signal name="NameChanged" cname="name_changed" when="LAST" field_name="name_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckApplication*" name="app" />
         </parameters>
       </signal>
-      <signal name="IconChanged" cname="icon_changed" when="LAST">
+      <signal name="IconChanged" cname="icon_changed" when="LAST" field_name="icon_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckApplication*" name="app" />
@@ -178,13 +202,13 @@
     </object>
     <object name="ClassGroup" cname="WnckClassGroup" parent="GObject">
       <field name="Priv" cname="priv" type="WnckClassGroupPrivate*" />
-      <signal name="NameChanged" cname="name_changed" when="LAST">
+      <signal name="NameChanged" cname="name_changed" when="LAST" field_name="name_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckApplication*" name="app" />
         </parameters>
       </signal>
-      <signal name="IconChanged" cname="icon_changed" when="LAST">
+      <signal name="IconChanged" cname="icon_changed" when="LAST" field_name="icon_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckApplication*" name="app" />
@@ -288,101 +312,101 @@
     </object>
     <object name="Screen" cname="WnckScreen" parent="GObject">
       <field name="Priv" cname="priv" type="WnckScreenPrivate*" />
-      <signal name="ActiveWindowChanged" cname="active_window_changed" when="LAST">
+      <signal name="ActiveWindowChanged" cname="active_window_changed" when="LAST" field_name="active_window_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckScreen*" name="screen" />
           <parameter type="WnckWindow*" name="previous_window" />
         </parameters>
       </signal>
-      <signal name="ActiveWorkspaceChanged" cname="active_workspace_changed" when="LAST">
+      <signal name="ActiveWorkspaceChanged" cname="active_workspace_changed" when="LAST" field_name="active_workspace_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckScreen*" name="screen" />
           <parameter type="WnckWorkspace*" name="previous_workspace" />
         </parameters>
       </signal>
-      <signal name="WindowStackingChanged" cname="window_stacking_changed" when="LAST">
+      <signal name="WindowStackingChanged" cname="window_stacking_changed" when="LAST" field_name="window_stacking_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckScreen*" name="screen" />
         </parameters>
       </signal>
-      <signal name="WindowOpened" cname="window_opened" when="LAST">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="WnckScreen*" name="screen" />
-          <parameter type="WnckWindow*" name="window" />
-        </parameters>
-      </signal>
-      <signal name="WindowClosed" cname="window_closed" when="LAST">
+      <signal name="WindowOpened" cname="window_opened" when="LAST" field_name="window_opened">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckScreen*" name="screen" />
           <parameter type="WnckWindow*" name="window" />
         </parameters>
       </signal>
-      <signal name="WorkspaceCreated" cname="workspace_created" when="LAST">
+      <signal name="WindowClosed" cname="window_closed" when="LAST" field_name="window_closed">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="WnckScreen*" name="screen" />
+          <parameter type="WnckWindow*" name="window" />
+        </parameters>
+      </signal>
+      <signal name="WorkspaceCreated" cname="workspace_created" when="LAST" field_name="workspace_created">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckScreen*" name="screen" />
           <parameter type="WnckWorkspace*" name="space" />
         </parameters>
       </signal>
-      <signal name="WorkspaceDestroyed" cname="workspace_destroyed" when="LAST">
+      <signal name="WorkspaceDestroyed" cname="workspace_destroyed" when="LAST" field_name="workspace_destroyed">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckScreen*" name="screen" />
           <parameter type="WnckWorkspace*" name="space" />
         </parameters>
       </signal>
-      <signal name="ApplicationOpened" cname="application_opened" when="LAST">
+      <signal name="ApplicationOpened" cname="application_opened" when="LAST" field_name="application_opened">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckScreen*" name="screen" />
           <parameter type="WnckApplication*" name="app" />
         </parameters>
       </signal>
-      <signal name="ApplicationClosed" cname="application_closed" when="LAST">
+      <signal name="ApplicationClosed" cname="application_closed" when="LAST" field_name="application_closed">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckScreen*" name="screen" />
           <parameter type="WnckApplication*" name="app" />
         </parameters>
       </signal>
-      <signal name="ClassGroupOpened" cname="class_group_opened" when="LAST">
+      <signal name="ClassGroupOpened" cname="class_group_opened" when="LAST" field_name="class_group_opened">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckScreen*" name="screen" />
           <parameter type="WnckClassGroup*" name="class_group" />
         </parameters>
       </signal>
-      <signal name="ClassGroupClosed" cname="class_group_closed" when="LAST">
+      <signal name="ClassGroupClosed" cname="class_group_closed" when="LAST" field_name="class_group_closed">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckScreen*" name="screen" />
           <parameter type="WnckClassGroup*" name="class_group" />
         </parameters>
       </signal>
-      <signal name="BackgroundChanged" cname="background_changed" when="LAST">
+      <signal name="BackgroundChanged" cname="background_changed" when="LAST" field_name="background_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckScreen*" name="screen" />
         </parameters>
       </signal>
-      <signal name="ShowingDesktopChanged" cname="showing_desktop_changed" when="LAST">
+      <signal name="ShowingDesktopChanged" cname="showing_desktop_changed" when="LAST" field_name="showing_desktop_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckScreen*" name="screen" />
         </parameters>
       </signal>
-      <signal name="ViewportsChanged" cname="viewports_changed" when="LAST">
+      <signal name="ViewportsChanged" cname="viewports_changed" when="LAST" field_name="viewports_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckScreen*" name="screen" />
         </parameters>
       </signal>
-      <signal name="WindowManagerChanged" cname="window_manager_changed" when="LAST">
+      <signal name="WindowManagerChanged" cname="window_manager_changed" when="LAST" field_name="window_manager_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckScreen*" name="screen" />
@@ -648,13 +672,13 @@
     </object>
     <object name="Window" cname="WnckWindow" parent="GObject">
       <field name="Priv" cname="priv" type="WnckWindowPrivate*" />
-      <signal name="NameChanged" cname="name_changed" when="LAST">
+      <signal name="NameChanged" cname="name_changed" when="LAST" field_name="name_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckWindow*" name="window" />
         </parameters>
       </signal>
-      <signal name="StateChanged" cname="state_changed" when="LAST">
+      <signal name="StateChanged" cname="state_changed" when="LAST" field_name="state_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckWindow*" name="window" />
@@ -662,19 +686,19 @@
           <parameter type="WnckWindowState" name="new_state" />
         </parameters>
       </signal>
-      <signal name="WorkspaceChanged" cname="workspace_changed" when="LAST">
+      <signal name="WorkspaceChanged" cname="workspace_changed" when="LAST" field_name="workspace_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckWindow*" name="window" />
         </parameters>
       </signal>
-      <signal name="IconChanged" cname="icon_changed" when="LAST">
+      <signal name="IconChanged" cname="icon_changed" when="LAST" field_name="icon_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckWindow*" name="window" />
         </parameters>
       </signal>
-      <signal name="ActionsChanged" cname="actions_changed" when="LAST">
+      <signal name="ActionsChanged" cname="actions_changed" when="LAST" field_name="actions_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckWindow*" name="window" />
@@ -682,7 +706,7 @@
           <parameter type="WnckWindowActions" name="new_actions" />
         </parameters>
       </signal>
-      <signal name="GeometryChanged" cname="geometry_changed" when="LAST">
+      <signal name="GeometryChanged" cname="geometry_changed" when="LAST" field_name="geometry_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckWindow*" name="window" />
@@ -999,7 +1023,7 @@
     </object>
     <object name="Workspace" cname="WnckWorkspace" parent="GObject">
       <field name="Priv" cname="priv" type="WnckWorkspacePrivate*" />
-      <signal name="NameChanged" cname="name_changed" when="LAST">
+      <signal name="NameChanged" cname="name_changed" when="LAST" field_name="name_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="WnckWorkspace*" name="space" />
@@ -1101,7 +1125,7 @@
       <field name="CurrentCol" cname="current_col" type="int" />
     </struct>
     <class name="Global" cname="WnckGlobal">
-      <method name="CreateWindowActionMenu" cname="wnck_create_window_action_menu" shared="true">
+      <method name="CreateWindowActionMenu" cname="wnck_create_window_action_menu" deprecated="1" shared="true">
         <return-type type="GtkWidget*" />
         <parameters>
           <parameter type="WnckWindow*" name="window" />

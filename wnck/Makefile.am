@@ -1,3 +1,4 @@
+SUBDIRS= . glue
 if ENABLE_WNCK
 pkg = wnck
 pkgversion = 2.20
@@ -12,7 +13,7 @@ INCLUDE_API =
 METADATA = metadata
 SYMBOLS =
 references = 
-glue_includes = 
+glue_args = --glue-includes=libwnck/libwnck.h --gluelib-name=wncksharpglue-2 --glue-filename=glue/generated.c
 
 sources = 
 
