@@ -1,3 +1,10 @@
+2008-08-20  Mike Kestner  <mkestner@novell.com>
+
+	* configure.in: update gtk-sharp requirement to 2.12.1 since the
+	gnomepanel glue generation doesn't occur using 2.12.0.  This breaks
+	the build since it's expecting a generated.c to be present.
+	[Fixes #418291]
+
 2008-08-06  Mike Kestner  <mkestner@novell.com>
 
 	* *: Update to GNOME 2.23.5 API.  Add gnome-print-sharp.dll
