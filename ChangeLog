@@ -1,3 +1,9 @@
+2008-08-27  Mike Kestner  <mkestner@novell.com>
+
+	* gnomedesktop/gnomedesktop-sharp.dll.config.in: fix so version.
+	* gnomepanel/gnome-panel-sharp.dll.config.in: add missing dllmap.
+	Fixes for 420142 and 420145 from Goetz Waschk.
+
 2008-08-20  Mike Kestner  <mkestner@novell.com>
 
 	* configure.in: update gtk-sharp requirement to 2.12.1 since the
