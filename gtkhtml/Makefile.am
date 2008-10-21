@@ -16,7 +16,8 @@ METADATA = metadata
 references =
 glue_args = --glue-includes=gtkhtml/gtkhtml.h,gtkhtml/gtkhtml-embedded.h --gluelib-name=gtkhtmlsharpglue-2 --glue-filename=glue/generated.c
 
-sources =
+sources =			\
+	UrlRequestedHandler.cs
 
 customs =			\
 	HTML.custom		\

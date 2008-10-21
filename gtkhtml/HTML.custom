@@ -55,3 +55,75 @@
 			Write (handle, buffer, (ulong) size);
 		}
 
+		[GLib.CDeclCallback]
+		delegate void UrlRequestedSignalDelegate (IntPtr arg0, IntPtr arg1, IntPtr arg2, IntPtr gch);
+
+		static void UrlRequestedSignalCallback (IntPtr arg0, IntPtr arg1, IntPtr arg2, IntPtr gch)
+		{
+			Gtk.UrlRequestedArgs args = new Gtk.UrlRequestedArgs ();
+			try {
+				GLib.Signal sig = ((GCHandle) gch).Target as GLib.Signal;
+				if (sig == null)
+					throw new Exception("Unknown signal GC handle received " + gch);
+
+				args.Args = new object[2];
+				args.Args[0] = GLib.Marshaller.Utf8PtrToString (arg1);
+				args.Args[1] = arg2 == IntPtr.Zero ? null : (Gtk.HTMLStream) GLib.Opaque.GetOpaque (arg2, typeof (Gtk.HTMLStream), false);
+				Gtk.UrlRequestedHandler handler = (Gtk.UrlRequestedHandler) sig.Handler;
+				handler (GLib.Object.GetObject (arg0), args);
+			} catch (Exception e) {
+				GLib.ExceptionManager.RaiseUnhandledException (e, false);
+			}
+		}
+
+		[GLib.CDeclCallback]
+		delegate void UrlRequestedVMDelegate (IntPtr html, IntPtr url, IntPtr handle);
+
+		static UrlRequestedVMDelegate UrlRequestedVMCallback;
+
+		static void urlrequested_cb (IntPtr html, IntPtr url, IntPtr handle)
+		{
+			try {
+				HTML html_managed = GLib.Object.GetObject (html, false) as HTML;
+				html_managed.OnUrlRequested (GLib.Marshaller.Utf8PtrToString (url), handle == IntPtr.Zero ? null : (Gtk.HTMLStream) GLib.Opaque.GetOpaque (handle, typeof (Gtk.HTMLStream), false));
+			} catch (Exception e) {
+				GLib.ExceptionManager.RaiseUnhandledException (e, false);
+			}
+		}
+
+		private static void OverrideUrlRequested (GLib.GType gtype)
+		{
+			if (UrlRequestedVMCallback == null)
+				UrlRequestedVMCallback = new UrlRequestedVMDelegate (urlrequested_cb);
+			OverrideVirtualMethod (gtype, "url_requested", UrlRequestedVMCallback);
+		}
+
+		[GLib.DefaultSignalHandler(Type=typeof(Gtk.HTML), ConnectionMethod="OverrideUrlRequested")]
+		protected virtual void OnUrlRequested (string url, Gtk.HTMLStream handle)
+		{
+			GLib.Value ret = GLib.Value.Empty;
+			GLib.ValueArray inst_and_params = new GLib.ValueArray (3);
+			GLib.Value[] vals = new GLib.Value [3];
+			vals [0] = new GLib.Value (this);
+			inst_and_params.Append (vals [0]);
+			vals [1] = new GLib.Value (url);
+			inst_and_params.Append (vals [1]);
+			vals [2] = new GLib.Value (handle);
+			inst_and_params.Append (vals [2]);
+			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
+			foreach (GLib.Value v in vals)
+				v.Dispose ();
+		}
+
+		[GLib.Signal("url_requested")]
+		public event Gtk.UrlRequestedHandler UrlRequested {
+			add {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "url_requested", new UrlRequestedSignalDelegate(UrlRequestedSignalCallback));
+				sig.AddDelegate (value);
+			}
+			remove {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "url_requested", new UrlRequestedSignalDelegate(UrlRequestedSignalCallback));
+				sig.RemoveDelegate (value);
+			}
+		}
+

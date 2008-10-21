@@ -4,6 +4,7 @@
   <attr path="/api/namespace/object[@cname='GtkHTML']/constructor[@cname='gtk_html_new']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='GtkHTML']/constructor[@cname='gtk_html_new_from_string']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='GtkHTML']/signal[@name='Command']" name="name">OnCommand</attr>
+  <attr path="/api/namespace/object[@cname='GtkHTML']/signal[@name='UrlRequested']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='GtkHTML']/method[@name='BeginContent']" name="name">Begin</attr>
   <attr path="/api/namespace/object[@cname='GtkHTML']/method[@name='BeginFull']" name="name">Begin</attr>
   <attr path="/api/namespace/object[@cname='GtkHTML']/method[@name='EngineSearch']" name="name">Search</attr>

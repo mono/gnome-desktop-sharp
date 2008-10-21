@@ -1,3 +1,10 @@
+2008-10-21  Mike Kestner  <mkestner@novell.com>
+
+	* gtkhtml/HTML.custom: copy in previously generated signal marshaler
+	from 2-16 branch since url-requested signal exposes a G_TYPE_POINTER
+	parameter that can't be marshaled automatically by SignalClosure.
+	[Fixes #436298]
+
 2008-09-08  Mike Kestner  <mkestner@novell.com>
 
 	* configure.in: make gnome-sharp-2.0 an unconditional dependency.
