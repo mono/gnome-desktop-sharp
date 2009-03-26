@@ -1,3 +1,8 @@
+2009-03-25  Mike Kestner  <mkestner@novell.com>
+
+	* vte/Vte.metadata: mark null term arrays in Fork* methods.
+	[Fixes #487741]
+
 2009-03-02  Mike Kestner  <mkestner@novell.com>
 
 	* configure.in: test for 2.25.0, bump version to 2.26.0.
