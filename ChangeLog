@@ -1,3 +1,8 @@
+2009-07-21  Mike Kestner  <mkestner@novell.com>
+
+	* gnomedesktop/metadata: DesktopItem.LaunchWithEnv takes a null
+	term array for the envp param.
+
 2009-03-25  Mike Kestner  <mkestner@novell.com>
 
 	* vte/Vte.metadata: mark null term arrays in Fork* methods.
